@@ -17,6 +17,7 @@ class App extends React.Component {
       // The team will need a product review rating to render on multiple components
     };
   }
+  
 
   render () {
 
