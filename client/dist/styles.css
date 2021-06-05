@@ -1,0 +1,22 @@
+.reviews-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.reviews-column-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.reviews-left {
+  width: 25%;
+  height: auto;
+  border: 2px solid red;
+}
+
+.reviews-right {
+  width: 75%;
+  border: 2px solid green
+}

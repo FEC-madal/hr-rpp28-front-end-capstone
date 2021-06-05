@@ -1,3 +1,0 @@
-functiondjkl sakdja dist
-/
-djals
