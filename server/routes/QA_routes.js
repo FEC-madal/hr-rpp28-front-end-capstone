@@ -7,6 +7,9 @@ const fs = require('fs');
 const axios = require('axios');
 
 const QA_RouteConfig = require('../../config.js');
+const TOKEN = QA_RouteConfig.AUTH.Authorization;
+const AUTH_HEADER = QA_RouteConfig.AUTH;
+const API_PATH = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/';
 
 // default options as middleware
 router.use(fileUpload());
@@ -40,9 +43,9 @@ router.get('/search/:searchterm', (req, res) => {
 
 // GET QUESTION LIST
 router.get('/questions', (req, res) => {
-  var builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + 'questions/?product_id=22122';
+  var builtPath = API_PATH + 'questions/?product_id=22122';
 
-  axios.defaults.headers.common['Authorization'] = QA_RouteConfig.AUTH_TOKEN;
+  axios.defaults.headers.common['Authorization'] = TOKEN;
 
   axios.get(builtPath)
     .then((response) => {
@@ -58,9 +61,10 @@ router.get('/questions', (req, res) => {
 router.get('/questions/:question_id/answers', (req, res) => {
   console.log('returns answers for a given question', req.params.question_id);
 
-  var builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `questions/${req.params.question_id}/answers`;
+  var builtPath = API_PATH + `questions/${req.params.question_id}/answers`;
 
-  axios.defaults.headers.common['Authorization'] = QA_RouteConfig.AUTH_TOKEN;
+  axios.defaults.headers.common['Authorization'] = TOKEN;
+
   console.log('route reached');
 
   axios.get(builtPath)
@@ -76,7 +80,7 @@ router.get('/questions/:question_id/answers', (req, res) => {
 // ADD ANSWER FOR A GIVEN QUESTION
 router.post('/questions/:question_id/answers', (req, res) => {
   // construct object
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `questions/${req.params.question_id}/answers`;
+  const builtPath = API_PATH + `questions/${req.params.question_id}/answers`;
 
   const answerToBePosted = {
     body: 'Example answer to be posted',
@@ -95,9 +99,7 @@ router.post('/questions/:question_id/answers', (req, res) => {
 
   const axiosObject = {
     method: 'post',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
     data: answerToBePosted,
   };
@@ -116,7 +118,7 @@ router.post('/questions/:question_id/answers', (req, res) => {
 // ADD QUESTION
 router.post('/questions', (req, res) => {
   // construct object
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `questions/`;
+  const builtPath = API_PATH + `questions/`;
 
   const questionToBePosted = {
     body: 'Why is abbreviation such a long word?',
@@ -135,9 +137,7 @@ router.post('/questions', (req, res) => {
 
   const axiosObject = {
     method: 'post',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
     data: questionToBePosted,
   };
@@ -158,13 +158,11 @@ router.post('/questions', (req, res) => {
 // Mark Question as Helpful
 router.put('/questions/:question_id/helpful', (req, res) => {
   // construct object
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `questions/${req.params.question_id}/helpful`;
+  const builtPath = API_PATH + `questions/${req.params.question_id}/helpful`;
 
   const axiosObject = {
     method: 'put',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
   };
 
@@ -181,13 +179,11 @@ router.put('/questions/:question_id/helpful', (req, res) => {
 
 // Report Question
 router.put('/questions/:question_id/report', (req, res) => {
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `questions/${req.params.question_id}/report`;
+  const builtPath = API_PATH + `questions/${req.params.question_id}/report`;
 
   const axiosObject = {
     method: 'put',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
   };
 
@@ -206,13 +202,11 @@ router.put('/questions/:question_id/report', (req, res) => {
 
 // Mark Answer as Helpful
 router.put('/answers/:answer_id/helpful', (req, res) => {
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `answers/${req.params.answer_id}/helpful`;
+  const builtPath = API_PATH + `answers/${req.params.answer_id}/helpful`;
 
   const axiosObject = {
     method: 'put',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
   };
 
@@ -229,13 +223,11 @@ router.put('/answers/:answer_id/helpful', (req, res) => {
 
 // Report Answer
 router.put('/answers/:answer_id/report', (req, res) => {
-  const builtPath = QA_RouteConfig.API_PATH + QA_RouteConfig.QA_ROUTER_PATH + `answers/${req.params.answer_id}/report`;
+  const builtPath = API_PATH + `answers/${req.params.answer_id}/report`;
 
   const axiosObject = {
     method: 'put',
-    headers: {
-      Authorization: QA_RouteConfig.AUTH_TOKEN,
-    },
+    headers: AUTH_HEADER,
     url: builtPath,
   };
 
