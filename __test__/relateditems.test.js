@@ -6,6 +6,6 @@ test('Text inside RelatedItems', () => {
 
   const wrapper = shallow(<RelatedItemsModule/>);
 
-  expect(wrapper.text()).toEqual('This is the Related items list<RelatedItemsList />This is the Outfit items list<OutfitItemsList />');
+  expect(wrapper.text()).toEqual('This is the Related Items Module<RelatedItemsList />This is the Outfit items list<OutfitItemsList />');
 
 });

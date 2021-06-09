@@ -67,9 +67,9 @@ class RelatedItemsModule extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <div>... Related Items Loading ...</div>;
-    }
+    // if (this.state.isLoading) {
+    //   return <div>... Related Items Loading ...</div>;
+    // }
     return (
       <div id="relatedItemsModule">
         <div id="relatedItemsList">
