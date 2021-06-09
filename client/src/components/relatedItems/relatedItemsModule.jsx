@@ -10,7 +10,7 @@ class RelatedItemsModule extends React.Component {
     super(props);
     this.state = {
       relatedItemsData: {},
-      isLoading: true
+      isLoading: true,
     };
 
     this.product_id = 22134;
@@ -24,12 +24,11 @@ class RelatedItemsModule extends React.Component {
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
     this.data = {};
-    this.setState = () => {
-      return;
-    };
+    this.setState = () => {return;}
   }
 
   getRelatedItemsIds() {
+    // eslint-disable-next-line camelcase
     const product_id = this.product_id;
     const builtUrl = url + `/products/${product_id}/related`;
 
@@ -73,12 +72,16 @@ class RelatedItemsModule extends React.Component {
     }
     return (
       <div id="relatedItemsModule">
-        <div id="relatedItemsList">This is the Related Items Module
+        <div id="relatedItemsList">
+          This is the Related Items Module
           <RelatedItemsList data={this.state.relatedItemsData} />
-        </div><br></br>
-        <div id="outfitItemsList">This is the Outfit items list
+        </div>
+        <br />
+        <div id="outfitItemsList">
+          This is the Outfit items list
           <OutfitItemsList />
-        </div><br></br>
+        </div>
+        <br />
       </div>
     );
   }
