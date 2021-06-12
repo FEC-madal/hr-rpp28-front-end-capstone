@@ -39,7 +39,6 @@ class RelatedItemsModule extends React.Component {
           isLoading: false,
         });
         this.data = res.data;
-        console.log('this.data in relatedItemsModule: ', this.data)
       })
       .catch((err) => {
         console.log('Catch block in main component', err);
@@ -47,7 +46,6 @@ class RelatedItemsModule extends React.Component {
   }
 
   render() {
-    console.log('THIS>DATA: ', this.data);
     if (this.state.isLoading) {
       return <div>... Related Items Loading ...</div>;
     }
@@ -56,11 +54,13 @@ class RelatedItemsModule extends React.Component {
         <div id="relatedItemsList">
           This is the Related Items Module
           <RelatedItemsList data={this.state.relatedItemsData} />
-        </div><br />
+        </div>
+        <br />
         <div id="outfitItemsList">
           This is the Outfit items list
           <OutfitItemsList />
-        </div><br />
+        </div>
+        <br />
       </div>
     );
   }
