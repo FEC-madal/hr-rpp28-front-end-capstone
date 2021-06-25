@@ -44,8 +44,8 @@ mock.onGet("/testtest").reply(200, {
 });
 
 
-mock.onGet('http://localhost:3000/qa/questions/').reply(200, questionsPerProduct);
-mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
+mock.onGet('http://localhost:3000/qa/questions/').reply(200, listQuestions);
+//mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
 
 
 // ********************  TEST INITIALIZATION END  ********************
@@ -62,6 +62,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
   test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
     render(<QuestionAnswer currentProduct={secondProduct}/>);
+  });
+
+  test('Unit Test 3:  Does the component <QuestionAnswer/> render?', () => {
+    axios.get('http://localhost:3000/qa/questions/')
+      .then(response => {
+        console.log('this is the mocked response: ', response);
+      });
   });
   
 
@@ -116,19 +123,19 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 
   // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
-  // test('first integration test', async () => {
-  //   act(() => {
-  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-  //   });
+  test('first integration test', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
 
-  //   await waitFor(async () => { 
-  //     expect(axios.get).toHaveBeenCalled();
-  //     console.log('writing the mock call', axios.get.mock.results[0].value);
-  //     //screen.debug();
-  //     expect(await screen.findByText(/fabric/)).toBeInTheDocument();
-  //     //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
-  //   })
-  // });
+    await waitFor(async () => { 
+      //expect(axios.get).toHaveBeenCalled();
+      //console.log('writing the mock call', axios.get.mock.results[0].value);
+      //screen.debug();
+      expect(await screen.findByText(/months/)).toBeInTheDocument();
+      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
+    })
+  });
   // NOW PASSING!
 
 
