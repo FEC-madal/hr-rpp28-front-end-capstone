@@ -140,11 +140,15 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 
 
-  /* UNCOMMENT HERE
+  // UNCOMMENT HERE
   test('second integration test without mocking API call results', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
+    
     await waitFor(() => {   
       //fixed bug of not rendering because of CORS
-      var answer = screen.getAllByText('| add answer');
+      var answer = screen.getAllByText(/add answer/);
       fireEvent.click(answer[0]);
       expect(screen.getByDisplayValue(/jack@email.com/)).toBeInTheDocument();
       expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
@@ -157,7 +161,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       expect(submitOfAnswerModalWindow).toBeInTheDocument();
     }); 
   });
-  **UNCOMMENT HERE*/
+  //**UNCOMMENT HERE*/
 
 
   // NOW PASSING!
