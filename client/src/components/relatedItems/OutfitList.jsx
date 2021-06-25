@@ -37,7 +37,6 @@ class OutfitList extends React.Component {
           console.log('Error fetching parent product info OutfitList CDM: ', err);
         });
 
-      // This request is failing with 404, parentId is being omitted in url
       axios.get(`relatedItems/products/?productId=${parentId}&flag=styles`)
         .then((data) => {
           this.setState({
@@ -163,10 +162,11 @@ class OutfitList extends React.Component {
   }
 
 
-  // NEEDS A BETTER + SIGN
+  // NEEDS A BETTER + SIGN, Outfit slide not rendering
   render() {
     const { outfits, showScrollLeft, showScrollRight, loaded } = this.state;
     const { updateProduct } = this.props;
+    console.log('loaded in OL render(): ', loaded);
     return (
       <>
         {showScrollRight ? (
@@ -182,20 +182,20 @@ class OutfitList extends React.Component {
                + Add To Your Outfit
             </AddOutfitContent>
           </CardWrap>
-          {loaded
-            ? (
-              <>
+          {loaded ? (
+              <div>
                 {outfits.map((outfit, idx) => {
+                  return (
                   <OutfitSlide
                     key={idx}
                     outfit={outfit}
                     updateProduct={updateProduct}
                     removeOutfit={this.removeOutfit}
-                  />;
+                  />
+                  );
                 })}
-              </>
-            ) : null
-          }
+              </div>
+            ) : null }
         </ListWrap>
         {showScrollLeft
           ? (

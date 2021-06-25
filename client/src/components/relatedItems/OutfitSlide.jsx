@@ -16,7 +16,7 @@ class OutfitSlide extends React.Component {
       salePrice: '',
     };
 
-    this.deleteOutfit = this.removeOutfit.bind(this);
+    this.deleteOutfit = this.deleteOutfit.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
   }
 
