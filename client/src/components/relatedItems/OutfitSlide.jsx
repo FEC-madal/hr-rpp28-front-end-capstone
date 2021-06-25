@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 // Star Rating
+import Ratings from '../reviews/breakdown-rating.jsx';
+import Stars from '../reviews/starsrating.jsx';
 
 class OutfitSlide extends React.Component {
   constructor(props) {

@@ -120,7 +120,7 @@ const ListContainer = styled.div`
   justify-content: flex-start;
   overflow: scroll;
   position: relative;
-  height: 415px;
+  height: 420px;
   margin: 0px;
   padding: 0px;
   transitions: .5s;
@@ -129,7 +129,7 @@ const ListContainer = styled.div`
 
 const LeftButtonWrapper = styled.div`
   position: absolute;
-  left: 1%;
+  left: -3%;
   top: 0px;
   padding-left: 60px;
   height: 89%;
@@ -142,7 +142,7 @@ const LeftButtonWrapper = styled.div`
 const LeftButton = styled.button`
   position: absolute;
   left: 2%;
-  top: 25%;
+  top: 44%;
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
@@ -157,7 +157,7 @@ const LeftButton = styled.button`
 const RightButtonWrapper = styled.div`
   position: absolute;
   right: -1%;
-  top: 0px;
+  top: 17%;
   padding-left: 60px;
   height: 89%;
   border: none;
