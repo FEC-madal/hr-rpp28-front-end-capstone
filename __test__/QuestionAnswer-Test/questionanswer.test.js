@@ -7,10 +7,14 @@ import { act } from "react-dom/test-utils";
 import listQuestions from './listquestionsexample.js';
 import axios from 'axios';
 import { debug } from 'webpack';
+import questionsPerProduct from './questionsPerProduct.js';
+import answersPerQuestion from './answersPerQuestion.js';
 //import userEvent from '@testing-library/user-event'
 //jest.mock('axios');
 // commented out for integration test 2
 
+
+// ********************  TEST INITIALIZATION BEGIN  ********************
 
 require("babel-polyfill");
 
@@ -27,7 +31,27 @@ var secondProduct = {
   updated_at: '2021-03-18T16:09:30.589Z',
 }
 
-// UNIT TESTING SECTION BEGIN
+
+var MockAdapter = require("axios-mock-adapter");
+
+// // This sets the mock adapter on the default instance
+var mock = new MockAdapter(axios);
+
+// // Mock any GET request to /users
+// // arguments for reply are (status, data, headers)
+mock.onGet("/testtest").reply(200, {
+  users: [{ id: 1, name: "John Smith" }],
+});
+
+
+mock.onGet('http://localhost:3000/qa/questions/').reply(200, questionsPerProduct);
+mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
+
+
+// ********************  TEST INITIALIZATION END  ********************
+
+
+// ********************  UNIT TESTING SECTION BEGIN  ********************
 
 describe('Unit Test Section: <QuestionAnswer/>', () => {
 
@@ -44,11 +68,11 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 });
 
 
-// UNIT TESTING SECTION END
+// ********************  UNIT TESTING SECTION END  ********************
 
 
 
-// INTEGRATION TESTING SECTION BEGIN
+// ********************  INTEGRATION TESTING SECTION BEGIN  ********************
 
 describe('Integration Test: : <QuestionAnswer/>', () => {
 
@@ -196,4 +220,4 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 });
 
-// INTEGRATION TESTING SECTION END
+// ********************  INTEGRATION TESTING SECTION END  ********************
