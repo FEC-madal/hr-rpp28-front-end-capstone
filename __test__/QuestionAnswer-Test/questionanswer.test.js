@@ -145,7 +145,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
     act(() => {
       render(<QuestionAnswer currentProduct={secondProduct}/>, container);
     });
-    
+
     await waitFor(() => {   
       //fixed bug of not rendering because of CORS
       var answer = screen.getAllByText(/add answer/);
@@ -165,8 +165,13 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 
   // NOW PASSING!
-  /**** UNCOMMENT HERE
+  // UNCOMMENT HERE
   test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
+
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
+
     await waitFor(() => { 
 
       var answer = screen.getAllByText('| add answer');
@@ -212,7 +217,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
     });
   });
 
-  **UNCOMMENT HERE*/
+  //**UNCOMMENT HERE*/
 
 
 
