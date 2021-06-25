@@ -27,6 +27,7 @@ var secondProduct = {
   updated_at: '2021-03-18T16:09:30.589Z',
 }
 
+// UNIT TESTING SECTION BEGIN
 
 describe('Unit Test Section: <QuestionAnswer/>', () => {
 
@@ -43,6 +44,12 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 });
 
 
+// UNIT TESTING SECTION END
+
+
+
+// INTEGRATION TESTING SECTION BEGIN
+
 describe('Integration Test: : <QuestionAnswer/>', () => {
 
   let container = null;
@@ -51,7 +58,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       container = document.createElement("div");
       document.body.appendChild(container);
       /*UNCOMMENT HERE
-      ender(<QuestionAnswer currentProduct={secondProduct}/>);
+      render(<QuestionAnswer currentProduct={secondProduct}/>);
       UNCOMMENT HERE */
     });
 
@@ -189,3 +196,4 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 });
 
+// INTEGRATION TESTING SECTION END
