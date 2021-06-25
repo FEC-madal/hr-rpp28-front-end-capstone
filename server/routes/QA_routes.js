@@ -14,8 +14,6 @@ const API_PATH = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/';
 
 
 
-
-
 // GET Product list (my version of Rob's code)
 router.get('/products', (req, res) => {
   var builtPath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/';
@@ -93,7 +91,7 @@ router.get('/questions/:question_id/answers', (req, res) => {
   axios.defaults.headers.common['Authorization'] = QA_TOKEN;
 
 
-  // console.log('route reached');
+  console.log('/questions/:question_id/answers called');
 
   axios.get(builtPath)
     .then((response) => {
