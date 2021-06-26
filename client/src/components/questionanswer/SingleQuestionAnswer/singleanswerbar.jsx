@@ -21,8 +21,8 @@ class SingleAnswerBar extends React.Component {
   handleHelpful = event => {
     axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/helpful`)
     .then((response) => {
-      // console.log('helpful clicked, sent to server, returned with', response.data);
-      this.props.reloadQuestionAnswer();
+      console.log('SingleAnswerBar helpful clicked, sent to server, returned with', response.data);
+      this.props.refresh();
     })
     .catch(err => {
       console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
@@ -54,7 +54,7 @@ class SingleAnswerBar extends React.Component {
         <br></br>
         <div className='qa_atext'>A: {this.state.answer.body} </div>
 
-        <div>
+        <div className='qa_atext2'>
             <span>By {this.props.answer.answerer_name}, {date}  </span>
 
             <span>| helpful? </span>
@@ -63,7 +63,7 @@ class SingleAnswerBar extends React.Component {
             {this.state.reported ? reportedTag : notReportedTag}
 
         </div>
-        <div>
+        <div className='qa_atext2'>
           <Photobar photos={this.state.answer.photos}/>
         </div>
       </div>

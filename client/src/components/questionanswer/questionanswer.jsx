@@ -86,9 +86,10 @@ class QuestionAnswer extends React.Component {
       this.setState({
         product_id: response.data.product_id,
         questions: response.data,
+        sortedQuestionList: response.data,
       });
 
-      //console.log('it is successfully returning the axios request');
+      console.log('reloadQuestionAnswer being called as a this.props.refresh() for ', this.state.product_id);
       //this.forceUpdate();
 
     })
@@ -139,20 +140,20 @@ class QuestionAnswer extends React.Component {
 
   render () {
     
-
     // boolean value to determine if we showLoadMoreQuestionButton
     let showLoadMoreQuestionButton = (this.state.questions.length > this.state.defaultlength);
 
     let questionlist = this.state.sortedQuestionList.results.slice(0, this.state.defaultlength).map((question) => {
-      return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} reloadQuestionAnswer={this.reloadQuestionAnswer.bind(this)}/></tr>});
+      return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} refresh={this.reloadQuestionAnswer.bind(this)}/></tr>});
 
 
     // let questionlist = this.state.questions.results.slice(0, this.state.defaultlength).map((question) => {
     //   return <tr><td><SingleQuestionAnswer question={question} key={question.question_id} reloadQuestionAnswer={this.reloadQuestionAnswer.bind(this)}/></td></tr>
     // });
 
+
     return (
-      <table width='90%' border='1px' align='left' fontFamily='arial' className='whole'>
+      <table className='qa_mastertable'>
       <tbody>
       <tr className='qatable' key={11}>
         <th align='left'>

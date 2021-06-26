@@ -88,9 +88,9 @@ class SingleQuestionAnswer extends React.Component {
 
     let answerBars = sortedAnswers.slice(0, this.state.defaultlength).map(key => {
       if (key.answerer_name === 'Seller') {
-        return <div className='Seller' key={key.id+'div'}>⍟⍟★★Seller's Response★★⍟⍟ <SingleAnswerBar answer={key} key={key.id} reloadQuestionAnswer={this.props.reloadQuestionAnswer}/></div>
+        return <div className='Seller' key={key.id+'div'}>⍟⍟★★Seller's Response★★⍟⍟ <SingleAnswerBar answer={key} key={key.id} refresh={this.props.reloadQuestionAnswer}/></div>
       } else {
-        return <SingleAnswerBar answer={key} key={key.id} reloadQuestionAnswer={this.props.reloadQuestionAnswer}/>
+        return <SingleAnswerBar answer={key} key={key.id} refresh={this.props.refresh}/>
       }
     });
 
@@ -107,7 +107,7 @@ class SingleQuestionAnswer extends React.Component {
       <td>
         <br></br>
         <div className='singlequestionbar'>
-        <SingleQuestionBar question={this.props.question} AModalHandler={this.showAModalHandler.bind(this)}/>
+        <SingleQuestionBar question={this.props.question} AModalHandler={this.showAModalHandler.bind(this)} refresh={this.props.refresh}/>
         </div>
         {answerBars}
           {seeMoreAnswers}

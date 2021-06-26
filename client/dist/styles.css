@@ -407,17 +407,12 @@ table.add-review tr {
 /***TOMS additional CSS begin ***/
 
 .whole {
-  background-color: #fffbde;
-  max-height: 30%;
-  overflow-y: scroll;
-  width:'90%';
-  border: '1px';
-  align: 'left';
-  font-family:'arial';
+  /* background-color: #fffbde; */
+
 }
 
 .half {
-  background-color:#fafcff;
+  /*background-color:#fafcff;*/
   max-height: 50%;
   overflow-y: scroll;
 }
@@ -430,10 +425,25 @@ table.add-review tr {
 
 .qa_qtext {
   font-weight: bold;
+  font-size: medium;
 }
 
 .qa_atext {
   font-weight: bold;
+  font-size: medium;
+}
+
+.qa_atext2 {
+  text-indent: 20px;
+}
+
+.qa_mastertable {
+  max-height: 30%;
+  overflow-y: scroll;
+  width:'90%';
+  border: 1px solid black;
+  align: 'left';
+  font-family:'arial';
 }
 
 
