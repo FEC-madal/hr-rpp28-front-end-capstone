@@ -48,6 +48,10 @@ mock.onGet('http://localhost:3000/qa/questions/').reply(200, listQuestions);
 //mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
 
 
+mock.onPut().reply(200, {});
+
+//api/fec2/hr-rpp/qa/answers/1444523/report
+
 // ********************  TEST INITIALIZATION END  ********************
 
 
@@ -161,11 +165,11 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       expect(submitOfAnswerModalWindow).toBeInTheDocument();
     }); 
   });
-  //**UNCOMMENT HERE*/
+  
 
 
   // NOW PASSING!
-  // UNCOMMENT HERE
+  
   test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
 
     act(() => {
@@ -217,21 +221,28 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
     });
   });
 
-  //**UNCOMMENT HERE*/
-
-
-
 
   // --NO LONGER PASSING
-  // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
-  //   await waitFor(() => { 
+  test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
 
-  //     var reportFirstAnswer = screen.getAllByText('Report');
-  //     fireEvent.click(reportFirstAnswer[0]);
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
 
-  //     expect(reportFirstAnswer[0]).toHaveTextContent('Reported');
-  //   });
-  // });
+
+    await waitFor(() => { 
+
+      var reportFirstAnswer = screen.getAllByText(/Report/);
+      fireEvent.click(reportFirstAnswer[0]);
+      //reportFirstAnswer.map(fire => fireEvent.click(fire));
+
+      //console.log(reportFirstAnswer[0]);
+      //var reportFirstAnswer = screen.getAllByText(/Reported/);
+
+      expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
+
+    });
+  });
 
 
 });

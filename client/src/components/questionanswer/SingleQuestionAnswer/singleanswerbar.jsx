@@ -27,10 +27,16 @@ class SingleAnswerBar extends React.Component {
   }
 
   handleReport = event => {
+    console.log('is it calling the event handler: ');
     axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/report`)
     .then((response) => {
       // console.log('report clicked, sent to server, returned with', response.data);
       this.setState({reported: true});
+      console.log('is it callign the axios put call');
+    })
+    .catch(err => {
+      console.log('is the reporting answer put call breaking');
+
     })
   }
 
