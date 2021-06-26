@@ -10,7 +10,7 @@ class AddReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: 0,
+      product_id: this.props.product_id,
       rating: 0,
       summary: '',
       body: '',
@@ -27,6 +27,7 @@ class AddReview extends React.Component {
     this.chosenStars = this.chosenStars.bind(this);
     this.reviewBodyRemaining = this.reviewBodyRemaining.bind(this);
     this.uploadPhotos = this.uploadPhotos.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
   //functions should go here
 
@@ -38,6 +39,17 @@ class AddReview extends React.Component {
   closeModal() {
     let modal = document.getElementById("addReview");
     modal.style.display = "none";
+  }
+
+  onChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name
+
+    this.setState({
+      [name]: value
+    });
+    console.log('this is the current state: ', this.state);
   }
 
   chosenStars(stars) {
@@ -54,7 +66,7 @@ class AddReview extends React.Component {
     console.log('this is state: ', this.state.photos);
   }
 
-
+//I need a chars object sent over
 
   reviewBodyRemaining() {
     let totalChar = event.target.value.length;
@@ -85,14 +97,14 @@ class AddReview extends React.Component {
                     <span>Nick Name: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="text" id="name" name="username" />
+                  <input type="text" id="name" name="name" onChange={this.onChange}/>
                 </p>
                 <p>
                   <label htmlFor="mail">
                     <span>E-mail: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="email" id="mail" name="usermail" />
+                  <input type="email" id="mail" name="email" onChange={this.onChange}/>
                 </p>
               </section>
               <section>
@@ -114,17 +126,17 @@ class AddReview extends React.Component {
                   <label htmlFor="yes">
                     <span>Yes</span>
                   </label>
-                  <input type="radio" id="yes" name="recommend" />
+                  <input type="radio" id="yes" name="recommend" value="true" onChange={this.onChange}/>
                   <label htmlFor="no">
                     <span>No</span>
                   </label>
-                  <input type="radio" id="no" name="recommend" />
+                  <input type="radio" id="no" name="recommend" value="false" onChange={this.onChange}/>
                 </p>
               </section>
               <section>
                 <h2>Characteristics</h2>
                 <div>
-                  <Chars />
+                  <Chars chars={this.props.chars}/>
                 </div>
               </section>
               <section>
@@ -134,7 +146,7 @@ class AddReview extends React.Component {
                   <label htmlFor="summary">
                     <span>Review Summary</span>
                   </label>
-                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" />
+                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" onChange={this.onChange}/>
                 </p>
                 <p>
                   <label htmlFor="body">
