@@ -115,7 +115,7 @@ class QuestionAnswer extends React.Component {
           sortedQuestionList: response.data,
         });
 
-        console.log('this.state.questions: ', this.state.questions);
+        //console.log('this.state.questions: ', this.state.questions);
       })
       .catch(err => {
         // console.log('error in loadup', err);
