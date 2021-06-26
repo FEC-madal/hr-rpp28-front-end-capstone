@@ -5,22 +5,15 @@ const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const axios = require('axios');
 const token = require('../../config.js')
-const urlReviews = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=22161&count=2'
 const urlMeta = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=22123'
 
 var AWS = require('aws-sdk');
 // Set the Region
 AWS.config.loadFromPath('./config.json');
-// default options as middleware
 router.use(fileUpload());
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 
-const options = {
-  method: 'get',
-  url: urlReviews,
-  headers: token.AUTH
-}
 
 router.get('/review-product', (req, res) => {
 
@@ -47,10 +40,6 @@ router.get('/breakdown', (req, res) => {
 
 
 router.post('/uploadphoto', (req, res) => {
-  // console.log('upload post received');
-
-  // console.log(Object.keys(req.files));
-
   if (req.files.reviewphoto) {
     fs.writeFile(`./client/dist/${req.files.reviewphoto.name}`, req.files.reviewphoto.data, (err) => {
       console.log('did we make it?')
@@ -59,7 +48,7 @@ router.post('/uploadphoto', (req, res) => {
       } else {
         s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
-// call S3 to retrieve upload file to specified bucket
+        // call S3 to retrieve upload file to specified bucket
         var uploadParams = {Bucket: 'review-widget2', Key: '', Body: ''};
         var file = `./client/dist/${req.files.reviewphoto.name}`;
 
@@ -83,8 +72,6 @@ router.post('/uploadphoto', (req, res) => {
           }
         });
       }
-    //  console.log('The file was saved!');
-
     });
   }
 });
@@ -104,8 +91,9 @@ router.post('/uploadphoto', (req, res) => {
 
 //Gets the reviews for the individual review tile
 const getReviews = (num, callback) => {
-let count = num || 2;
- let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=22161&count=${count}`
+let count = num || 2
+//dont forget to change the product number and pass it down ;)
+ let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=22123&page=1&count=${count}`;
   axios({
     method: 'get',
     url: url,
