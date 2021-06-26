@@ -5,7 +5,6 @@ const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const axios = require('axios');
 const token = require('../../config.js')
-const urlMeta = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=22123'
 
 var AWS = require('aws-sdk');
 // Set the Region
@@ -17,7 +16,7 @@ router.use(bodyParser.json());
 
 router.get('/review-product', (req, res) => {
 
-  getReviews(req.query.count, (err, data) => {
+  getReviews(req.query.count, req.query.product_id, (err, data) => {
     if (err) {
       // console.log(err);
     } else {
@@ -27,8 +26,7 @@ router.get('/review-product', (req, res) => {
 });
 
 router.get('/breakdown', (req, res) => {
-  // console.log('working');
-  getMeta((err, data) => {
+  getMeta(req.query.product_id, (err, data) => {
     // console.log('we are here');
     if (err) {
       // console.log(err);
@@ -90,10 +88,11 @@ router.post('/uploadphoto', (req, res) => {
 //Helpers to get the actual data to pass back to the requests//
 
 //Gets the reviews for the individual review tile
-const getReviews = (num, callback) => {
+const getReviews = (num, product, callback) => {
 let count = num || 2
+let product_id = product;
 //dont forget to change the product number and pass it down ;)
- let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=22123&page=1&count=${count}`;
+ let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${product_id}&page=1&count=${count}`;
   axios({
     method: 'get',
     url: url,
@@ -108,11 +107,12 @@ let count = num || 2
 };
 
 //Gets the meta for ALL of the reviews for the product breakdown section
-const getMeta = (callback) => {
-
+const getMeta = (product, callback) => {
+  let product_id = product;
+  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${product_id}`
   axios({
     method: 'get',
-    url: urlMeta,
+    url: url,
     headers: token.AUTH
   })
     .then((response) => {

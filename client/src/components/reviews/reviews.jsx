@@ -27,7 +27,12 @@ class Reviews extends React.Component {
   }
   //functions go here
   metaData() {
-    axios.get('/reviews/breakdown')
+    console.log('these are the passed props: ', this.props.product_id.id)
+    axios.get('/reviews/breakdown', {
+      params: {
+        product_id: this.props.product_id
+      }
+    })
       .then((response) => {
         this.setState({
           productBreakdown: response.data.characteristics,
@@ -62,7 +67,8 @@ class Reviews extends React.Component {
 
     axios.get('/reviews/review-product', {
       params: {
-        count: count
+        count: count,
+        product_id: this.props.product_id
       }
     })
       .then((response) => {
