@@ -51,8 +51,8 @@ class SingleAnswerBar extends React.Component {
 
     return (
       <div>
-        -------------------
-        <div>A: {this.state.answer.body} </div>
+        <br></br>
+        <div className='qa_atext'>A: {this.state.answer.body} </div>
 
         <div>
             <span>By {this.props.answer.answerer_name}, {date}  </span>

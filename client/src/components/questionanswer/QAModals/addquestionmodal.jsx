@@ -61,7 +61,7 @@ class AddQuestionModal extends React.Component {
         nickname: this.state.nickname,
         email: this.state.email,
         question: this.state.question,
-        product_id: this.props.currentProduct.id,
+        product_id: this.props.currentProduct,
       })
         .then((response) => {
           // console.log('question submitted returned with', response);

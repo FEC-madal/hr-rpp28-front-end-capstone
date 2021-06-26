@@ -21,7 +21,6 @@ function AdditionalQuestionBar(props) {
 
   return (
     <div>
-      This is the Additional Question Bar!!
       <form name='additional'>
         {moreAnsweredQuestions}
         <input type='button' value='Add a Question +' onClick={props.addQuestionButton}>
@@ -81,7 +80,7 @@ class QuestionAnswer extends React.Component {
 
   reloadQuestionAnswer() {
 
-    axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct.id}})
+    axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
     .then((response) => {
 
       this.setState({
@@ -106,11 +105,11 @@ class QuestionAnswer extends React.Component {
    // console.log('props', this.props.currentProduct.id);
 
     // this is equivalent to http://.../?product_id=xxxxx
-    axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct.id}})
+    axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
       .then((response) => {
         //console.log('this is the axios data upon load up', response.data);
         this.setState({
-          product_id: this.props.currentProduct.id,
+          product_id: this.props.currentProduct,
           questions: response.data,
           sortedQuestionList: response.data,
         });
@@ -158,7 +157,6 @@ class QuestionAnswer extends React.Component {
       <tr className='qatable' key={11}>
         <th align='left'>
               <SearchQuestionBar sortBySearch={this.sortBySearch.bind(this)}/>
-              <p>view questions for product () {this.state.product_id}</p>
         </th>
       </tr>
 

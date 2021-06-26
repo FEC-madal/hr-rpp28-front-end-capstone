@@ -428,6 +428,14 @@ table.add-review tr {
   font-weight: bold;
 }
 
+.qa_qtext {
+  font-weight: bold;
+}
+
+.qa_atext {
+  font-weight: bold;
+}
+
 
 .tomphotobar {
   width: 75px !important;
