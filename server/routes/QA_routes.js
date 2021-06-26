@@ -283,7 +283,7 @@ router.put('/answers/:answer_id/report', (req, res) => {
 
   axios(axiosObject)
     .then((response) => {
-      console.log('success! reported answerid: ', response.data);
+      //console.log('success! reported answerid: ', response.data);
       res.send(response.data);
     })
     .catch((err) => {
