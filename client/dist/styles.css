@@ -430,10 +430,12 @@ table.add-review tr {
 
 
 .tomphotobar {
-  width: '75px';
-  height: '75px';
+  width: 75px !important;
+  height: 75px;
+  min-width: initial;
   border: 1px solid blue;
 }
+
 
 
 table.question {

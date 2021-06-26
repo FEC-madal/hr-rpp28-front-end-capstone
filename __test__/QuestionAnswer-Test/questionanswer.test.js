@@ -7,10 +7,14 @@ import { act } from "react-dom/test-utils";
 import listQuestions from './listquestionsexample.js';
 import axios from 'axios';
 import { debug } from 'webpack';
+import questionsPerProduct from './questionsPerProduct.js';
+import answersPerQuestion from './answersPerQuestion.js';
 //import userEvent from '@testing-library/user-event'
 //jest.mock('axios');
 // commented out for integration test 2
 
+
+// ********************  TEST INITIALIZATION BEGIN  ********************
 
 require("babel-polyfill");
 
@@ -28,6 +32,31 @@ var secondProduct = {
 }
 
 
+var MockAdapter = require("axios-mock-adapter");
+
+// // This sets the mock adapter on the default instance
+var mock = new MockAdapter(axios);
+
+// // Mock any GET request to /users
+// // arguments for reply are (status, data, headers)
+mock.onGet("/testtest").reply(200, {
+  users: [{ id: 1, name: "John Smith" }],
+});
+
+
+mock.onGet('http://localhost:3000/qa/questions/').reply(200, listQuestions);
+//mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
+
+
+mock.onPut().reply(200, {});
+
+//api/fec2/hr-rpp/qa/answers/1444523/report
+
+// ********************  TEST INITIALIZATION END  ********************
+
+
+// ********************  UNIT TESTING SECTION BEGIN  ********************
+
 describe('Unit Test Section: <QuestionAnswer/>', () => {
 
   test('Unit Test 0:  Test to ensure basic test functions are working', () => {
@@ -38,10 +67,23 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
     render(<QuestionAnswer currentProduct={secondProduct}/>);
   });
+
+  test('Unit Test 3:  Does the component <QuestionAnswer/> render?', () => {
+    axios.get('http://localhost:3000/qa/questions/')
+      .then(response => {
+        console.log('this is the mocked response: ', response);
+      });
+  });
   
 
 });
 
+
+// ********************  UNIT TESTING SECTION END  ********************
+
+
+
+// ********************  INTEGRATION TESTING SECTION BEGIN  ********************
 
 describe('Integration Test: : <QuestionAnswer/>', () => {
 
@@ -51,7 +93,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       container = document.createElement("div");
       document.body.appendChild(container);
       /*UNCOMMENT HERE
-      ender(<QuestionAnswer currentProduct={secondProduct}/>);
+      render(<QuestionAnswer currentProduct={secondProduct}/>);
       UNCOMMENT HERE */
     });
 
@@ -85,28 +127,32 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
 
 
   // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
-  // test('first integration test', async () => {
-  //   act(() => {
-  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-  //   });
+  test('first integration test', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
 
-  //   await waitFor(async () => { 
-  //     expect(axios.get).toHaveBeenCalled();
-  //     console.log('writing the mock call', axios.get.mock.results[0].value);
-  //     //screen.debug();
-  //     expect(await screen.findByText(/fabric/)).toBeInTheDocument();
-  //     //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
-  //   })
-  // });
+    await waitFor(async () => { 
+      //expect(axios.get).toHaveBeenCalled();
+      //console.log('writing the mock call', axios.get.mock.results[0].value);
+      //screen.debug();
+      expect(await screen.findByText(/months/)).toBeInTheDocument();
+      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
+    })
+  });
   // NOW PASSING!
 
 
 
-  /* UNCOMMENT HERE
+  // UNCOMMENT HERE
   test('second integration test without mocking API call results', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
+
     await waitFor(() => {   
       //fixed bug of not rendering because of CORS
-      var answer = screen.getAllByText('| add answer');
+      var answer = screen.getAllByText(/add answer/);
       fireEvent.click(answer[0]);
       expect(screen.getByDisplayValue(/jack@email.com/)).toBeInTheDocument();
       expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
@@ -119,12 +165,17 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       expect(submitOfAnswerModalWindow).toBeInTheDocument();
     }); 
   });
-  **UNCOMMENT HERE*/
+  
 
 
   // NOW PASSING!
-  /**** UNCOMMENT HERE
+  
   test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
+
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
+
     await waitFor(() => { 
 
       var answer = screen.getAllByText('| add answer');
@@ -170,22 +221,30 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
     });
   });
 
-  **UNCOMMENT HERE*/
-
-
-
 
   // --NO LONGER PASSING
-  // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
-  //   await waitFor(() => { 
+  test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
 
-  //     var reportFirstAnswer = screen.getAllByText('Report');
-  //     fireEvent.click(reportFirstAnswer[0]);
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+    });
 
-  //     expect(reportFirstAnswer[0]).toHaveTextContent('Reported');
-  //   });
-  // });
+
+    await waitFor(() => { 
+
+      var reportFirstAnswer = screen.getAllByText(/Report/);
+      fireEvent.click(reportFirstAnswer[0]);
+      //reportFirstAnswer.map(fire => fireEvent.click(fire));
+
+      //console.log(reportFirstAnswer[0]);
+      //var reportFirstAnswer = screen.getAllByText(/Reported/);
+
+      expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
+
+    });
+  });
 
 
 });
 
+// ********************  INTEGRATION TESTING SECTION END  ********************
