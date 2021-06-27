@@ -267,4 +267,58 @@ class AddAnswerModal extends React.Component {
   }
 }
 
-export default AddAnswerModal;
+
+
+
+
+class AnswerModalType2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product_id: 0,
+      body: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
+      reviewBodyRemaining: 50,
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+  }
+
+  openModal() {
+    let modal = document.getElementById("add_a");
+    modal.style.display = "block";
+  }
+
+  closeModal() {
+    let modal = document.getElementById("add_a");
+    modal.style.display = "none";
+  }
+
+  render() {
+    console.log('Is the Add Answer Modal Window called?');
+    return(
+      <span>
+        <button id="myBtn" onClick={this.openModal}>Add Answer Modal 2</button>
+        <div id="add_a" className="modal">
+          <div className="modal-content-addAnswer">
+            <span className="close-addAnswer" onClick={this.closeModal}>&times;</span>
+
+            {/* this is the original call of addanswermodal */}
+            {<AddAnswerModal qid={this.state.question_id} show={this.state.showAModal} key={this.state.showAModal} product_name={'passed in data:'} question_body={this.props.question.question_body}/>}
+
+          </div>
+        </div>
+      </span>
+
+    )
+  }
+}
+
+
+export {AnswerModalType2, AddAnswerModal}
+

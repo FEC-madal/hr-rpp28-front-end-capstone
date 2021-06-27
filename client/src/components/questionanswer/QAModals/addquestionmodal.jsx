@@ -167,4 +167,52 @@ class AddQuestionModal extends React.Component {
   }
 }
 
-export default AddQuestionModal;
+
+
+class QuestionModalType2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product_id: 0,
+      body: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
+      reviewBodyRemaining: 50,
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+  }
+
+  openModal() {
+    let modal = document.getElementById("add_q");
+    modal.style.display = "block";
+  }
+
+  closeModal() {
+    let modal = document.getElementById("add_q");
+    modal.style.display = "none";
+  }
+
+  render() {
+    console.log('is question modal type 2 called');
+    return(
+      <span>
+        <button id="myBtn" onClick={this.openModal}>Add Question Modal 2</button>
+        <div id="add_q" className="modal">
+          <div className="modal-content-addQuestion">
+            <span className="close-addQuestion" onClick={this.closeModal}>&times;</span>
+            <AddQuestionModal show={true} currentProduct={this.props.currentProduct}/> 
+          </div>
+        </div>
+      </span>
+
+    )
+  }
+}
+
+
+export {QuestionModalType2, AddQuestionModal}

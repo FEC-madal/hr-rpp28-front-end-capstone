@@ -66,6 +66,13 @@ class App extends React.Component {
   }
 
   render () {
+    var styleOBJ = {
+      // height:'20vw', 
+      // overflow:'auto',
+      width: '95vw',
+      border: '1px solid black',
+    };
+
     return (
       <div>
         <h1>FEC React Main App</h1>
@@ -75,8 +82,7 @@ class App extends React.Component {
         <br></br>
         <br></br>
         <h1>Questions and Answers </h1>
-        <div> <QuestionAnswer currentProduct={this.state.productId} defaultProduct={this.state.defaultProduct}/></div>
-        <br></br>
+        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
         <div><Reviews product_id={this.state.defaultProduct}/></div>

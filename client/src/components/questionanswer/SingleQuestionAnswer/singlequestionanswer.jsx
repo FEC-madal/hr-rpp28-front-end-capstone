@@ -1,7 +1,7 @@
 import React from 'react';
 import SingleAnswerBar from './singleanswerbar.jsx';
 import SingleQuestionBar from './singlequestionbar.jsx';
-import AddAnswerModal from '../QAModals/addanswermodal.jsx';
+import {AddAnswerModal, AnswerModalType2} from '../QAModals/addanswermodal.jsx';
 
 
 
