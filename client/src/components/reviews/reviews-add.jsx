@@ -116,10 +116,7 @@ class AddReview extends React.Component {
         method: 'post',
         url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
         data: this.state,
-        headers: {
-          'Authorization': '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',
-          'content-type': 'JSON'
-        }
+
       })
         .then((response) => {
           console.log(response);
