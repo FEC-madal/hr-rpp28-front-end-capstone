@@ -45,7 +45,7 @@ class ReviewsList extends  React.Component {
       <div className={(this.state.count >= 6) ? "reviews-scroll" : null  }>
             {reviewList}
       </div>
-      <div><button className={(this.state.count >= this.props.reviews.length) ? "morereviews-hidden" : null}type="button" onClick={() => {this.moreReviews(this.props.totalRatings)}}>MORE REVIEWS </button> <AddReview product_id={this.props.product_id} chars={this.props.chars}/></div>
+      <div><button className={(this.state.count >= this.props.reviews.length) ? "morereviews-hidden" : null}type="button" onClick={() => {this.moreReviews(this.props.totalRatings)}}>MORE REVIEWS </button> <AddReview product_id={this.props.product_id} chars={this.props.chars} productName={this.props.productName}/></div>
       </div>
     );
   }

@@ -84,41 +84,6 @@ class ReviewPhotos extends React.Component {
 export default ReviewPhotos;
 
 
-// render() {
-//   let allPhotos = this.props.photos
-//   let photos = allPhotos.map((item, index) => {
-//     return (
-//       <li key={index}><img id="myImg" src={item.url} onClick={() => {this.openModal(event.target.src)}} alt="this is a blown up version of the photo"></img>
-//         <div id="myModal" className="modal">
-//           <span className="close" onClick={this.closeModal}>&times;</span>
-//           <img className="modal-content" id="img01" alt="this is a blown up version of the photo"></img>
-//           <div id="caption"></div>
-//         </div>
-
-
-//       </li>
-
-//     )
-//   })
-//   return(
-//     <ul>{photos}</ul>
-
-//   );
-// }
 
 
 
-{/* <div><img className="thumbnail" src={`${this.state.urlUpload}`} alt="Girl in a jacket" width="500" height="600" /></div> */}
-
-      // <form method='POST' action='http://127.0.0.1:3000/reviews/uploadphoto' encType='multipart/form-data'>
-      //   <label for='reviewphoto'>Upload your photos!</label><br></br>
-      //   <input type="file" name='reviewphoto' onChange={this.onChangeHandler} multiple></input>
-      //   <input type="submit" value='Submit Photo'></input>
-      // </form>
-
-     // max photos can be 5 before the button disappears
-      // if (this.state.photos.length < 5) {
-      //   this.setState({photos: newarray});
-      // } else {
-      //   this.setState({showUploadForm: false});
-      // }

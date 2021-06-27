@@ -28,6 +28,8 @@ class AddReview extends React.Component {
     this.reviewBodyRemaining = this.reviewBodyRemaining.bind(this);
     this.uploadPhotos = this.uploadPhotos.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.characteristics = this.characteristics.bind(this);
+    this.postReview = this.postReview.bind(this);
   }
   //functions should go here
 
@@ -53,9 +55,18 @@ class AddReview extends React.Component {
   }
 
   chosenStars(stars) {
-    console.log('you chose: ', stars);
     this.setState({
       rating: stars
+    });
+  }
+
+  characteristics(ratings) {
+    const currentChars = this.state.characteristics;
+    const updatedChars = Object.assign(currentChars, ratings);
+    console.log(updatedChars);
+
+    this.setState({
+      characteristics: updatedChars
     });
   }
 
@@ -79,6 +90,49 @@ class AddReview extends React.Component {
     });
   }
 
+
+  postReview(event) {
+    //first thing is to check
+        //mandatory fields are blank
+         //stars
+         //chars
+         //body
+       //use the alert to tell them what is wrong
+    if (this.state.rating === 0) {
+      alert('Please select an Overall Star Rating');
+      event.preventDefault();
+    } else if (this.state.body.length === 0 || this.state.body.length < 50 ) {
+      alert('Your review body must have more than 50 characters')
+      event.preventDefault();
+    } else if ((Object.keys(this.state.characteristics).length) !== Object.keys(this.props.chars).length -1 ) {
+      console.log(Object.keys(this.state.characteristics).length)
+      console.log(Object.keys(this.props.chars).length)
+      alert('Please select all Characteristics buttons')
+      event.preventDefault();
+    } else {
+      delete this.state.reviewBodyRemaining
+      console.log('thsi is the sate befor esenidng: ', this.state);
+      axios({
+        method: 'post',
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
+        data: this.state,
+        headers: {
+          'Authorization': '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',
+          'content-type': 'JSON'
+        }
+      })
+        .then((response) => {
+          console.log(response);
+        });
+
+    }
+    event.preventDefault();
+    //axios call with the post request
+    // return a post successful alert and then close the window
+  }
+
+
+
   render() {
     return(
       <span>
@@ -86,9 +140,9 @@ class AddReview extends React.Component {
         <div id="addReview" className="modal">
           <div className="modal-content-addReview">
             <span className="close-addReview" onClick={this.closeModal}>&times;</span>
-            <form>
+            <form id="post" onSubmit={this.postReview}>
               <h1>Write your Review</h1>
-              <p>About the Product Name here</p>
+              <p>About the {this.props.productName}</p>
               <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
               <section>
                 <h2>User Information</h2>
@@ -97,27 +151,32 @@ class AddReview extends React.Component {
                     <span>Nick Name: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="text" id="name" name="name" onChange={this.onChange}/>
+                  <input type="text" id="name" name="name" maxlength="60" onChange={this.onChange} required/>
                 </p>
                 <p>
                   <label htmlFor="mail">
                     <span>E-mail: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="email" id="mail" name="email" onChange={this.onChange}/>
+                  <input type="email" id="mail" name="email" maxlength="60" onChange={this.onChange} required/>
                 </p>
               </section>
               <section>
                 <h2>Overall Ratings</h2>
                 {/* Revist to make sure I can do the stars this way */}
-                <p>
+                <div>
                   <label htmlFor="stars">
                     <span>Star Review </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                    <Stars starpicker={this.chosenStars} rating={this.state.rating} />
+                    <Stars starpicker={this.chosenStars} rating={this.state.rating}/>
+                    <p className={(this.state.rating === 1) ? "star-definition" : "star-definition-hidden" }>Poor</p>
+                    <p className={(this.state.rating === 2) ? "star-definition" : "star-definition-hidden" }>Fair</p>
+                    <p className={(this.state.rating === 3) ? "star-definition" : "star-definition-hidden" }>Average</p>
+                    <p className={(this.state.rating === 4) ? "star-definition" : "star-definition-hidden" }>Good</p>
+                    <p className={(this.state.rating === 5) ? "star-definition" : "star-definition-hidden" }>Great</p>
 
-                </p>
+                </div>
                 <p>
                   <label htmlFor="recommend">
                     <span>Do you recommend this product?</span>
@@ -126,7 +185,7 @@ class AddReview extends React.Component {
                   <label htmlFor="yes">
                     <span>Yes</span>
                   </label>
-                  <input type="radio" id="yes" name="recommend" value="true" onChange={this.onChange}/>
+                  <input type="radio" id="yes" name="recommend" value="true" onChange={this.onChange} required/>
                   <label htmlFor="no">
                     <span>No</span>
                   </label>
@@ -136,7 +195,7 @@ class AddReview extends React.Component {
               <section>
                 <h2>Characteristics</h2>
                 <div>
-                  <Chars chars={this.props.chars}/>
+                  <Chars chars={this.props.chars} updateChars={this.characteristics}/>
                 </div>
               </section>
               <section>
@@ -146,21 +205,21 @@ class AddReview extends React.Component {
                   <label htmlFor="summary">
                     <span>Review Summary</span>
                   </label>
-                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" onChange={this.onChange}/>
+                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" maxlength="60"  onChange={this.onChange}/>
                 </p>
                 <p>
                   <label htmlFor="body">
                     <span>Review Body</span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                    <textarea id="body" name="body" rows="5" cols="50" placeholder="Why did you like the product or not?" onChange={this.reviewBodyRemaining}></textarea>
+                    <textarea id="body" name="body" rows="5" cols="50" placeholder="Why did you like the product or not?" maxlength="1000" onChange={this.reviewBodyRemaining} required></textarea>
                 </p>
                 <p className={this.state.reviewBodyRemaining > 0 ? null : "product-hidden"}>Minimum required characters left: {this.state.reviewBodyRemaining}</p>
                 <p className={this.state.reviewBodyRemaining <= 0 ? null :  "product-hidden"}>Minimum reached</p>
               </section>
             </form>
             <ReviewPhotos uploadPhotos={this.uploadPhotos}/>
-            <input type="submit" value="Submit"></input>
+            <input type="submit" value="Submit" form="post" onSubmit={this.postReview}></input>
           </div>
         </div>
       </span>

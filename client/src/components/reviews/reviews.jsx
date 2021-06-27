@@ -144,7 +144,7 @@ class Reviews extends React.Component {
     return(
       <div className="reviews-container">
             <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown}/></div>
-            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown}/></div>
+            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName}/></div>
       </div>
     )
   }

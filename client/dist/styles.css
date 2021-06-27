@@ -72,6 +72,7 @@ div.scrollable {
   flex-direction: row;
   width: 55%;
   margin: auto;
+  border: 1px solid red;
 
 
 
@@ -82,6 +83,7 @@ div.scrollable {
   width: 25%;
   margin-right: 2%;
   flex-direction: column;
+  border: 1px solid blue;
 
 
 
@@ -91,6 +93,7 @@ div.scrollable {
   width: 75%;
   display: flex;
   flex-direction: column;
+  border: 1px solid green;
 }
 
 .reviews-scroll {
@@ -221,6 +224,8 @@ input[type=range]:focus::-ms-fill-upper {
 .product-hidden {
   display: none;
 }
+
+
 
 /* This is for the textbox around product breakdown */
 
@@ -397,6 +402,92 @@ table.add-review td {
 table.add-review tr {
   text-align:left;
 }
+
+/* this is for the reviews-add-chars section */
+.reviews-add-chars-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.reviews-add-eachchars-holder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.reviews-add-eachchars-radio {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+
+}
+
+.reviews-add-eachchars-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+
+}
+
+.reviews-add-eachchars-text-alignright {
+  width:33.3333%;
+  text-align:right;
+  }
+
+.reviews-add-eachchars-text-alignleft {
+  width: 33.3333%;
+  text-align:left;
+  }
+
+.reviews-add-eachchars-selection {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.reviews-add-eachchars-selection-aligncenter {
+  width:20%;
+  text-align:center;
+  }
+
+.reviews-add-eachchars-selection-alignleft {
+  text-align:left;
+  }
+
+/* #textbox {display:flex; flex-flow:row wrap;}
+
+.alignleft {
+width:33.33333%;
+text-align:left;
+}
+.aligncenter {
+width:33.33333%;
+text-align:center;
+}
+.alignright {
+width:33.3333%;
+text-align:right;
+} */
+
+
+/* this is for the text next to the stars on the add review section */
+.star-definition {
+  display: inline-block;
+  margin-left: 2%;
+
+}
+
+.star-definition-hidden {
+  display: none;
+  margin-left: 2%;
+}
+
 
 /* This is for the stars */
 .stars-noclick {

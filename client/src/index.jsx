@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Overview from "overview-module";
+// import Overview from "overview-module";
 import QuestionAnswer from './components/questionanswer/questionanswer.jsx';
 import Reviews from './components/reviews/reviews.jsx';
 import Breakdown from './components/reviews/breakdown.jsx';
@@ -38,6 +38,7 @@ class App extends React.Component {
         updated_at: '2021-03-18T16:09:30.589Z'
       },
       productId: 22161,
+      productName: "Adell 300 Shoes",
       metaData: {},
     };
 
@@ -69,13 +70,12 @@ class App extends React.Component {
     return (
       <div>
         <h1>FEC React Main App</h1>
-        <Overview/>
+        {/* <Overview/> */}
         <br></br>
         <RelatedMain productId={this.state.productId} updateProduct={this.updateProduct}/>
         <br></br>
         <br></br>
-        Ratings and Reviews
-        <div><Reviews product_id={this.state.productId}/></div>
+        <div><Reviews product_id={this.state.productId} productName={this.state.productName}/></div>
          <QuestionAnswer currentProduct={this.state.defaultProduct}/>
       </div>
     );
