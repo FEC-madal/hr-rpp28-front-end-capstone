@@ -7,20 +7,26 @@ class SingleQuestionBar extends React.Component {
     super(props);
     this.state = {
       question: this.props.question,
+      userClickedHelpful: false,
     }
 
   }
 
   handleHelpful = event => {
-    axios.put(`http://localhost:3000/qa/questions/${this.state.question.question_id}/helpful`)
-    .then((response) => {
-      // console.log('helpful question clicked, sent to server, returned with', response);
-      console.log('SingleQuestionBar helpfulHander clicked, sent to server, returned with: ', response.data);
-      this.props.refresh();
-    })
-    .catch((err) => {
-      // console.log('error in the return of reporting question helpful', err);
-    })
+    if (!this.state.userClickedHelpful) {
+
+      axios.put(`http://localhost:3000/qa/questions/${this.state.question.question_id}/helpful`)
+      .then((response) => {
+        // console.log('helpful question clicked, sent to server, returned with', response);
+        console.log('SingleQuestionBar helpfulHander clicked, sent to server, returned with: ', response.data);
+        this.props.refresh();
+        this.setState({userClickedHelpful: true});
+      })
+      .catch((err) => {
+        // console.log('error in the return of reporting question helpful', err);
+      })
+
+    }
   }
 
   render () {

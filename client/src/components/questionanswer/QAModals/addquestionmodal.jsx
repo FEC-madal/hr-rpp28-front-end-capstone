@@ -122,12 +122,11 @@ class AddQuestionModal extends React.Component {
 
 
     return (
-        <div className='modal-q' >
+        <div className='qa_modal'>
           <div className='modal-content-q'>
 
             <div className='modal-header-q'>
               <div className='modal-title-q'>Ask Your Question</div> <br></br>
-              about your product []
             </div>
 
             {this.state.questionbodyIsInvalid ?  <div style={alertstyle}>You must enter a question</div> : <div></div>}
@@ -198,10 +197,15 @@ class QuestionModalType2 extends React.Component {
   }
 
   render() {
-    console.log('is question modal type 2 called');
+    
     return(
       <span>
-        <button id="myBtn" onClick={this.openModal}>Add Question Modal 2</button>
+
+        <div className="qa_buttonbar" onClick={this.openModal}>
+          ADD A QUESTION +
+        </div> 
+      
+
         <div id="add_q" className="modal">
           <div className="modal-content-addQuestion">
             <span className="close-addQuestion" onClick={this.closeModal}>&times;</span>

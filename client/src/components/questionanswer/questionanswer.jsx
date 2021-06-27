@@ -20,13 +20,40 @@ function AdditionalQuestionBar(props) {
 
   }
 
+  var buttonStyle ={
+    width: '100px',
+    height: '40px',
+    border: '1px solid black',
+    font: 'arial',
+  }
+
+  var boxStyle = {
+    height: '80px',
+    padding: '20px',
+  }
+
+  var spanStyle ={
+    width: '100px',
+    border: '1px solid black',
+  }
+
+
   return (
-    <div>
-      <form name='additional'>
-        {moreAnsweredQuestions}
-        {/* <input type='button' value='Add a Question +' onClick={props.addQuestionButton}>
-        </input> */}
-      </form>
+    <div style={boxStyle}>
+      <table>
+        <tr>
+          <td className="qa_buttonbar" onClick={props.moreAnsweredQuestions}>
+            MORE ANSWERED QUESTIONS
+          </td>
+          <td className="qa_paddingbutton">
+                   
+          </td>
+          <td>
+              <QuestionModalType2 currentProduct={props.currentProduct}/>
+          </td>
+        </tr>
+      </table>
+      
     </div>
   )
 }
@@ -133,10 +160,12 @@ class QuestionAnswer extends React.Component {
     // console.log('passed event handler clicked for show Question Modal Window!');
     // console.log('passing this into props', this.state.showQModal);
     this.setState({showQModal: !this.state.showQModal});
+    console.log('load more questions called');
   }
 
   loadMoreQuestions() {
     this.setState({defaultlength: this.state.defaultlength + 2 });
+    
   }
 
   render () {
@@ -179,9 +208,7 @@ class QuestionAnswer extends React.Component {
             </tbody>
           </table>
         </div>
-          
-        <div className="sticky"><AdditionalQuestionBar totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
-        </div>
+        <AdditionalQuestionBar currentProduct={this.props.currentProduct} totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
 
 {/* 
           <tr key={12}>

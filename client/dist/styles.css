@@ -432,6 +432,8 @@ table.add-review tr {
 }
 
 
+
+
 .modal-content-addQuestion {
   background-color: #fefefe;
    /* 15% from the top and centered */
@@ -485,6 +487,28 @@ table.add-review tr {
   align: 'left';
   font-family:'arial';
   width: 100%
+}
+
+.qa_buttonbar {
+
+  width: '100px';
+  height: '80px';
+  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+
+}
+
+.qa_paddingbutton {
+  width: '100px';
+  height: '40px';
+  border: 1px solid black;
+}
+
+.qa_modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: bold;
 }
 
 

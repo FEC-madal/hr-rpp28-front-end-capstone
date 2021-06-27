@@ -9,6 +9,7 @@ class SingleAnswerBar extends React.Component {
     this.state = {
       answer: '',
       reported: false,
+      userClickedHelpful: false,
     };
 
   }
@@ -19,15 +20,18 @@ class SingleAnswerBar extends React.Component {
   }
 
   handleHelpful = event => {
-    axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/helpful`)
-    .then((response) => {
-      console.log('SingleAnswerBar helpful clicked, sent to server, returned with', response.data);
-      this.props.refresh();
-    })
-    .catch(err => {
-      console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
+    if (!this.state.userClickedHelpful) {
+      axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/helpful`)
+      .then((response) => {
+        console.log('SingleAnswerBar helpful clicked, sent to server, returned with', response.data);
+        this.props.refresh();
+        this.setState({userClickedHelpful: true});
+      })
+      .catch(err => {
+        console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
 
-    });
+      });
+    }
   }
 
   handleReport = event => {
