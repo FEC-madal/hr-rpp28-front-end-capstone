@@ -105,6 +105,17 @@ div.scrollable {
   display: none;
 }
 
+input[type='button'].morebutton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  height: 50px;
+  border: 1px solid black;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+
 
 /* Review & Ratings - This section for the star-rating section & progress bars */
 

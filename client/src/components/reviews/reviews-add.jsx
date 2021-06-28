@@ -57,7 +57,6 @@ class AddReview extends React.Component {
     this.setState({
       [name]: value
     });
-    console.log('this is the current state: ', this.state);
   }
 
   chosenStars(stars) {
@@ -96,12 +95,7 @@ class AddReview extends React.Component {
 
 
   postReview(event) {
-    //first thing is to check
-        //mandatory fields are blank
-         //stars
-         //chars
-         //body
-       //use the alert to tell them what is wrong
+
     if (this.state.rating === 0) {
       alert('You must enter the following: Overall Star Rating');
       event.preventDefault();
@@ -132,7 +126,7 @@ class AddReview extends React.Component {
   render() {
     return(
       <span>
-        <button id="myBtn" onClick={this.openModal}>Add A Review +</button>
+        <input type="button" className="morebutton" id="myBtn" onClick={this.openModal} value="Add A Review +"/>
         <div id="addReview" className="modal">
           <div className="modal-content-addReview">
             <span className="close-addReview" onClick={this.closeModal}>&times;</span>

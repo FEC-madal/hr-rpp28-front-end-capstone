@@ -16,7 +16,8 @@ class Reviews extends React.Component {
       reviewList: [],
       allReviews: [],
       totalRatings: '',
-      stars: [] //going to use this for sort later
+      stars: [], //going to use this for sort later
+      clickTracking: []
     };
     //this.binds go here
     this.metaData = this.metaData.bind(this);
@@ -26,6 +27,7 @@ class Reviews extends React.Component {
     this.starSort = this.starSort.bind(this);
     this.relevant = this.relevant.bind(this);
     this.dateDiff = this.dateDiff.bind(this);
+    this.clickThrough = this.clickThrough.bind(this);
   }
   //functions go here
   metaData() {
@@ -44,11 +46,6 @@ class Reviews extends React.Component {
       .then(() => {
         this.numberOfReviews(this.state.ratingsBreakdown);
       });
-      // .then(() => {
-      //   this.initialReviews(this.state.numberOfReviews);
-      //   console.log('Refactor this is the state after Meta: ', this.state);
-      // })
-
   }
 
   numberOfReviews(ratings) {
@@ -73,7 +70,6 @@ class Reviews extends React.Component {
       }
     })
       .then((response) => {
-        // console.log(response.data);
         this.relevant(response.data.results)
           .then( (array) => {
             this.setState({
@@ -90,7 +86,6 @@ class Reviews extends React.Component {
       reviewList: array,
       allReviews: array
     });
-    console.log('this what is recieved', array);
   }
 
 
@@ -117,9 +112,7 @@ class Reviews extends React.Component {
        return  starHolder.includes(review['rating'])
     })
       .then((results) => {
-        console.log('something', this.state.stars);
         if (this.state.stars.length === 0) {
-          console.log('empty');
           this.setState({
             reviewList: this.state.allReviews
           });
@@ -167,9 +160,25 @@ class Reviews extends React.Component {
     this.metaData();
   }
 
+  clickThrough(event) {
+
+    const timeStamp = event.timeStamp;
+    const dateObject = new Date();
+    const readableTime = dateObject.toLocaleString()
+    const target = event.target;
+    const name = "Review Widget"
+    let submissionHolder = {time: readableTime, element: target, name: name}
+    let submission = [... this.state.clickTracking];
+    submission.push(submissionHolder);
+    this.setState({
+      clickTracking: submission
+    });
+    console.log(this.state.clickTracking);
+  }
+
   render() {
     return(
-      <div className="reviews-container">
+      <div className="reviews-container" onClick={this.clickThrough}>
             <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
             <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
       </div>

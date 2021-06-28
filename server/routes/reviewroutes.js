@@ -51,14 +51,11 @@ router.post('/postreview', (req, res) => {
 
 
 router.put('/helpful', (req, res) => {
-  console.log('This should be :', req.body)
   putHelpful(req.body.data, (err, data) => {
-    // console.log('we are here');
     if (err) {
-      // console.log(err);
-      // res.send(err);
+
+      res.send(err);
     } else {
-      console.log('updated the helpfulness ', data)
       res.send(data);
     }
   });
@@ -79,7 +76,6 @@ router.put('/report', (req, res) => {
 router.post('/uploadphoto', (req, res) => {
   if (req.files.reviewphoto) {
     fs.writeFile(`./client/dist/${req.files.reviewphoto.name}`, req.files.reviewphoto.data, (err) => {
-      console.log('did we make it?')
       if (err) {
         // return console.log(err);
       } else {
@@ -104,7 +100,6 @@ router.post('/uploadphoto', (req, res) => {
           if (err) {
             console.log("Error", err);
           } if (data) {
-            console.log("Upload Success", data);
             res.send(data);
           }
         });
@@ -172,7 +167,6 @@ const postReview = (data, callback) => {
 
   })
     .then((response) => {
-      console.log('successful review post: ');
       callback(null, response.data);
     })
     .catch((err) => {

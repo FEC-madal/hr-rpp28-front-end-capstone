@@ -20,9 +20,7 @@ class IRT extends React.Component {
   //functions here
   helpful() {
     let review_id = this.props.review.review_id;
-    // console.log('this is the review ID: ', review_id);
     if (this.state.checkedClicked === true) {
-      console.log('you already clicked please stop clicking');
     } else  {
       axios.put( 'reviews/helpful',{
         data: review_id
@@ -67,42 +65,7 @@ class IRT extends React.Component {
     )
   }
 }
-// function IRT(props) {
-//   const date = new Date(props.review.date.toString()).toLocaleString('en-us', {month: 'long', day: 'numeric', year : 'numeric'});
-//   const check = '✓';
-//   let checkedClicked = false;
-//   const helpful = () => {
-//     let review_id = props.review.review_id;
-//     // console.log('this is the review ID: ', review_id);
-//     if (checkedClicked === true) {
-//       console.log('you already clicked please stop clicking');
-//     } else  {
-//       console.log('this is the review ID: ', review_id)
-//       axios.put( 'reviews/helpful',{
-//         data: review_id
-//       })
-//         .then(() => {
-//           props.getReviews();
-//           checkedClicked = true
-//           console.log("shows click status: ", )
-//         })
-//     }
-//   }
-//   return(
-//     <div >
-//       <div id="textbox">
-//        <p className="alignleft stars-noclick"><StarRating rating={props.review.rating}/></p>
-//        <p className="alignright">{props.review.reviewer_name}, {date}</p>
-//       </div>
-//       <div className="reviews-summary">{props.review.summary}</div>
-//       <div><ReviewBody body={props.review.body}/></div>
-//       <div><ReviewPhotos photos={props.review.photos}/></div>
-//       <div className={props.review.recommend ? null : "product-hidden" }>{`${check}` + ' ' + "I recommend this product"}</div>
-//       <div className={props.review.response ? null: "product-hidden"}><span className="review-seller">Response from Seller: {props.review.response}</span></div>
-//       <div>Helpful? <a href="javascript:void(0);" onClick={() => {helpful()}}>Yes</a> ({helpfulness}) | Report</div>
-//     </div>
-//   );
-// }
+
 
 export default IRT;
 
