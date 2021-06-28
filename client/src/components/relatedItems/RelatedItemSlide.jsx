@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
-// import PropTypes from 'prop-types';
-// Star Rating and average rating import or logic
+import PropTypes from 'prop-types';
 import Ratings from '../reviews/breakdown-rating.jsx';
 import Stars from '../reviews/starsrating.jsx';
 
@@ -83,7 +82,6 @@ class RelatedItemSlide extends React.Component {
       .catch((err) => {
         console.log('Error fetching photos in relatedItemSlide: ', err);
       });
-    // Axios reqquest for reviews and stars
   }
 
   compareFeatures(parentFeature, productFeature) {
@@ -173,13 +171,14 @@ class RelatedItemSlide extends React.Component {
           photoLoaded === 2
           && (
             <SlideContainer>
-              <ButtonWrap>
+              <ButtonWrap aria-label="Compare Items">
                 <CompareButton
                   className="fa fa-star"
                   onClick={this.handleModalClick}
+                  aria-label="Compare Items"
                 />
               </ButtonWrap>
-              <ImageWrap onClick={this.newProduct}>
+              <ImageWrap onClick={this.newProduct} aria-label="Show new Product">
                 <Image src={photoURL} alt={productInfo.name} />
               </ImageWrap>
               <StarsWrap>
@@ -214,11 +213,12 @@ class RelatedItemSlide extends React.Component {
   }
 };
 
-// RelatedItemSlide.propTypes = {
-//   parentInfo: PropTypes.string,
-//   productId: PropTypes.string,
-//   updateProduct: PropTypes.func
-// };
+RelatedItemSlide.propTypes = {
+  parentInfo: PropTypes.object,
+  productId: PropTypes.number,
+  updateProduct: PropTypes.func,
+  rating: PropTypes.number
+};
 
 const SlideContainer = styled.div`
 height: 400px;

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import OutfitSlide from './OutfitSlide.jsx';
+import PropTypes from 'prop-types';
 // Star ratings
 
 class OutfitList extends React.Component {
@@ -170,7 +171,7 @@ class OutfitList extends React.Component {
       <>
         {showScrollRight ? (
             <RightButtonWrap>
-              <RightButton onClick={this.scrollRight}>
+              <RightButton onClick={this.scrollRight} aria-label="Scroll Right">
                 &#8250;
               </RightButton>
             </RightButtonWrap>
@@ -201,7 +202,7 @@ class OutfitList extends React.Component {
         {showScrollLeft
           ? (
             <LeftButtonWrap>
-              <LeftButton onClick={this.scrollLeft}>
+              <LeftButton onClick={this.scrollLeft} aria-label="Scroll Left">
                 &#8249;
               </LeftButton>
             </LeftButtonWrap>
@@ -209,6 +210,11 @@ class OutfitList extends React.Component {
       </>
     );
   }
+};
+
+OutfitList.propTypes = {
+  parentId: PropTypes.number,
+  updateProduct: PropTypes.func
 }
 
 const ListWrap = styled.div`

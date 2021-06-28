@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import RelatedItemsList from './RelatedItemsList.jsx';
 import OutfitList from './OutfitList.jsx';
 
@@ -19,7 +20,9 @@ class RelatedMain extends React.Component {
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
         <div>
+          <section>
           <h3>Related items you may also like</h3>
+          </section>
         </div>
         <ListWrap>
           <RelatedItemsList
@@ -30,13 +33,14 @@ class RelatedMain extends React.Component {
           />
         </ListWrap>
         <div>
+        <section>
           <h3>Your Outfit</h3>
+        </section>
         </div>
         <ListWrap>
           <OutfitList
             parentId={productId}
             updateProduct={updateProduct}
-            // getRatings={getRatings}
           />
         </ListWrap>
       </RelatedModuleWrap>
@@ -45,10 +49,12 @@ class RelatedMain extends React.Component {
   }
 };
 
-// RelatedMain.propTypes = {
-//   productId: PropTypes.string,
-//   updateProduct: PropTypes.func
-// };
+RelatedMain.propTypes = {
+  productId: PropTypes.number,
+  updateProduct: PropTypes.func,
+  relatedItems: PropTypes.array,
+  ratings: PropTypes.object
+};
 
 const RelatedModuleWrap = styled.div`
 padding: 5px 40px 0px 40px;

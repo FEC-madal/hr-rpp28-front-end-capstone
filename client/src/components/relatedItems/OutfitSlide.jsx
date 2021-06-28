@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// Star Rating
+import PropTypes from 'prop-types';
 import Ratings from '../reviews/breakdown-rating.jsx';
 import Stars from '../reviews/starsrating.jsx';
 
@@ -104,6 +104,12 @@ class OutfitSlide extends React.Component {
       </>
     );
   }
+};
+
+OutfitSlide.propTypes = {
+  outfit: PropTypes.object,
+  removeOutfit: PropTypes.func,
+  updateProduct: PropTypes.func
 }
 
 const CardWrap = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Modal = (props) => {
   const { parentName, compareName, compareFeatures } = props;
@@ -38,12 +38,12 @@ const Modal = (props) => {
   );
 };
 
-// Modal.propTypes = {
-//   parentName: PropTypes.string,
-//   compareName: PropTypes.string,
-//   compareFeatures: PropTypes.array,
-//   close: PropTypes.func
-// };
+Modal.propTypes = {
+  parentName: PropTypes.string,
+  compareName: PropTypes.string,
+  compareFeatures: PropTypes.array,
+  close: PropTypes.func
+};
 
 const CompareWrapper = styled.div`
   display: grid;

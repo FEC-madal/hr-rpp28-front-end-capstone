@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import RelatedItemSlide from './RelatedItemSlide.jsx';
 
 class RelatedProductList extends React.Component {
@@ -83,7 +83,7 @@ class RelatedProductList extends React.Component {
         {showScrollRight
           ? (
             <RightButtonWrapper>
-              <RightButton onClick={this.scrollRight}>
+              <RightButton onClick={this.scrollRight} aria-label="Scroll Right">
                 &#8250;
               </RightButton>
             </RightButtonWrapper>
@@ -92,7 +92,7 @@ class RelatedProductList extends React.Component {
           {relatedItems.map((data) => {
             return (
               <RelatedItemSlide
-                key={productId}
+                key={data}
                 productId={data}
                 parentId={productId}
                 parentInfo={parentInfo}
@@ -105,7 +105,7 @@ class RelatedProductList extends React.Component {
         {showScrollLeft
           ? (
             <LeftButtonWrapper>
-              <LeftButton onClick={this.scrollLeft}>
+              <LeftButton onClick={this.scrollLeft} aria-label="Scroll Left">
                 &#8249;
               </LeftButton>
             </LeftButtonWrapper>
@@ -115,11 +115,12 @@ class RelatedProductList extends React.Component {
   }
 };
 
-// RelatedProductList.propTypes = {
-//   relatedItems: PropTypes.array,
-//   productId: PropTypes.string,
-//   updateProduct: PropTypes.func
-// };
+RelatedProductList.propTypes = {
+  relatedItems: PropTypes.array,
+  productId: PropTypes.number,
+  updateProduct: PropTypes.func,
+  ratings: PropTypes.object
+};
 
 const ListContainer = styled.div`
   display: flex;
