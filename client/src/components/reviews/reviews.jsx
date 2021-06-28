@@ -24,6 +24,8 @@ class Reviews extends React.Component {
     this.numberOfReviews = this.numberOfReviews.bind(this);
     this.sortedReviews = this.sortedReviews.bind(this);
     this.starSort = this.starSort.bind(this);
+    this.relevant = this.relevant.bind(this);
+    this.dateDiff = this.dateDiff.bind(this);
   }
   //functions go here
   metaData() {
@@ -71,10 +73,15 @@ class Reviews extends React.Component {
       }
     })
       .then((response) => {
-        this.setState({
-          reviewList: response.data.results,
-          allReviews: response.data.results
-        });
+        // console.log(response.data);
+        this.relevant(response.data.results)
+          .then( (array) => {
+            this.setState({
+              reviewList: array,
+              allReviews: array
+            });
+          });
+
       })
   }
 
@@ -83,6 +90,7 @@ class Reviews extends React.Component {
       reviewList: array,
       allReviews: array
     });
+    console.log('this what is recieved', array);
   }
 
 
@@ -123,18 +131,47 @@ class Reviews extends React.Component {
       });
   }
 
+  relevant(reviews) {
+    return new Promise ( (resolve, reject) => {
+      let relevant = [ ... reviews];
+      for (let i = 0; i < relevant.length; i++) {
+          // relevant[i][Date] = 12;
+          let dateNum = this.dateDiff(new Date(relevant[i].date), new Date());
+          if (dateNum >= 0 && dateNum <= 30) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 2) + relevant[i]["helpfulness"]
+          }
+
+          if (dateNum >= 31 && dateNum <= 180) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 3) + relevant[i]["helpfulness"]
+
+          }
+
+          if (dateNum >= 181 ) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 5) + relevant[i]["helpfulness"]
+          }
+
+      }
+      resolve(relevant.sort( (a, b) => {
+        return b.ranking - a.ranking;
+      }));
+    });
+  }
+
+  dateDiff(d1, d2) {
+    let diff = Math.abs(d1.getTime() - d2.getTime());
+    return (diff / (1000 * 60 * 60 * 24)).toFixed();
+  }
+
+
   componentDidMount() {
     this.metaData();
-    // this.initialReviews();
-    // first will be the metaData
-    // next will be the get rviuews based off of the meta data number - call that in the meta data call
   }
 
   render() {
     return(
       <div className="reviews-container">
             <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
-            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews}/></div>
+            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
       </div>
     )
   }
@@ -142,3 +179,5 @@ class Reviews extends React.Component {
 }
 
 export default Reviews;
+
+

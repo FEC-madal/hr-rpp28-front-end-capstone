@@ -11,8 +11,6 @@ class IRT extends React.Component {
     this.state= {
       helpful: this.props.review.helpfulness,
       checkedClicked: false,
-      date: new Date(this.props.review.date.toString()).toLocaleString('en-us', {month: 'long', day: 'numeric', year : 'numeric'}),
-
     }
     //this.bind here
     this.helpful = this.helpful.bind(this);
@@ -55,7 +53,7 @@ class IRT extends React.Component {
       <div >
       <div id="textbox">
        <p className="alignleft stars-noclick"><StarRating rating={this.props.review.rating}/></p>
-       <p className="alignright">{this.props.review.reviewer_name}, {this.state.date}</p>
+       <p className="alignright">{this.props.review.reviewer_name}, {new Date(this.props.review.date.toString()).toLocaleString('en-us', {month: 'long', day: 'numeric', year : 'numeric'})}</p>
       </div>
       <div className="reviews-summary">{this.props.review.summary}</div>
       <div><ReviewBody body={this.props.review.body}/></div>

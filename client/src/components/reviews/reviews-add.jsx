@@ -103,26 +103,22 @@ class AddReview extends React.Component {
          //body
        //use the alert to tell them what is wrong
     if (this.state.rating === 0) {
-      alert('Please select an Overall Star Rating');
+      alert('You must enter the following: Overall Star Rating');
       event.preventDefault();
     } else if (this.state.body.length === 0 || this.state.body.length < 50 ) {
-      alert('Your review body must have more than 50 characters')
+      alert('You must enter the following: Your review body must have more than 50 characters')
       event.preventDefault();
     } else if ((Object.keys(this.state.characteristics).length) !== Object.keys(this.props.chars).length) {
-      console.log(Object.keys(this.state.characteristics).length)
-      console.log(Object.keys(this.props.chars).length)
-      alert('Please select all Characteristics buttons')
+      alert('You must enter the following: Characteristics buttons')
       event.preventDefault();
     } else {
       delete this.state.reviewBodyRemaining
-      console.log('thsi is the sate befor esenidng: ', this.state);
       axios({
         method: 'post',
         url: 'reviews/postreview',
         data: this.state
       })
         .then((response) => {
-          console.log(response);
         });
 
     }
@@ -151,15 +147,16 @@ class AddReview extends React.Component {
                     <span>Nick Name: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="text" id="name" name="name" maxLength="60" onChange={this.onChange} required/>
+                  <input type="text" id="name" name="name" maxLength="60" onChange={this.onChange} placeholder="Example: jackson11!" required/>
                 </p>
                 <p>
                   <label htmlFor="mail">
                     <span>E-mail: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="email" id="mail" name="email" maxLength="60" onChange={this.onChange} required/>
+                  <input type="email" id="mail" name="email" maxLength="60" onChange={this.onChange} placeholder="Example: jackson11@email.com" required/>
                 </p>
+                <p>For authentication reasons, you will not be emailed</p>
               </section>
               <section>
                 <h2>Overall Ratings</h2>

@@ -10,6 +10,7 @@ class Sorted extends React.Component {
       relevant: [],
       helpful: [],
       newest: [],
+      allReviews: this.props.allReviews,
       value: "Relevant"
     };
     //this.bind here
@@ -42,7 +43,9 @@ class Sorted extends React.Component {
           });
         })
         .then( () => {
+          console.log("this is what is being sent over: ", this.state.newest)
           this.props.sortedReviews(this.state.newest);
+
         });
     }
     if (sortType === 'relevant') {
@@ -76,6 +79,7 @@ class Sorted extends React.Component {
   newest() {
     return new Promise ( (resolve, reject) => {
       let newest = [ ... this.props.reviews];
+      console.log(newest);
       resolve(newest.sort( (a, b) => {
         return new Date(b.date) - new Date(a.date);
       }));

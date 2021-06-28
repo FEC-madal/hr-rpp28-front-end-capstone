@@ -41,7 +41,7 @@ class ReviewsList extends  React.Component {
     });
     return (
       <div>
-      <div><Sorted totalRatings={this.props.totalRatings} reviews={this.props.reviews} relevant={this.props.reviews} sortedReviews={this.props.sortedReviews} /></div>
+      <div><Sorted totalRatings={this.props.totalRatings} reviews={this.props.reviews} allReviews={this.props.allReviews} relevant={this.props.reviews} sortedReviews={this.props.sortedReviews} /></div>
       <div className={(this.state.count >= 6) ? "reviews-scroll" : null  }>
             {reviewList}
       </div>
