@@ -29,7 +29,6 @@ class OutfitList extends React.Component {
     if (parentId !== undefined) {
       axios.get(`relatedItems/products/?productId=${parentId}`)
         .then((data) => {
-          console.log('data.data: ', data.data);
           this.setState({
             parentInfo: data.data,
           });
@@ -192,6 +191,7 @@ class OutfitList extends React.Component {
                     updateProduct={updateProduct}
                     removeOutfit={this.removeOutfit}
                     parentId={parentId}
+                    rating={2.6}
                   />
                   );
                 })}

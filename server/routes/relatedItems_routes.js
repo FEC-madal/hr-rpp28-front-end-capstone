@@ -53,6 +53,23 @@ router.get('/products', (req, res) => {
   });
 });
 
+router.get('/reviews/meta', (req, res) => {
+  const builtURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta?product_id=${req.query.product_id}`;
+
+    axios.get(builtURL, {
+      headers: {
+        'User-Agent': 'request',
+        Authorization: RI_TOKEN.AUTH.Authorization
+      },
+    })
+      .then((metaData) => {
+        res.send(metaData.data.ratings);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+})
+
 router.get('/outfits', (req, res) => {
   outfit.getAllOutfits((err, data) => {
     if (err) {

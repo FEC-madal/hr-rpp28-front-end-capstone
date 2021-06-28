@@ -70,8 +70,9 @@ class RelatedProductList extends React.Component {
   }
 
   render() {
-    const { relatedItems, productId, updateProduct } = this.props;
+    const { relatedItems, productId, updateProduct, ratings } = this.props;
     const { parentInfo, showScrollLeft, showScrollRight } = this.state;
+
     if (parentInfo.length === 0) {
       return (
         null
@@ -88,15 +89,18 @@ class RelatedProductList extends React.Component {
             </RightButtonWrapper>
           ) : null}
         <ListContainer id="productCarousel" onLoad={this.overflow}>
-          {relatedItems.map((data) => (
-            <RelatedItemSlide
-              key={productId}
-              productId={data}
-              parentId={productId}
-              parentInfo={parentInfo}
-              updateProduct={updateProduct}
-            />
-          ))}
+          {relatedItems.map((data) => {
+            return (
+              <RelatedItemSlide
+                key={productId}
+                productId={data}
+                parentId={productId}
+                parentInfo={parentInfo}
+                updateProduct={updateProduct}
+                rating={ratings[data]}
+              />
+            );
+          })}
         </ListContainer>
         {showScrollLeft
           ? (

@@ -37,54 +37,106 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22161,
+      productId: 22122,
       relatedItems: [],
+      relatedItemsRatings: {},
       productData: {},
-      metaData: {},
     };
-
-    // Tim's RelatedItems bindings
+    this.ratingData = {};
+    this.getRelated = this.getRelated.bind(this);
+    this.getRatings = this.getRatings.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
   }
 
   componentDidMount() {
-    // Get product data
+    this.getRelated(this.state.productId);
+  }
 
-    // Get metaData
-    const { productId } = this.state;
+  getRelated(productId) {
     axios.get(`/relatedItems/products/?productId=${productId}&flag=related`)
       .then((relatedIds) => {
         this.setState({
           relatedItems: relatedIds.data,
         });
+        return relatedIds.data;
+      })
+      // get related product ratings
+      .then((relatedItemsIds) => {
+        let relatedRatings = relatedItemsIds.map((item) => {
+          return this.getRatings(item);
+        })
+        this.setState({
+          relatedItemsRatings: relatedRatings
+        });
+      })
+      .then(() => {
+        let { relatedItemsRatings } = this.state;
+        for (let i = 0; i < relatedItemsRatings.length; i++) {
+          if (relatedItemsRatings[i] === undefined) {
+            relatedItemsRatings.splice(i);
+          }
+        }
+        this.setState({
+          relatedItemsRatings: relatedItemsRatings
+        })
       })
       .catch((err) => {
         console.log('Error fetching Related Product IDs: ', err);
       });
-
   }
 
-  // Tim's methods for RelatedProducts and Outfit List
+  getRatings(productId) {
+    axios.get(`/relatedItems/reviews/meta?product_id=${productId}`)
+      .then((ratings) => {
+        let newRatings = {
+          1: '0',
+          2: '0',
+          3: '0',
+          4: '0',
+          5: '0'
+        }
+
+        for (var key in ratings.data) {
+          newRatings[key] = ratings.data[key];
+        }
+
+        let divisor = 0;
+        let numerator = (parseInt(newRatings['1']) * 1) + (parseInt(newRatings['2']) * 2) + (parseInt(newRatings['3']) * 3) + (parseInt(newRatings['4']) * 4) + (parseInt(newRatings['5']) * 5);
+
+        for (let key in newRatings) {
+          divisor = divisor + parseInt(newRatings[key]);
+        }
+
+        let average = numerator / divisor;
+
+        if (isNaN(average)) {
+          average = 0;
+        }
+
+        let objKey = productId;
+        this.ratingData[objKey] = average;
+
+        this.setState({
+          relatedItemsRatngs: this.ratingData
+        });
+      })
+      .catch((err) => {
+        console.log('Error fetching meta data: ', err);
+      });
+  }
+
   updateProduct(newProductId) {
     this.setState({
       productId: newProductId,
-      relatedItems: []
+      relatedItems: [],
+      relatedItemsRatings: []
     });
 
-    axios.get(`/relatedItems/products/?productId=${newProductId}&flag=related`)
-    .then((relatedIds) => {
-      this.setState({
-        relatedItems: relatedIds.data,
-      });
-    })
-    .catch((err) => {
-      console.log('Error fetching Related Product IDs: ', err);
-    });
+    this.getRelated(newProductId);
   }
 
   render () {
-    let { productId, relatedItems } =  this.state;
-
+    let { productId, relatedItems, relatedItemsRatings } =  this.state;
     return (
       <div>
         <h1>FEC React Main App</h1>
@@ -92,8 +144,9 @@ class App extends React.Component {
         <br></br>
         <RelatedMain
           productId={productId}
-          updateProduct={this.updateProduct}
           relatedItems={relatedItems}
+          ratings={this.ratingData}
+          updateProduct={this.updateProduct}
         />
         <br></br>
         <br></br>

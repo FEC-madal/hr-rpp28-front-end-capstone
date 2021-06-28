@@ -15,7 +15,7 @@ class RelatedMain extends React.Component {
   }
 
   render() {
-    const { productId, updateProduct, relatedItems } = this.props;
+    const { productId, updateProduct, relatedItems, ratings } = this.props;
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
         <div>
@@ -25,6 +25,7 @@ class RelatedMain extends React.Component {
           <RelatedItemsList
             productId={productId}
             relatedItems={relatedItems}
+            ratings={ratings}
             updateProduct={updateProduct}
           />
         </ListWrap>
@@ -35,6 +36,7 @@ class RelatedMain extends React.Component {
           <OutfitList
             parentId={productId}
             updateProduct={updateProduct}
+            // getRatings={getRatings}
           />
         </ListWrap>
       </RelatedModuleWrap>

@@ -150,6 +150,8 @@ class RelatedItemSlide extends React.Component {
       clickModal,
     } = this.state;
 
+    const { rating } = this.props;
+
     const sale = {
       color: salePrice ? 'red' : 'black',
       textDecoration: salePrice ? 'line-through' : 'none',
@@ -182,7 +184,7 @@ class RelatedItemSlide extends React.Component {
               </ImageWrap>
               <StarsWrap>
               <div className="stars-noclick">
-                <Stars />
+                <Stars rating={rating}/>
               </div>
               </StarsWrap>
               <ProductContentWrap style={{ fontSize: '15px'}}>{productInfo.category}</ProductContentWrap>
