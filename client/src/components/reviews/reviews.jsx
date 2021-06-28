@@ -90,7 +90,9 @@ class Reviews extends React.Component {
   starSort(stars) {
     let starsReviews = [... this.state.allReviews];
     let starHolder = [... this.state.stars];
-    if (starHolder.indexOf(stars) !== -1) {
+    if (stars === "remove") {
+      starHolder = [];
+    } else if (starHolder.indexOf(stars) !== -1) {
       starHolder.splice(starHolder.indexOf(stars), 1);
     } else {
       starHolder.push(stars);
@@ -131,7 +133,7 @@ class Reviews extends React.Component {
   render() {
     return(
       <div className="reviews-container">
-            <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown}/></div>
+            <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
             <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews}/></div>
       </div>
     )
