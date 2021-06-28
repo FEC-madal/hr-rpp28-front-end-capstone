@@ -39,16 +39,18 @@ class App extends React.Component {
       },
       productId: 22161,
       metaData: {},
+      productList: {},
     };
 
     this.updateProduct = this.updateProduct.bind(this);
   }
 
   componentDidMount() {
-
-
-    // this.reviews()
-
+    axios.get('http://localhost:3000/qa/products')
+      .then(response => {
+        console.log('list of products', response.data);
+        this.setState({productList: response.data});
+      });
   }
 
   updateProduct(productId) {
@@ -82,7 +84,7 @@ class App extends React.Component {
         <br></br>
         <br></br>
         <h1>Questions and Answers </h1>
-        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} defaultProduct={this.state.defaultProduct}/></div>
+        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.secondProduct.name} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
         <div><Reviews product_id={this.state.defaultProduct}/></div>

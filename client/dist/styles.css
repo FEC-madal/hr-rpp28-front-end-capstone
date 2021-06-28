@@ -489,14 +489,34 @@ table.add-review tr {
   width: 100%
 }
 
-.qa_buttonbar {
+.qa_buttonwrapper > div {
 
   width: '100px';
   height: '80px';
   border: 1px solid black;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
+  display: inline-block;
+  padding: 10px;
+  margin-right: 25px;
 
+}
+
+.qa_inlineparent > div {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.qa_inline {
+  display: inline-block;
+}
+
+.qa_barright {
+  float: right;
+}
+
+.qa_barleft {
+  float: left;
 }
 
 .qa_paddingbutton {

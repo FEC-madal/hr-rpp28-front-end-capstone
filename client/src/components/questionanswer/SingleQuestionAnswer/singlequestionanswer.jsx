@@ -103,11 +103,12 @@ class SingleQuestionAnswer extends React.Component {
     // let answerBars = Object.keys(this.props.question.answers).slice(0, this.state.defaultlength).map(key =>
     //   <tr><SingleAnswerBar answer = {this.props.question.answers[key]} reloadQuestionAnswer={this.props.reloadQuestionAnswer}/></tr>);
 
+    
     return (
       <td>
         <br></br>
         <div className='singlequestionbar'>
-        <SingleQuestionBar question={this.props.question} AModalHandler={this.showAModalHandler.bind(this)} refresh={this.props.refresh}/>
+        <SingleQuestionBar question={this.props.question} AModalHandler={this.showAModalHandler.bind(this)} refresh={this.props.refresh} productName={this.props.productName}/>
         </div>
         {answerBars}
           {seeMoreAnswers}

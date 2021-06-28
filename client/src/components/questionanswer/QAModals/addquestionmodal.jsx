@@ -64,10 +64,11 @@ class AddQuestionModal extends React.Component {
         product_id: this.props.currentProduct,
       })
         .then((response) => {
-          // console.log('question submitted returned with', response);
+          console.log('question submitted returned with', response);
+          this.props.closeModal();
         })
         .catch((err) => {
-          // console.log('error in submitting question', err);
+          console.log('error in submitting question', err);
         });
     }
     else {
@@ -209,7 +210,7 @@ class QuestionModalType2 extends React.Component {
         <div id="add_q" className="modal">
           <div className="modal-content-addQuestion">
             <span className="close-addQuestion" onClick={this.closeModal}>&times;</span>
-            <AddQuestionModal show={true} currentProduct={this.props.currentProduct}/> 
+            <AddQuestionModal show={true} currentProduct={this.props.currentProduct} closeModal={this.closeModal}/> 
           </div>
         </div>
       </span>
