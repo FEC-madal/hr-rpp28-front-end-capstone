@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
+// import PropTypes from 'prop-types';
 // Star Rating and average rating import or logic
 import Ratings from '../reviews/breakdown-rating.jsx';
 import Stars from '../reviews/starsrating.jsx';
@@ -39,7 +40,7 @@ class RelatedItemSlide extends React.Component {
 
   getData() {
     const { productId, parentInfo } = this.props;
-    axios.get(`relatedItems/products/?productId=${productId}`)
+    axios.get(`/relatedItems/products/?productId=${productId}`)
       .then((data) => {
         this.setState({
           productInfo: data.data,
@@ -52,7 +53,7 @@ class RelatedItemSlide extends React.Component {
         console.log('Error fetching product info for RelatedItemSlide: ', err);
       });
 
-    axios.get(`relatedItems/products/?productId=${productId}&flag=styles`)
+    axios.get(`/relatedItems/products/?productId=${productId}&flag=styles`)
       .then((data) => {
         let thumbnail = '';
         const mainProductDescription = data.data.results.find((product) => product['default?'] === true);
@@ -209,7 +210,13 @@ class RelatedItemSlide extends React.Component {
       </div>
     );
   }
-}
+};
+
+// RelatedItemSlide.propTypes = {
+//   parentInfo: PropTypes.string,
+//   productId: PropTypes.string,
+//   updateProduct: PropTypes.func
+// };
 
 const SlideContainer = styled.div`
 height: 400px;

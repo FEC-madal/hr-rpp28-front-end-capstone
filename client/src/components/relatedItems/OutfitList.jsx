@@ -29,6 +29,7 @@ class OutfitList extends React.Component {
     if (parentId !== undefined) {
       axios.get(`relatedItems/products/?productId=${parentId}`)
         .then((data) => {
+          console.log('data.data: ', data.data);
           this.setState({
             parentInfo: data.data,
           });
@@ -84,7 +85,7 @@ class OutfitList extends React.Component {
         outfits: [],
       });
 
-      axios.post('relatedItems/outfits', newOutfitInfoObject)
+      axios.post('/relatedItems/outfits', newOutfitInfoObject)
         .then((data) => {
           this.setState({
             outfits: data.data,
@@ -104,7 +105,7 @@ class OutfitList extends React.Component {
     this.setState({
       outfits: [],
     }, () => {
-      axios.delete('relatedItems/outfits', { data: outfitToRemove })
+      axios.delete('/relatedItems/outfits', { data: outfitToRemove })
         .then((data) => {
           if (data.data.length > 0) {
             this.setState({
@@ -162,11 +163,10 @@ class OutfitList extends React.Component {
   }
 
 
-  // NEEDS A BETTER + SIGN, Outfit slide not rendering
+  // NEEDS A BETTER + SIGN
   render() {
     const { outfits, showScrollLeft, showScrollRight, loaded } = this.state;
-    const { updateProduct } = this.props;
-    console.log('loaded in OL render(): ', loaded);
+    const { updateProduct, parentId } = this.props;
     return (
       <>
         {showScrollRight ? (
@@ -191,6 +191,7 @@ class OutfitList extends React.Component {
                     outfit={outfit}
                     updateProduct={updateProduct}
                     removeOutfit={this.removeOutfit}
+                    parentId={parentId}
                   />
                   );
                 })}
@@ -215,7 +216,7 @@ display: flex;
 justify-content: flex-start;
 overflow: scroll;
 idx: relative;
-height: 415px;
+height: 420px;
 margin: 0px;
 padding: 0px;
 transitions: .5s;

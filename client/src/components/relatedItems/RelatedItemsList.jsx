@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+// import PropTypes from 'prop-types';
 import RelatedItemSlide from './RelatedItemSlide.jsx';
 
 class RelatedProductList extends React.Component {
@@ -8,7 +9,6 @@ class RelatedProductList extends React.Component {
     super(props);
 
     this.state = {
-      relatedProducts: this.props.relatedProducts,
       parentInfo: '',
       slideFull: false,
       showScrollLeft: false,
@@ -21,9 +21,8 @@ class RelatedProductList extends React.Component {
   }
 
   componentDidMount() {
-    // This needs to move to index.js in CDM
     const { productId } = this.props;
-    axios.get(`relatedItems/products/?productId=${productId}`)
+    axios.get(`/relatedItems/products/?productId=${productId}`)
       .then((parentData) => {
         this.setState({
           parentInfo: parentData.data,
@@ -34,7 +33,6 @@ class RelatedProductList extends React.Component {
       });
   }
 
-  // Not working
   scrollLeft() {
     this.setState({
       showScrollRight: true,
@@ -48,7 +46,6 @@ class RelatedProductList extends React.Component {
     }
   }
 
-  // Not working
   scrollRight() {
     this.setState({
       showScrollLeft: true,
@@ -73,9 +70,8 @@ class RelatedProductList extends React.Component {
   }
 
   render() {
-    const { relatedProducts, productId } = this.props;
+    const { relatedItems, productId, updateProduct } = this.props;
     const { parentInfo, showScrollLeft, showScrollRight } = this.state;
-
     if (parentInfo.length === 0) {
       return (
         null
@@ -92,13 +88,13 @@ class RelatedProductList extends React.Component {
             </RightButtonWrapper>
           ) : null}
         <ListContainer id="productCarousel" onLoad={this.overflow}>
-          {relatedProducts.map((data) => (
+          {relatedItems.map((data) => (
             <RelatedItemSlide
               key={productId}
               productId={data}
               parentId={productId}
               parentInfo={parentInfo}
-              updateProduct={this.props.updateProduct}
+              updateProduct={updateProduct}
             />
           ))}
         </ListContainer>
@@ -113,7 +109,13 @@ class RelatedProductList extends React.Component {
       </div>
     );
   }
-}
+};
+
+// RelatedProductList.propTypes = {
+//   relatedItems: PropTypes.array,
+//   productId: PropTypes.string,
+//   updateProduct: PropTypes.func
+// };
 
 const ListContainer = styled.div`
   display: flex;

@@ -37,7 +37,8 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 23008,
+      productId: 22161,
+      relatedItems: [],
       productData: {},
       metaData: {},
     };
@@ -50,29 +51,50 @@ class App extends React.Component {
     // Get product data
 
     // Get metaData
-
-
+    const { productId } = this.state;
+    axios.get(`/relatedItems/products/?productId=${productId}&flag=related`)
+      .then((relatedIds) => {
+        this.setState({
+          relatedItems: relatedIds.data,
+        });
+      })
+      .catch((err) => {
+        console.log('Error fetching Related Product IDs: ', err);
+      });
 
   }
 
   // Tim's methods for RelatedProducts and Outfit List
   updateProduct(newProductId) {
     this.setState({
-      productId: newProductId
+      productId: newProductId,
+      relatedItems: []
+    });
+
+    axios.get(`/relatedItems/products/?productId=${newProductId}&flag=related`)
+    .then((relatedIds) => {
+      this.setState({
+        relatedItems: relatedIds.data,
+      });
+    })
+    .catch((err) => {
+      console.log('Error fetching Related Product IDs: ', err);
     });
   }
 
   render () {
-    let { productId } =  this.state;
+    let { productId, relatedItems } =  this.state;
 
     return (
       <div>
         <h1>FEC React Main App</h1>
-        <Overview/>
+        {/* <Overview/> */}
         <br></br>
         <RelatedMain
           productId={productId}
-          updateProduct={this.updateProduct}/>
+          updateProduct={this.updateProduct}
+          relatedItems={relatedItems}
+        />
         <br></br>
         <br></br>
         Ratings and Reviews

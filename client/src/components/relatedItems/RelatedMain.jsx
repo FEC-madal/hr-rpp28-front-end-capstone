@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
 import RelatedItemsList from './RelatedItemsList.jsx';
 import OutfitList from './OutfitList.jsx';
 
@@ -9,27 +8,14 @@ class RelatedMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: this.props.productId,
-      relatedProducts: [],
     };
   }
 
   componentDidMount() {
-    const { productId } = this.props;
-    axios.get(`relatedItems/products/?productId=${productId}&flag=related`)
-      .then((relatedIds) => {
-        this.setState({
-          relatedProducts: relatedIds.data,
-        });
-      })
-      .catch((err) => {
-        console.log('Error fetching Related Product IDs: ', err);
-      });
   }
 
   render() {
-    const { relatedProducts } = this.state;
-    const { productId, updateProduct } = this.props;
+    const { productId, updateProduct, relatedItems } = this.props;
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
         <div>
@@ -38,7 +24,7 @@ class RelatedMain extends React.Component {
         <ListWrap>
           <RelatedItemsList
             productId={productId}
-            relatedProducts={relatedProducts}
+            relatedItems={relatedItems}
             updateProduct={updateProduct}
           />
         </ListWrap>
@@ -55,7 +41,12 @@ class RelatedMain extends React.Component {
 
     );
   }
-}
+};
+
+// RelatedMain.propTypes = {
+//   productId: PropTypes.string,
+//   updateProduct: PropTypes.func
+// };
 
 const RelatedModuleWrap = styled.div`
 padding: 5px 40px 0px 40px;

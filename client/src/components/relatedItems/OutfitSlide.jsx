@@ -21,7 +21,6 @@ class OutfitSlide extends React.Component {
   }
 
   componentDidMount() {
-    console.log('In CDM in OutfitSlide');
     const { outfit } = this.props;
     const defaultInfo = outfit.styles.results.find((product) => product['default?'] === true);
     let thumbnailURL;
@@ -83,7 +82,8 @@ class OutfitSlide extends React.Component {
             <CardWrap>
               <ButtonWrap>
                 <RemoveButton
-                  onClick={this.removeOutift}
+                  onClick={this.deleteOutfit}
+                  className='far fa-times-circle'
                   aria-label="Remove item from outfit"
                 />
               </ButtonWrap>
@@ -163,7 +163,7 @@ const RemoveButton = styled.button`
   border: none;
   background: none;
   font-size: 25px;
-  color: black;
+  color: red;
   &:hover {
     color: white;
   }
