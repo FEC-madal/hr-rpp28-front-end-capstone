@@ -151,14 +151,14 @@ class AddReview extends React.Component {
                     <span>Nick Name: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="text" id="name" name="name" maxlength="60" onChange={this.onChange} required/>
+                  <input type="text" id="name" name="name" maxLength="60" onChange={this.onChange} required/>
                 </p>
                 <p>
                   <label htmlFor="mail">
                     <span>E-mail: </span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                  <input type="email" id="mail" name="email" maxlength="60" onChange={this.onChange} required/>
+                  <input type="email" id="mail" name="email" maxLength="60" onChange={this.onChange} required/>
                 </p>
               </section>
               <section>
@@ -205,14 +205,14 @@ class AddReview extends React.Component {
                   <label htmlFor="summary">
                     <span>Review Summary</span>
                   </label>
-                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" maxlength="60"  onChange={this.onChange}/>
+                  <input type="text" id="summary" name="summary" placeholder="Example: Best purchase ever!" maxLength="60"  onChange={this.onChange}/>
                 </p>
                 <p>
                   <label htmlFor="body">
                     <span>Review Body</span>
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
-                    <textarea id="body" name="body" rows="5" cols="50" placeholder="Why did you like the product or not?" maxlength="1000" onChange={this.reviewBodyRemaining} required></textarea>
+                    <textarea id="body" name="body" rows="5" cols="50" placeholder="Why did you like the product or not?" maxLength="1000" onChange={this.reviewBodyRemaining} required></textarea>
                 </p>
                 <p className={this.state.reviewBodyRemaining > 0 ? null : "product-hidden"}>Minimum required characters left: {this.state.reviewBodyRemaining}</p>
                 <p className={this.state.reviewBodyRemaining <= 0 ? null :  "product-hidden"}>Minimum reached</p>

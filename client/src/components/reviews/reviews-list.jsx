@@ -35,7 +35,7 @@ class ReviewsList extends  React.Component {
     let reviewList = allReviews.slice(0, this.state.count).map((item, index) => {
       return (
         <div key={index}>
-        <IRT review={item} />
+        <IRT review={item} getReviews={this.props.getReviews}/>
         </div>
       )
     });

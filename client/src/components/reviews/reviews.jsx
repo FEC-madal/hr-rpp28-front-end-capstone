@@ -27,7 +27,6 @@ class Reviews extends React.Component {
   }
   //functions go here
   metaData() {
-    console.log('these are the passed props: ', this.props.product_id.id)
     axios.get('/reviews/breakdown', {
       params: {
         product_id: this.props.product_id
@@ -60,14 +59,14 @@ class Reviews extends React.Component {
     this.setState({
       totalRatings: totalRatings
     });
-    this.initialReviews(this.state.totalRatings);
+    this.initialReviews();
   }
 
   initialReviews(count) {
 
     axios.get('/reviews/review-product', {
       params: {
-        count: count,
+        count: this.state.totalRatings,
         product_id: this.props.product_id
       }
     })
@@ -86,18 +85,7 @@ class Reviews extends React.Component {
     });
   }
 
-  // starSort(stars) {
 
-  //   let starsReviews = [... this.state.reviewList];
-  //   console.log(starsReviews, stars[0]);
-  //   let filtered = starsReviews.filter(item => {
-  //     console.log('item: ', item)
-  //     item.rating === stars[0] || stars[1] ||stars[2] || stars[3] ||stars[4]
-  //   });
-  //   this.setState({
-  //     reviewList: filtered
-  //   });
-  // }
 
   starSort(stars) {
     let starsReviews = [... this.state.allReviews];
@@ -144,7 +132,7 @@ class Reviews extends React.Component {
     return(
       <div className="reviews-container">
             <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown}/></div>
-            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName}/></div>
+            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews}/></div>
       </div>
     )
   }

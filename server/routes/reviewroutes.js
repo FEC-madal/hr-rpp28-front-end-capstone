@@ -44,12 +44,37 @@ router.post('/postreview', (req, res) => {
       // console.log(err);
       res.send(err);
     } else {
-      console.log('this means it actually worked: ', data)
       res.send(data);
     }
   });
 });
 
+
+router.put('/helpful', (req, res) => {
+  console.log('This should be :', req.body)
+  putHelpful(req.body.data, (err, data) => {
+    // console.log('we are here');
+    if (err) {
+      // console.log(err);
+      // res.send(err);
+    } else {
+      console.log('updated the helpfulness ', data)
+      res.send(data);
+    }
+  });
+});
+
+router.put('/report', (req, res) => {
+  putReport(req.body.data, (err, data) => {
+    // console.log('we are here');
+    if (err) {
+      // console.log(err);
+      // res.send(err);
+    } else {
+      res.send(data);
+    }
+  });
+});
 
 router.post('/uploadphoto', (req, res) => {
   if (req.files.reviewphoto) {
@@ -156,6 +181,41 @@ const postReview = (data, callback) => {
     });
 };
 
+//Increase helpfulness "Yes" by one
+const putHelpful = (data, callback) => {
+  let review_id = data
+  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${review_id}/helpful`;
+  axios({
+    method: 'put',
+    url: url,
+    headers: token.AUTH,
+  })
+    .then((response) => {
+      // console.log('successful: ');
+      callback(null, response.data);
+    })
+    .catch((err) => {
+      // console.log('this is an error: ', err);
+      callback(err, null)
+    });
+};
 
+const putReport = (data, callback) => {
+  let review_id = data
+  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${review_id}/report`;
+  axios({
+    method: 'put',
+    url: url,
+    headers: token.AUTH,
+  })
+    .then((response) => {
+      // console.log('successful: ');
+      callback(null, response.data);
+    })
+    .catch((err) => {
+      // console.log('this is an error: ', err);
+      callback(err, null)
+    });
+};
 
 module.exports = router;
