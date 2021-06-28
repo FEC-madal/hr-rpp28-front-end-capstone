@@ -82,23 +82,38 @@ class Sorted extends React.Component {
     });
   }
 
+
   relevant() {
     return new Promise ( (resolve, reject) => {
-      let helpful = [ ... this.props.reviews];
-      resolve(helpful.sort( (a, b) => {
-        return b.helpfulness - a.helpfulness;
+      let relevant = [ ... this.props.reviews];
+      for (let i = 0; i < relevant.length; i++) {
+          // relevant[i][Date] = 12;
+          let dateNum = this.dateDiff(new Date(relevant[i].date), new Date());
+          if (dateNum >= 0 && dateNum <= 30) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 2) + relevant[i]["helpfulness"]
+          }
+
+          if (dateNum >= 31 && dateNum <= 180) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 3) + relevant[i]["helpfulness"]
+
+          }
+
+          if (dateNum >= 181 ) {
+            relevant[i]["ranking"] = Math.floor(relevant[i]["helpfulness"] / 5) + relevant[i]["helpfulness"]
+          }
+
+      }
+      resolve(relevant.sort( (a, b) => {
+        return b.ranking - a.ranking;
       }));
     });
   }
-    dateDiff(d1, d2) {
+
+  dateDiff(d1, d2) {
     let diff = Math.abs(d1.getTime() - d2.getTime());
-    return diff / (1000 * 60 * 60 * 24);
+    return (diff / (1000 * 60 * 60 * 24)).toFixed();
   }
 
-
-  componentDidMount() {
-
-  }
 
   render() {
     return (
@@ -119,26 +134,3 @@ class Sorted extends React.Component {
 
 export default Sorted;
 
-{/* <div onClick={this.onChangehandler} >{this.props.totalRatings} reviews, sorted by </div> */}
-
-
-// let helpful = [ ... this.props.reviews];
-// helpful.sort( (a, b) => {
-//   return b.helpfulness - a.helpfulness;
-// })
-// this.setState({
-//   helpful: helpful
-// });
-
-// array.sort( (a, b) => {
-//   if (this.dateDiff(new Date(b.date), new Date(a.date)) > 30) {
-//     return -1;
-//   }
-//   if (this.dateDiff(new Date(b.date), new Date(a.date)) < 30) {
-//    return 1;
-//  }
-//  if (this.dateDiff(new Date(b.date), new Date(a.date)) === 0) {
-//    return 0;
-//  }
-
-//  })

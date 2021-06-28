@@ -19,7 +19,6 @@ const Ratings = (props) => {
   }
 
   let removeFilter = () => {
-    console.log('these are the star filters: ', props.starFilter);
     props.starSort("remove");
   }
 

@@ -14,7 +14,6 @@ const AverageNumber = (props) => {
     totalRatings += (Number(key) * Number(ratings[key]));
   }
   let averageRating = (totalRatings / numberOfPeople).toFixed(1);
-  console.log('total ratings:', totalRatings);
   let recommendations = ((props.recommendations / numberOfPeople) * 100).toFixed();
 
   return (
