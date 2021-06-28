@@ -10,8 +10,8 @@ var AWS = require('aws-sdk');
 // Set the Region
 AWS.config.loadFromPath('./config.json');
 router.use(fileUpload());
-router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended: true}));
 
 
 router.get('/review-product', (req, res) => {
@@ -31,6 +31,20 @@ router.get('/breakdown', (req, res) => {
     if (err) {
       // console.log(err);
     } else {
+      res.send(data);
+    }
+  });
+});
+
+router.post('/postreview', (req, res) => {
+  // console.log('this is what is being sent: ',JSON.stringify(req.body))
+  postReview(req.body, (err, data) => {
+    // console.log('we are here');
+    if (err) {
+      // console.log(err);
+      res.send(err);
+    } else {
+      console.log('this means it actually worked: ', data)
       res.send(data);
     }
   });
@@ -91,7 +105,6 @@ router.post('/uploadphoto', (req, res) => {
 const getReviews = (num, product, callback) => {
 let count = num || 2
 let product_id = product;
-//dont forget to change the product number and pass it down ;)
  let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews?product_id=${product_id}&page=1&count=${count}`;
   axios({
     method: 'get',
@@ -122,5 +135,27 @@ const getMeta = (product, callback) => {
       callback(err, null)
     });
 };
+
+//Post a review
+const postReview = (data, callback) => {
+  let url = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews";
+  axios({
+    method: 'post',
+    url: url,
+    headers: token.AUTH,
+    data: data
+
+  })
+    .then((response) => {
+      console.log('successful review post: ');
+      callback(null, response.data);
+    })
+    .catch((err) => {
+      console.log('this is an error: ', err);
+      callback(err, null)
+    });
+};
+
+
 
 module.exports = router;

@@ -37,7 +37,7 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22161,
+      productId: 22221,
       productName: "Adell 300 Shoes",
       metaData: {},
     };

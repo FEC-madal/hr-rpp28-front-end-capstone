@@ -14,7 +14,7 @@ class AddReview extends React.Component {
       rating: 0,
       summary: '',
       body: '',
-      recommend: '',
+      recommend: [],
       name: '',
       email: '',
       photos: [],
@@ -45,7 +45,13 @@ class AddReview extends React.Component {
 
   onChange(event) {
     const target = event.target;
-    const value = target.value;
+    let value = target.value;
+    if (value === 'true') {
+      value = true;
+    }
+    if (value === 'false') {
+      value = false;
+    }
     const name = target.name
 
     this.setState({
@@ -63,7 +69,6 @@ class AddReview extends React.Component {
   characteristics(ratings) {
     const currentChars = this.state.characteristics;
     const updatedChars = Object.assign(currentChars, ratings);
-    console.log(updatedChars);
 
     this.setState({
       characteristics: updatedChars
@@ -74,7 +79,6 @@ class AddReview extends React.Component {
     this.setState({
       photos: photos
     });
-    console.log('this is state: ', this.state.photos);
   }
 
 //I need a chars object sent over
@@ -104,7 +108,7 @@ class AddReview extends React.Component {
     } else if (this.state.body.length === 0 || this.state.body.length < 50 ) {
       alert('Your review body must have more than 50 characters')
       event.preventDefault();
-    } else if ((Object.keys(this.state.characteristics).length) !== Object.keys(this.props.chars).length -1 ) {
+    } else if ((Object.keys(this.state.characteristics).length) !== Object.keys(this.props.chars).length) {
       console.log(Object.keys(this.state.characteristics).length)
       console.log(Object.keys(this.props.chars).length)
       alert('Please select all Characteristics buttons')
@@ -114,9 +118,8 @@ class AddReview extends React.Component {
       console.log('thsi is the sate befor esenidng: ', this.state);
       axios({
         method: 'post',
-        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews',
-        data: this.state,
-
+        url: 'reviews/postreview',
+        data: this.state
       })
         .then((response) => {
           console.log(response);
@@ -182,11 +185,11 @@ class AddReview extends React.Component {
                   <label htmlFor="yes">
                     <span>Yes</span>
                   </label>
-                  <input type="radio" id="yes" name="recommend" value="true" onChange={this.onChange} required/>
+                  <input type="radio" id="yes" name="recommend" value={true} onChange={this.onChange} required/>
                   <label htmlFor="no">
                     <span>No</span>
                   </label>
-                  <input type="radio" id="no" name="recommend" value="false" onChange={this.onChange}/>
+                  <input type="radio" id="no" name="recommend" value={false} onChange={this.onChange}/>
                 </p>
               </section>
               <section>
