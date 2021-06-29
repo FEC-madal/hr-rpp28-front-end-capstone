@@ -133,8 +133,6 @@ class App extends React.Component {
       relatedItemsRatings: []
     });
 
-    console.log(newProductId, newProductName, ' in index.jsx after updateProduct call');
-
     this.getRelated(newProductId);
 
   }
