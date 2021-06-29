@@ -71,7 +71,6 @@ class RelatedItemSlide extends React.Component {
         if (!thumbnail) {
             this.setState({
               photoLoaded: this.state.photoLoaded + 1,
-              photoURL: "https://img.icons8.com/ios/50/000000/image-not-avialable.png"
             });
         } else {
             this.setState({
