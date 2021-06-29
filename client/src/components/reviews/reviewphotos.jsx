@@ -15,9 +15,7 @@ class ReviewPhotos extends React.Component {
    }
 //functions here
   openModal(event) {
-    // console.log('you clicked me!', e);
-    // console.log('this is the get document: ', document.getElementById("myModal"));
-    //grab the modal
+
     let modal = document.getElementById("myModal");
     let img = event;
     let modalImg = document.getElementById("img01");

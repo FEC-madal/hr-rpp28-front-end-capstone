@@ -13,7 +13,7 @@ function Breakdown(props) {
       <div>
         {/* average number will go here && along with the star rating */}
         <AverageNum ratings={props.ratings} recommendations={props.recommendations}/>
-        <Ratings ratings={props.ratings} totalRatings={props.totalRatings} starSort={props.starSort}/>
+        <Ratings ratings={props.ratings} totalRatings={props.totalRatings} starSort={props.starSort} starFilter={props.starFilter}/>
         <Product characteristics={props.characteristics}/>
         {/* the charractics will fgo here */}
       </div>

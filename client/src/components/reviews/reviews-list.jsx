@@ -35,17 +35,17 @@ class ReviewsList extends  React.Component {
     let reviewList = allReviews.slice(0, this.state.count).map((item, index) => {
       return (
         <div key={index}>
-        <IRT review={item} />
+        <IRT review={item} getReviews={this.props.getReviews}/>
         </div>
       )
     });
     return (
       <div>
-      <div><Sorted totalRatings={this.props.totalRatings} reviews={this.props.reviews} relevant={this.props.reviews} sortedReviews={this.props.sortedReviews} /></div>
+      <div><Sorted totalRatings={this.props.totalRatings} reviews={this.props.reviews} allReviews={this.props.allReviews} relevant={this.props.reviews} sortedReviews={this.props.sortedReviews} /></div>
       <div className={(this.state.count >= 6) ? "reviews-scroll" : null  }>
             {reviewList}
       </div>
-      <div><button className={(this.state.count >= this.props.reviews.length) ? "morereviews-hidden" : null}type="button" onClick={() => {this.moreReviews(this.props.totalRatings)}}>MORE REVIEWS </button> <AddReview /></div>
+      <div><input className={(this.state.count >= this.props.reviews.length) ? "morereviews-hidden" : "morebutton"} type="button" onClick={() => {this.moreReviews(this.props.totalRatings)}} value="MORE REVIEWS"/> <AddReview product_id={this.props.product_id} chars={this.props.chars} productName={this.props.productName}/></div>
       </div>
     );
   }
@@ -56,22 +56,3 @@ class ReviewsList extends  React.Component {
 export default ReviewsList;
 
 
-  // moreReviews() {
-  //   //will need to reset number of reviews when a new product is introduced
-  //   let more = this.state.numberOfReviews += 2;
-  //   this.setState({
-  //     numberOfReviews: more
-  //   });
-  //   axios.get('/reviews/review-product', {
-  //     params: {
-  //       count: more
-  //     }
-  //   })
-  //     .then((response) => {
-  //       // console.log('these is the reponse: ', response.data.results);
-  //       this.setState({
-  //         reviewList: response.data.results
-  //       });
-  //       // console.log('thsis the after: ', this.state.reviewList);
-  //       // this.breakdown();
-  //     })

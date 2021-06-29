@@ -14,8 +14,7 @@ const AverageNumber = (props) => {
     totalRatings += (Number(key) * Number(ratings[key]));
   }
   let averageRating = (totalRatings / numberOfPeople).toFixed(1);
-
-  let recommendations = ((props.recommendations / totalRatings) * 100).toFixed();
+  let recommendations = ((props.recommendations / numberOfPeople) * 100).toFixed();
 
   return (
     <div className="stars-noclick">

@@ -29,10 +29,7 @@ const Product = (props) => {
     }
   }
 
-  // console.log('comfort: ', comfort)
-  // console.log('quality: ', quality)
-  // console.log('size: ', size)
-  // console.log('width: ', width)
+
 
   return (
     <div>
