@@ -149,15 +149,16 @@ class AddAnswerModal extends React.Component {
         answerbody: this.state.answerbody
       })
       .then((response) => {
-        // console.log('answer submitted returned with', response.data);
+        //console.log('answer submitted returned with', response.data);
+        this.props.closeModal();
 
       })
       .catch((err) => {
-        // console.log('error in submitting answer', err);
+        //console.log('error in submitting answer', err);
       })
     }
     else {
-      // console.log('error data not validated');
+      //console.log('error data not validated');
     }
   }
 
@@ -210,26 +211,26 @@ class AddAnswerModal extends React.Component {
 
 
     return (
-        <div className='modal-a' >
+        <div className='qa_modal' >
 
           <div className='modal-content-a'>
 
             <div className='modal-header-a'>
-              <div className='modal-title-a'>Submit your answer (for q {this.state.qid})</div> <br></br>
-              <div>{this.props.product_name} : <b>{this.props.question_body}</b></div>
+              <div className='modal-title-a'>Submit your answer: </div> <br></br>
+              <div>{this.props.productName} : {this.props.question_body} </div>
             </div>
+            <br></br>
+
 
             <div className='modal-body-a'>
-
-              {/* <form className='InputQuestion' method='POST' action='http://localhost:3000/qa/questions'> */}
 
               <form className='SubmitAnswer' onSubmit={this.submitHandler.bind(this)}>
                 <div>your answer </div>
 
                 {this.state.answerbodyIsInvalid ?  <div style={alertstyle}>You must enter an answer</div> : <div></div>}
 
-                <label>answerbodylabel<textarea rows='10' cols='50' name='answerbody' onChange={this.changeHandler.bind(this)}>
-                </textarea></label>
+                <textarea rows='10' cols='50' name='answerbody' onChange={this.changeHandler.bind(this)}>
+                </textarea>
 
                 <div>What is your Nickname? </div>
 
@@ -267,4 +268,65 @@ class AddAnswerModal extends React.Component {
   }
 }
 
-export default AddAnswerModal;
+
+
+
+
+class AnswerModalType2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product_id: 0,
+      body: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
+      reviewBodyRemaining: 50,
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+  }
+
+  openModal() {
+    let modal = document.getElementById("add_a");
+    modal.style.display = "block";
+  }
+
+  closeModal() {
+    let modal = document.getElementById("add_a");
+    modal.style.display = "none";
+  }
+
+
+
+  render() {
+  
+    return(
+      <div className="qa_inline">
+        <div className="qa_inline" onClick={this.openModal}>|<u>Add Answer</u> </div>
+        <div id="add_a" className="modal">
+          <div className="modal-content-addAnswer">
+            <span className="close-addAnswer" onClick={this.closeModal}>&times;</span>
+
+              <AddAnswerModal qid={this.props.qid} show={true} closeModal={this.closeModal} key={this.state.showAModal} productName={this.props.productName} question_body={this.props.question_body}/>
+            
+          </div>
+        </div>
+      </div>
+
+    )
+  }
+}
+
+
+export {AnswerModalType2, AddAnswerModal}
+
+
+
+/* this is the original call of addanswermodal */
+/* {<AddAnswerModal qid={this.state.question_id} show={this.state.showAModal} key={this.state.showAModal} product_name={'passed in data:'} question_body={this.props.question.question_body}/>} */
+
+

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
-// Star Rating and average rating import or logic
+import PropTypes from 'prop-types';
 import Ratings from '../reviews/breakdown-rating.jsx';
 import Stars from '../reviews/starsrating.jsx';
 
@@ -41,6 +41,7 @@ class RelatedItemSlide extends React.Component {
     const { productId, parentInfo } = this.props;
     axios.get(`/relatedItems/products/?productId=${productId}`)
       .then((data) => {
+        // Get data.data.name from each product, add it to state
         this.setState({
           productInfo: data.data,
           parentFeature: parentInfo.features,
@@ -52,7 +53,7 @@ class RelatedItemSlide extends React.Component {
         console.log('Error fetching product info for RelatedItemSlide: ', err);
       });
 
-    axios.get(`relatedItems/products/?productId=${productId}&flag=styles`)
+    axios.get(`/relatedItems/products/?productId=${productId}&flag=styles`)
       .then((data) => {
         let thumbnail = '';
         const mainProductDescription = data.data.results.find((product) => product['default?'] === true);
@@ -82,7 +83,6 @@ class RelatedItemSlide extends React.Component {
       .catch((err) => {
         console.log('Error fetching photos in relatedItemSlide: ', err);
       });
-    // Axios reqquest for reviews and stars
   }
 
   compareFeatures(parentFeature, productFeature) {
@@ -91,7 +91,7 @@ class RelatedItemSlide extends React.Component {
     parentFeature.forEach((item) => {
       if (!compare[item.feature]) {
         if (item.value === null) {
-          compare[item.feature] = ['N/A'];
+          compare[item.feature] = ['\u2713'];
         } else {
           compare[item.feature] = [item.value];
         }
@@ -102,13 +102,13 @@ class RelatedItemSlide extends React.Component {
       if (!compare[item.feature]) {
         if (item.value === null) {
           compare[item.feature] = [];
-          compare[item.feature][1] = 'N/A';
+          compare[item.feature][1] = '\u2713';
         } else {
           compare[item.feature] = [];
           compare[item.feature][1] = item.value;
         }
       } else if (item.value === null) {
-        compare[item.feature][1] = 'N/A';
+        compare[item.feature][1] = '\u2713';
       } else {
         compare[item.feature][1] = item.value;
       }
@@ -120,10 +120,10 @@ class RelatedItemSlide extends React.Component {
 
     for (let i = 0; i < keys.length; i++) {
       if (values[i][0] === undefined) {
-        values[i][0] = 'N/A';
+        values[i][0] = '';
       }
       if (values[i][1] === undefined) {
-        values[i][1] = 'N/A';
+        values[i][1] = '';
       }
       compareArray.push(values[i][0], keys[i], values[i][1]);
     }
@@ -134,8 +134,11 @@ class RelatedItemSlide extends React.Component {
   }
 
   newProduct() {
+    // grab product name from state and send back to index.jsx to update state for Tom and Chris
     const { productId, updateProduct } = this.props;
-    updateProduct(productId); // <-------------------------------------------------This line is breaking the app
+    const { productInfo } = this.state;
+    let productName = productInfo.name;
+    updateProduct(productId, productName);
   }
 
   render() {
@@ -149,10 +152,12 @@ class RelatedItemSlide extends React.Component {
       clickModal,
     } = this.state;
 
+    const { rating } = this.props;
+
     const sale = {
       color: salePrice ? 'red' : 'black',
       textDecoration: salePrice ? 'line-through' : 'none',
-      fonstSize: '15px',
+      fonstSize: '20px',
     };
 
     const loadPhoto = {
@@ -170,23 +175,27 @@ class RelatedItemSlide extends React.Component {
           photoLoaded === 2
           && (
             <SlideContainer>
-              <ButtonWrap>
+              <ButtonWrap aria-label="Compare Items">
                 <CompareButton
                   className="fa fa-star"
                   onClick={this.handleModalClick}
+                  aria-label="Compare Items"
                 />
               </ButtonWrap>
-              <ImageWrap onClick={this.newProduct}>
+              <ImageWrap onClick={this.newProduct} aria-label="Show new Product">
                 <Image src={photoURL} alt={productInfo.name} />
               </ImageWrap>
-              <ProductContentWrap style={{ fontSize: '10px'}}>{productInfo.category}</ProductContentWrap>
-              <ProductContentWrap onClick={this.newProduct()} style={{ fontSize: '15px', fontWeight: 'bold' }}>{productInfo.name}</ProductContentWrap>
-              <ProductContentWrap style={sale}>${productInfo.default_price}</ProductContentWrap>
+              <StarsWrap>
               <div className="stars-noclick">
-                <Stars />
+                <Stars rating={rating}/>
               </div>
-              {salePrice ? <ProductContentWrap style={{ fontSize: '13px' }}>{salePrice}</ProductContentWrap> : null}
+              </StarsWrap>
+              <ProductContentWrap style={{ fontSize: '15px'}}>{productInfo.category}</ProductContentWrap>
+              <ProductContentWrap style={{ fontSize: '20px', fontWeight: 'bold' }}>{productInfo.name}</ProductContentWrap>
+              <ProductContentWrap style={sale}>${productInfo.default_price}</ProductContentWrap>
+              {salePrice ? <ProductContentWrap style={{ fontSize: '15px', fontWeight: 'bold' }}>{salePrice}</ProductContentWrap> : null}
               {salePrice ? <LowerBorderDiv /> : <BorderDiv />}
+              <br />
             </SlideContainer>
           )
         }
@@ -206,7 +215,14 @@ class RelatedItemSlide extends React.Component {
       </div>
     );
   }
-}
+};
+
+RelatedItemSlide.propTypes = {
+  parentInfo: PropTypes.object,
+  productId: PropTypes.number,
+  updateProduct: PropTypes.func,
+  rating: PropTypes.number
+};
 
 const SlideContainer = styled.div`
 height: 400px;
@@ -280,6 +296,10 @@ const CompareButton = styled.button`
 `;
 
 const ProductContentWrap = styled.div`
+  margin: 5px 15px;
+`;
+
+const StarsWrap = styled.div`
   margin: 5px 15px;
 `;
 
