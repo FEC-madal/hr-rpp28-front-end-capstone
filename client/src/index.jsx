@@ -125,14 +125,18 @@ class App extends React.Component {
       });
   }
 
-  updateProduct(newProductId) {
+  updateProduct(newProductId, newProductName) {
     this.setState({
       productId: newProductId,
+      productName: newProductName,
       relatedItems: [],
       relatedItemsRatings: []
     });
 
+    console.log(newProductId, newProductName, ' in index.jsx after updateProduct call');
+
     this.getRelated(newProductId);
+
   }
 
   render () {

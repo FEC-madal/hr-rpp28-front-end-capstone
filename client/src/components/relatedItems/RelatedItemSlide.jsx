@@ -41,6 +41,7 @@ class RelatedItemSlide extends React.Component {
     const { productId, parentInfo } = this.props;
     axios.get(`/relatedItems/products/?productId=${productId}`)
       .then((data) => {
+        // Get data.data.name from each product, add it to state
         this.setState({
           productInfo: data.data,
           parentFeature: parentInfo.features,
@@ -133,8 +134,11 @@ class RelatedItemSlide extends React.Component {
   }
 
   newProduct() {
+    // grab product name from state and send back to index.jsx to update state for Tom and Chris
     const { productId, updateProduct } = this.props;
-    updateProduct(productId);
+    const { productInfo } = this.state;
+    let productName = productInfo.name;
+    updateProduct(productId, productName);
   }
 
   render() {
