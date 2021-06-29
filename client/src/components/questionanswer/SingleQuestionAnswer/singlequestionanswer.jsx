@@ -59,8 +59,6 @@ class SingleQuestionAnswer extends React.Component {
   }
 
   componentDidMount() {
-
-
     //let sortedArrayOfAnswers = this.sortIncomingAnswers();
 
     this.setState({

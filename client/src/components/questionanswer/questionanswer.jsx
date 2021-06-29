@@ -6,13 +6,9 @@ import SingleQuestionAnswer from './SingleQuestionAnswer/singlequestionanswer.js
 
 
 
-
 function AdditionalQuestionBar(props) {
 
   let moreAnsweredQuestions = moreAnsweredQuestions = <input type='button' value='More Answered Questions' onClick={props.moreAnsweredQuestions}></input>;
-
-  // console.log('total: ', props.totallength);
-  // console.log('default: ', props.defaultlength);
 
   if (props.totallength <= props.defaultlength) {
     moreAnsweredQuestions = <p>No More Questions to Show</p>
@@ -26,12 +22,10 @@ function AdditionalQuestionBar(props) {
 
   return (
     <div style={boxStyle}>
-
       <div className="qa_buttonwrapper" >
         <div onClick={props.moreAnsweredQuestions}>
               MORE ANSWERED QUESTIONS
         </div>
-
         <div>
           <QuestionModalType2 currentProduct={props.currentProduct}/>
         </div>
@@ -39,7 +33,6 @@ function AdditionalQuestionBar(props) {
     </div>
   )
 }
-
 
 
 class QuestionAnswer extends React.Component {
@@ -87,34 +80,21 @@ class QuestionAnswer extends React.Component {
     }
   }
 
-
   reloadQuestionAnswer() {
-
     axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
     .then((response) => {
-
       this.setState({
         product_id: response.data.product_id,
         questions: response.data,
         sortedQuestionList: response.data,
       });
-
-      console.log('reloadQuestionAnswer being called as a this.props.refresh() for ', this.state.product_id);
-      //this.forceUpdate();
-
     })
     .catch(err => {
-      //console.log('error in loadup', err);
-      this.setState({
-        product_id: '22122',
-      });
+      console.log('error in reloadQuestionAnswer of questionanswer');
     });
-
   }
 
   componentDidMount() {
-   // console.log('props', this.props.currentProduct.id);
-
     // this is equivalent to http://.../?product_id=xxxxx
     axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
       .then((response) => {
@@ -125,37 +105,23 @@ class QuestionAnswer extends React.Component {
           sortedQuestionList: response.data,
         });
 
-        //console.log('this.state.questions: ', this.state.questions);
       })
       .catch(err => {
-        // console.log('error in loadup', err);
-
-        // if axious fails load up a default product.
-        this.setState({
-          product_id: '22122',
-        });
+        console.log('error in componentdidmount of questionanswer');
       });
 
   }
 
   showQModalHandler() {
-    // console.log('passed event handler clicked for show Question Modal Window!');
-    // console.log('passing this into props', this.state.showQModal);
     this.setState({showQModal: !this.state.showQModal});
-    //console.log('load more questions called');
   }
 
   loadMoreQuestions() {
     this.setState({defaultlength: this.state.defaultlength + 2 });
-    
   }
 
   render () {
     
-    
-    // boolean value to determine if we showLoadMoreQuestionButton
-    let showLoadMoreQuestionButton = (this.state.questions.length > this.state.defaultlength);
-
     let questionlist = this.state.sortedQuestionList.results.slice(0, this.state.defaultlength).map((question) => {
       return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} refresh={this.reloadQuestionAnswer.bind(this)} productName={this.props.productName}/></tr>});
 
@@ -173,16 +139,12 @@ class QuestionAnswer extends React.Component {
 
     return (
       <div> 
-       
         <div className="sticky"><SearchQuestionBar sortBySearch={this.sortBySearch.bind(this)}/></div>
-        
         <div style={styleOBJ}>
           <table className='qa_mastertable'>
             <thead>
-            
                 <tr key={11}>
-                  <th align='left'>
-                      
+                  <th align='left'>      
                   </th>
                 </tr>
             </thead>
@@ -192,20 +154,6 @@ class QuestionAnswer extends React.Component {
           </table>
         </div>
         <AdditionalQuestionBar currentProduct={this.props.currentProduct} totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
-
-{/* 
-          <tr key={12}>
-            <td>
-              <AdditionalQuestionBar totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
-            </td>
-          </tr> */}
-
-          {/* <tr key={13}>
-              <td>
-                {AddQuestionModal show={this.state.showQModal} key={this.state.showQModal} currentProduct={this.props.currentProduct}/>}
-                <QuestionModalType2 currentProduct={this.props.currentProduct}/>
-              </td>
-          </tr> */}
     </div>
     )
   }
@@ -214,26 +162,4 @@ class QuestionAnswer extends React.Component {
 export default QuestionAnswer;
 
 
-
-// class AdditionalQuestionBar extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-
-//   render() {
-
-//     return (
-//       <div>
-//         This is the Additional Question Bar!!
-//         <form name='additional'>
-//           <input type='button' value='More Answered Questions' onClick={this.props.moreAnsweredQuestions}>
-//           </input>
-//           <input type='button' value='Add a Question +' onClick={this.props.show}>
-//           </input>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
 

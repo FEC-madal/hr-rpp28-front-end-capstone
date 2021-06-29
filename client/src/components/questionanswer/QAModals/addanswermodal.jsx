@@ -141,13 +141,6 @@ class AddAnswerModal extends React.Component {
   submitHandler(e) {
     e.preventDefault();
 
-
-    // console.log('Submitting nickname ', this.state.nickname);
-    // console.log('Submitting email ', this.state.email);
-    // console.log('Submitting answerbody ', this.state.answerbody);
-    // console.log('for question: ', this.state.qid)
-
-
     // all validations must pass
     if (this.checkInput()) {
       axios.post(`http://localhost:3000/qa/questions/${this.state.qid}/answers`, {
@@ -165,7 +158,7 @@ class AddAnswerModal extends React.Component {
       })
     }
     else {
-      // console.log('error data not validated');
+      //console.log('error data not validated');
     }
   }
 

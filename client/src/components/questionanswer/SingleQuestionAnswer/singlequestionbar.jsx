@@ -19,22 +19,17 @@ class SingleQuestionBar extends React.Component {
 
       axios.put(`http://localhost:3000/qa/questions/${this.state.question.question_id}/helpful`)
       .then((response) => {
-        // console.log('helpful question clicked, sent to server, returned with', response);
-        //console.log('SingleQuestionBar helpfulHander clicked, sent to server, returned with: ', response.data);
         this.props.refresh();
         this.setState({userClickedHelpful: true});
       })
       .catch((err) => {
-        // console.log('error in the return of reporting question helpful', err);
+        console.log('error in the return of reporting question helpful', err);
       })
 
     }
   }
 
   render () {
-
-    // console.log('this is the qid being passed in: ', this.state.question_id);
-    // console.log('this is the state of the passed in question props: ', this.props.question)
     
     return (
       <div>
@@ -46,8 +41,6 @@ class SingleQuestionBar extends React.Component {
             <span marginRight='20px' key={3} onClick={this.handleHelpful.bind(this)}>  Yes({this.props.question.question_helpfulness}) </span>
             <AnswerModalType2 qid={this.props.question.question_id} product_name={'passed in data:'} question_body={this.props.question.question_body} productName={this.props.productName}/>
           </span>
-
-
           
           {/* <span key={4} onClick={this.props.AModalHandler}>| add answer </span> */}
 
