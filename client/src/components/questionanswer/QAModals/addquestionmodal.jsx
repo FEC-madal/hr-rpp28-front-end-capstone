@@ -61,13 +61,14 @@ class AddQuestionModal extends React.Component {
         nickname: this.state.nickname,
         email: this.state.email,
         question: this.state.question,
-        product_id: this.props.currentProduct.id,
+        product_id: this.props.currentProduct,
       })
         .then((response) => {
-          // console.log('question submitted returned with', response);
+          console.log('question submitted returned with', response);
+          this.props.closeModal();
         })
         .catch((err) => {
-          // console.log('error in submitting question', err);
+          console.log('error in submitting question', err);
         });
     }
     else {
@@ -122,12 +123,11 @@ class AddQuestionModal extends React.Component {
 
 
     return (
-        <div className='modal-q' >
+        <div className='qa_modal'>
           <div className='modal-content-q'>
 
             <div className='modal-header-q'>
               <div className='modal-title-q'>Ask Your Question</div> <br></br>
-              about your product []
             </div>
 
             {this.state.questionbodyIsInvalid ?  <div style={alertstyle}>You must enter a question</div> : <div></div>}
@@ -167,4 +167,57 @@ class AddQuestionModal extends React.Component {
   }
 }
 
-export default AddQuestionModal;
+
+
+class QuestionModalType2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product_id: 0,
+      body: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
+      reviewBodyRemaining: 50,
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+  }
+
+  openModal() {
+    let modal = document.getElementById("add_q");
+    modal.style.display = "block";
+  }
+
+  closeModal() {
+    let modal = document.getElementById("add_q");
+    modal.style.display = "none";
+  }
+
+  render() {
+    
+    return(
+      <span>
+
+        <div className="qa_buttonbar" onClick={this.openModal}>
+          ADD A QUESTION +
+        </div> 
+      
+
+        <div id="add_q" className="modal">
+          <div className="modal-content-addQuestion">
+            <span className="close-addQuestion" onClick={this.closeModal}>&times;</span>
+            <AddQuestionModal show={true} currentProduct={this.props.currentProduct} closeModal={this.closeModal}/> 
+          </div>
+        </div>
+      </span>
+
+    )
+  }
+}
+
+
+export {QuestionModalType2, AddQuestionModal}

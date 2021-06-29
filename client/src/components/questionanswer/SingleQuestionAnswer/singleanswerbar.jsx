@@ -9,6 +9,7 @@ class SingleAnswerBar extends React.Component {
     this.state = {
       answer: '',
       reported: false,
+      userClickedHelpful: false,
     };
 
   }
@@ -19,15 +20,18 @@ class SingleAnswerBar extends React.Component {
   }
 
   handleHelpful = event => {
-    axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/helpful`)
-    .then((response) => {
-      // console.log('helpful clicked, sent to server, returned with', response.data);
-      this.props.reloadQuestionAnswer();
-    })
-    .catch(err => {
-      console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
+    if (!this.state.userClickedHelpful) {
+      axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/helpful`)
+      .then((response) => {
+        console.log('SingleAnswerBar helpful clicked, sent to server, returned with', response.data);
+        this.props.refresh();
+        this.setState({userClickedHelpful: true});
+      })
+      .catch(err => {
+        console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
 
-    });
+      });
+    }
   }
 
   handleReport = event => {
@@ -51,10 +55,10 @@ class SingleAnswerBar extends React.Component {
 
     return (
       <div>
-        -------------------
-        <div>A: {this.state.answer.body} </div>
+        <br></br>
+        <div className='qa_atext'>A: {this.state.answer.body} </div>
 
-        <div>
+        <div className='qa_atext2'>
             <span>By {this.props.answer.answerer_name}, {date}  </span>
 
             <span>| helpful? </span>
@@ -63,7 +67,7 @@ class SingleAnswerBar extends React.Component {
             {this.state.reported ? reportedTag : notReportedTag}
 
         </div>
-        <div>
+        <div className='qa_atext2'>
           <Photobar photos={this.state.answer.photos}/>
         </div>
       </div>
