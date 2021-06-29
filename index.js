@@ -10,6 +10,7 @@ const compression = require('compression')
 
 const PORT = 3000;
 
+app.use(compression());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,7 +20,6 @@ app.use(express.static(path.join(__dirname, 'client/dist')));
 app.use('/qa', QAroutes);
 app.use('/reviews', review);
 app.use('/relatedItems', RIroutes);
-app.use(compression());
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
