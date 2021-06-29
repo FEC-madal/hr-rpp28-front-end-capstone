@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import RelatedItemSlide from './RelatedItemSlide.jsx';
 
 class RelatedProductList extends React.Component {
@@ -8,21 +9,20 @@ class RelatedProductList extends React.Component {
     super(props);
 
     this.state = {
-      relatedProducts: this.props.relatedProducts,
       parentInfo: '',
       slideFull: false,
       showScrollLeft: false,
       showScrollRight: true,
     };
 
-    this.overflow = this.overflow.bind(this);
     this.scrollLeft = this.scrollLeft.bind(this);
     this.scrollRight = this.scrollRight.bind(this);
+    this.overflow = this.overflow.bind(this);
   }
 
   componentDidMount() {
     const { productId } = this.props;
-    axios.get(`relatedItems/products/?productId=${productId}`)
+    axios.get(`/relatedItems/products/?productId=${productId}`)
       .then((parentData) => {
         this.setState({
           parentInfo: parentData.data,
@@ -38,8 +38,8 @@ class RelatedProductList extends React.Component {
       showScrollRight: true,
     });
     let car = document.getElementById('productCarousel');
-    car -= 325;
-    if (car.scrollLeft <= 325) {
+    car.scrollLeft = car.scrollLeft - 315;
+    if (car.scrollLeft <= 315) {
       this.setState({
         showScrollLeft: false,
       });
@@ -51,9 +51,9 @@ class RelatedProductList extends React.Component {
       showScrollLeft: true,
     });
     let car = document.getElementById('productCarousel');
-    car += 325;
+    car.scrollLeft = car.scrollLeft + 315;
     const remainingSpace = car.scrollWidth - car.clientWidth;
-    if (car.scrollLeft >= remainingSpace - 325) {
+    if (car.scrollLeft >= remainingSpace - 315) {
       this.setState({
         showScrollRight: false,
       });
@@ -70,34 +70,42 @@ class RelatedProductList extends React.Component {
   }
 
   render() {
-
-    const { relatedProducts, productId } = this.props;
+    const { relatedItems, productId, updateProduct, ratings } = this.props;
     const { parentInfo, showScrollLeft, showScrollRight } = this.state;
+
+    if (parentInfo.length === 0) {
+      return (
+        null
+      );
+    }
     return (
       <div>
         {showScrollRight
           ? (
             <RightButtonWrapper>
-              <RightButton onClick={this.scrollRight}>
+              <RightButton onClick={this.scrollRight} aria-label="Scroll Right">
                 &#8250;
               </RightButton>
             </RightButtonWrapper>
           ) : null}
         <ListContainer id="productCarousel" onLoad={this.overflow}>
-          {relatedProducts.map((data) => (
-            <RelatedItemSlide
-              key={productId}
-              productId={data}
-              parent_id={productId}
-              parentInfo={parentInfo}
-              updateProduct={this.props.updateProduct}
-            />
-          ))}
+          {relatedItems.map((data) => {
+            return (
+              <RelatedItemSlide
+                key={data}
+                productId={data}
+                parentId={productId}
+                parentInfo={parentInfo}
+                updateProduct={updateProduct}
+                rating={ratings[data]}
+              />
+            );
+          })}
         </ListContainer>
         {showScrollLeft
           ? (
             <LeftButtonWrapper>
-              <LeftButton onClick={this.scrollLeft}>
+              <LeftButton onClick={this.scrollLeft} aria-label="Scroll Left">
                 &#8249;
               </LeftButton>
             </LeftButtonWrapper>
@@ -105,14 +113,21 @@ class RelatedProductList extends React.Component {
       </div>
     );
   }
-}
+};
+
+RelatedProductList.propTypes = {
+  relatedItems: PropTypes.array,
+  productId: PropTypes.number,
+  updateProduct: PropTypes.func,
+  ratings: PropTypes.object
+};
 
 const ListContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   overflow: scroll;
   position: relative;
-  height: 415px;
+  height: 420px;
   margin: 0px;
   padding: 0px;
   transitions: .5s;
@@ -121,7 +136,7 @@ const ListContainer = styled.div`
 
 const LeftButtonWrapper = styled.div`
   position: absolute;
-  left: 1%;
+  left: -3%;
   top: 0px;
   padding-left: 60px;
   height: 89%;
@@ -134,7 +149,7 @@ const LeftButtonWrapper = styled.div`
 const LeftButton = styled.button`
   position: absolute;
   left: 2%;
-  top: 25%;
+  top: 44%;
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
@@ -149,7 +164,7 @@ const LeftButton = styled.button`
 const RightButtonWrapper = styled.div`
   position: absolute;
   right: -1%;
-  top: 0px;
+  top: 17%;
   padding-left: 60px;
   height: 89%;
   border: none;

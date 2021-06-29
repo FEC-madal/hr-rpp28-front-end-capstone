@@ -16,7 +16,6 @@ router.use(bodyParser.json());
 
 
 router.get('/review-product', (req, res) => {
-
   getReviews(req.query.count, (err, data) => {
     if (err) {
       // console.log(err);
