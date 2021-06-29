@@ -5,6 +5,7 @@ const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const axios = require('axios');
 const token = require('../../config.js')
+const compression = require('compression')
 
 var AWS = require('aws-sdk');
 // Set the Region
@@ -12,6 +13,7 @@ AWS.config.loadFromPath('./config.json');
 router.use(fileUpload());
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
+router.use(compression());
 
 
 router.get('/review-product', (req, res) => {
