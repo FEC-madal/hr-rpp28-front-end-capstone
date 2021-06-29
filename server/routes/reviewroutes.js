@@ -10,10 +10,10 @@ const compression = require('compression')
 var AWS = require('aws-sdk');
 // Set the Region
 AWS.config.loadFromPath('./config.json');
+router.use(compression());
 router.use(fileUpload());
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
-router.use(compression());
 
 
 router.get('/review-product', (req, res) => {
