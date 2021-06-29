@@ -176,10 +176,11 @@ class RelatedItemSlide extends React.Component {
             <SlideContainer>
               <ButtonWrap aria-label="Compare Items">
                 <CompareButton
-                  className="fa fa-star"
                   onClick={this.handleModalClick}
                   aria-label="Compare Items"
-                />
+                >
+                  <div dangerouslySetInnerHTML={{__html: '&#9734'}} />
+                </CompareButton>
               </ButtonWrap>
               <ImageWrap onClick={this.newProduct} aria-label="Show new Product">
                 <Image src={photoURL} alt={productInfo.name} />

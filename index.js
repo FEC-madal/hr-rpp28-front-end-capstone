@@ -6,9 +6,11 @@ const path = require('path');
 const RIroutes = require('./server/routes/relatedItems_routes.js');
 const review = require('./server/routes/reviewroutes.js')
 const QAroutes = require('./server/routes/QA_routes.js');
+const compression = require('compression');
 
 const PORT = 3000;
 
+app.use(compression());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
