@@ -41,6 +41,7 @@ class App extends React.Component {
       relatedItems: [],
       relatedItemsRatings: {},
       productData: {},
+      productName: "Camo Onesie",
     };
     this.ratingData = {};
     this.getRelated = this.getRelated.bind(this);
@@ -160,7 +161,7 @@ class App extends React.Component {
         <br></br>
         <br></br>
         <h1>Questions and Answers </h1>
-        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.secondProduct.name} defaultProduct={this.state.defaultProduct}/></div>
+        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
         <div><Reviews product_id={this.state.defaultProduct}/></div>
