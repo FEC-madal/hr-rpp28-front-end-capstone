@@ -13,8 +13,8 @@ class App extends React.Component {
 
     // default state
     this.state = {
-      // Tim will need a property for current product id to make a GET request for related items
       // The team will need a product review rating to render on multiple components
+
       defaultProduct: {
         "id": 22122,
         "campus": "hr-rpp",
@@ -37,41 +37,119 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22161,
-      metaData: {},
+      productId: 22122,
+      relatedItems: [],
+      relatedItemsRatings: {},
+      productData: {},
     };
-
+    this.ratingData = {};
+    this.getRelated = this.getRelated.bind(this);
+    this.getRatings = this.getRatings.bind(this);
     this.updateProduct = this.updateProduct.bind(this);
   }
 
   componentDidMount() {
-
-
-    // this.reviews()
-
+    this.getRelated(this.state.productId);
   }
 
-  updateProduct(productId) {
-    // axios.get(`/reviews/?product_id=${productId}/getMeta`)
-    //   .then((results) => {
-    //     console.log('results in index.js updateProduct', results);
-    //     this.setState({
-    //       metaData: results.data,
-    //       productId,
-    //     });
-    //   })
-      // .catch((err) => {
-      //   console.log('error on meta GET request', err);
-      // });
+  getRelated(productId) {
+    axios.get(`/relatedItems/products/?productId=${productId}&flag=related`)
+      .then((relatedIds) => {
+        this.setState({
+          relatedItems: relatedIds.data,
+        });
+        return relatedIds.data;
+      })
+      // get related product ratings
+      .then((relatedItemsIds) => {
+        let relatedRatings = relatedItemsIds.map((item) => {
+          return this.getRatings(item);
+        })
+        this.setState({
+          relatedItemsRatings: relatedRatings
+        });
+      })
+      .then(() => {
+        let { relatedItemsRatings } = this.state;
+        for (let i = 0; i < relatedItemsRatings.length; i++) {
+          if (relatedItemsRatings[i] === undefined) {
+            relatedItemsRatings.splice(i);
+          }
+        }
+        this.setState({
+          relatedItemsRatings: relatedItemsRatings
+        })
+      })
+      .catch((err) => {
+        console.log('Error fetching Related Product IDs: ', err);
+      });
+  }
+
+  getRatings(productId) {
+    axios.get(`/relatedItems/reviews/meta?product_id=${productId}`)
+      .then((ratings) => {
+        let newRatings = {
+          1: '0',
+          2: '0',
+          3: '0',
+          4: '0',
+          5: '0'
+        }
+
+        for (var key in ratings.data) {
+          newRatings[key] = ratings.data[key];
+        }
+
+        let divisor = 0;
+        let numerator = (parseInt(newRatings['1']) * 1) + (parseInt(newRatings['2']) * 2) + (parseInt(newRatings['3']) * 3) + (parseInt(newRatings['4']) * 4) + (parseInt(newRatings['5']) * 5);
+
+        for (let key in newRatings) {
+          divisor = divisor + parseInt(newRatings[key]);
+        }
+
+        let average = numerator / divisor;
+
+        if (isNaN(average)) {
+          average = 0;
+        }
+
+        let objKey = productId;
+        this.ratingData[objKey] = average;
+
+        this.setState({
+          relatedItemsRatngs: this.ratingData
+        });
+      })
+      .catch((err) => {
+        console.log('Error fetching meta data: ', err);
+      });
+  }
+
+  updateProduct(newProductId, newProductName) {
+    this.setState({
+      productId: newProductId,
+      productName: newProductName,
+      relatedItems: [],
+      relatedItemsRatings: []
+    });
+
+    this.getRelated(newProductId);
+
   }
 
   render () {
+    let { productId, relatedItems, relatedItemsRatings } =  this.state;
     return (
       <div>
         <h1>FEC React Main App</h1>
-        <Overview/>
+        {/* <Overview/> */}
         <br></br>
-        <RelatedMain productId={this.state.productId} updateProduct={this.updateProduct}/>
+        <RelatedMain
+          productId={productId}
+          relatedItems={relatedItems}
+          ratings={this.ratingData}
+          updateProduct={this.updateProduct}
+        />
         <br></br>
         <br></br>
         Ratings and Reviews
@@ -85,77 +163,3 @@ class App extends React.Component {
 };
 
 ReactDOM.render(<App/>, document.getElementById('app'));
-
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import Overview from './components/overview/overview.jsx';
-// import QuestionAnswer from './components/questionanswer/questionanswer.jsx';
-// import RatingsReviews from './components/reviews/ratingsreviews.jsx';
-// import Breakdown from './components/reviews/breakdown.jsx';
-// import RelatedItemsModule from './components/relatedItems/relatedItemsModule.jsx';
-// import axios from 'axios';
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     // default state
-//     this.state = {
-//       // Tim will need a property for current product id to make a GET request for related items
-//       // The team will need a product review rating to render on multiple components
-//     };
-//   }
-
-
-
-// // //Ratings and Reviews Sections
-// //   reviews() {
-// //     axios.get('/reviews/product')
-// //       .then((response) => {
-// //         this.setState({
-// //           reviewList: response.data
-// //         });
-// //         this.breakdown();
-// //       })
-// //   }
-
-// //   breakdown() {
-// //     axios.get('/reviews/breakdown')
-// //       .then((response) => {
-// //         this.setState({
-// //           reviewBreakdown: response.data
-// //         });
-// //       })
-// //   }
-
-// // //end of Ratings and Reviews Section
-
-
-//   componentDidMount() {
-
-
-//     // this.reviews()
-
-//   }
-//   render () {
-//     return (
-//       <div>
-//         <h1>FEC React Main App</h1>
-//         <Overview/>
-//         <br></br>
-//         {<RelatedItemsModule /> /* Need to pass this.state.currentProductId */}
-//         <br></br>
-//         <br></br>
-//         <div className="reviews-container"> Ratings and Reviews
-//              <div className="reviews-left"><Breakdown /></div>
-//             <div className="reviews-right"><RatingsReviews  /></div>
-//         </div>
-//         <QuestionAnswer/>
-//       </div>
-//     );
-
-//   }
-
-// };
-
-// ReactDOM.render(<App/>, document.getElementById('app'));
