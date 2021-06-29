@@ -142,7 +142,7 @@ class QuestionAnswer extends React.Component {
     // console.log('passed event handler clicked for show Question Modal Window!');
     // console.log('passing this into props', this.state.showQModal);
     this.setState({showQModal: !this.state.showQModal});
-    console.log('load more questions called');
+    //console.log('load more questions called');
   }
 
   loadMoreQuestions() {

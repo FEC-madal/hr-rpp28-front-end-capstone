@@ -20,7 +20,7 @@ class SingleQuestionBar extends React.Component {
       axios.put(`http://localhost:3000/qa/questions/${this.state.question.question_id}/helpful`)
       .then((response) => {
         // console.log('helpful question clicked, sent to server, returned with', response);
-        console.log('SingleQuestionBar helpfulHander clicked, sent to server, returned with: ', response.data);
+        //console.log('SingleQuestionBar helpfulHander clicked, sent to server, returned with: ', response.data);
         this.props.refresh();
         this.setState({userClickedHelpful: true});
       })

@@ -142,10 +142,10 @@ class AddAnswerModal extends React.Component {
     e.preventDefault();
 
 
-    console.log('Submitting nickname ', this.state.nickname);
-    console.log('Submitting email ', this.state.email);
-    console.log('Submitting answerbody ', this.state.answerbody);
-    console.log('for question: ', this.state.qid)
+    // console.log('Submitting nickname ', this.state.nickname);
+    // console.log('Submitting email ', this.state.email);
+    // console.log('Submitting answerbody ', this.state.answerbody);
+    // console.log('for question: ', this.state.qid)
 
 
     // all validations must pass
@@ -156,12 +156,12 @@ class AddAnswerModal extends React.Component {
         answerbody: this.state.answerbody
       })
       .then((response) => {
-        console.log('answer submitted returned with', response.data);
+        //console.log('answer submitted returned with', response.data);
         this.props.closeModal();
 
       })
       .catch((err) => {
-        console.log('error in submitting answer', err);
+        //console.log('error in submitting answer', err);
       })
     }
     else {

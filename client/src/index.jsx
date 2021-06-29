@@ -48,7 +48,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('http://localhost:3000/qa/products')
       .then(response => {
-        console.log('list of products', response.data);
+        //console.log('list of products', response.data);
         this.setState({productList: response.data});
       });
   }
