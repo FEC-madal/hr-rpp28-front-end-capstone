@@ -153,8 +153,8 @@ class App extends React.Component {
         <br></br>
         <br></br>
         Ratings and Reviews
-        <div><Reviews /></div>
-         <QuestionAnswer currentProduct={this.state.secondProduct}/>
+        <div><Reviews product_id={this.state.defaultProduct}/></div>
+         <QuestionAnswer currentProduct={this.state.defaultProduct}/>
       </div>
     );
 

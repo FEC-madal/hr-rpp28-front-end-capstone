@@ -114,6 +114,8 @@ class QuestionAnswer extends React.Component {
           questions: response.data,
           sortedQuestionList: response.data,
         });
+
+        //console.log('this.state.questions: ', this.state.questions);
       })
       .catch(err => {
         // console.log('error in loadup', err);
@@ -137,6 +139,7 @@ class QuestionAnswer extends React.Component {
   }
 
   render () {
+    
 
     // boolean value to determine if we showLoadMoreQuestionButton
     let showLoadMoreQuestionButton = (this.state.questions.length > this.state.defaultlength);

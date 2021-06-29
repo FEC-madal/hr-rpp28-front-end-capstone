@@ -10,15 +10,23 @@ class AddReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      product_id: 0,
       rating: 0,
+      summary: '',
+      body: '',
+      recommend: '',
+      name: '',
+      email: '',
+      photos: [],
+      characteristics: {},
       reviewBodyRemaining: 50,
-      reviewBody: ""
     };
     //this.binds go here
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.chosenStars = this.chosenStars.bind(this);
     this.reviewBodyRemaining = this.reviewBodyRemaining.bind(this);
+    this.uploadPhotos = this.uploadPhotos.bind(this);
   }
   //functions should go here
 
@@ -39,6 +47,15 @@ class AddReview extends React.Component {
     });
   }
 
+  uploadPhotos(photos) {
+    this.setState({
+      photos: photos
+    });
+    console.log('this is state: ', this.state.photos);
+  }
+
+
+
   reviewBodyRemaining() {
     let totalChar = event.target.value.length;
     let body = event.target.value
@@ -46,7 +63,7 @@ class AddReview extends React.Component {
     let remaining = (min - totalChar);
     this.setState({
       reviewBodyRemaining: remaining,
-      reviewBody: body
+      body: body
     });
   }
 
@@ -57,7 +74,7 @@ class AddReview extends React.Component {
         <div id="addReview" className="modal">
           <div className="modal-content-addReview">
             <span className="close-addReview" onClick={this.closeModal}>&times;</span>
-            {/* <form> */}
+            <form>
               <h1>Write your Review</h1>
               <p>About the Product Name here</p>
               <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
@@ -128,12 +145,10 @@ class AddReview extends React.Component {
                 </p>
                 <p className={this.state.reviewBodyRemaining > 0 ? null : "product-hidden"}>Minimum required characters left: {this.state.reviewBodyRemaining}</p>
                 <p className={this.state.reviewBodyRemaining <= 0 ? null :  "product-hidden"}>Minimum reached</p>
-
-                  <ReviewPhotos />
-
               </section>
-              <input type="submit" value="Submit"></input>
-            {/* </form> */}
+            </form>
+            <ReviewPhotos uploadPhotos={this.uploadPhotos}/>
+            <input type="submit" value="Submit"></input>
           </div>
         </div>
       </span>

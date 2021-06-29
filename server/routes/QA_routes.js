@@ -14,8 +14,6 @@ const API_PATH = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/';
 
 
 
-
-
 // GET Product list (my version of Rob's code)
 router.get('/products', (req, res) => {
   var builtPath = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/';
@@ -76,7 +74,7 @@ router.get('/questions', (req, res) => {
   axios.get(builtPath)
     .then((response) => {
       res.send(response.data);
-     //console.log('succesfully build with dynamic product id: ', response.data);
+      //console.log('succesfully build with dynamic product id: ', response.data.results[3].answers);
     })
     .catch((err) => {
       res.send('error at /questions', err);
@@ -93,7 +91,7 @@ router.get('/questions/:question_id/answers', (req, res) => {
   axios.defaults.headers.common['Authorization'] = QA_TOKEN;
 
 
-  // console.log('route reached');
+  console.log('/questions/:question_id/answers called');
 
   axios.get(builtPath)
     .then((response) => {
@@ -285,7 +283,7 @@ router.put('/answers/:answer_id/report', (req, res) => {
 
   axios(axiosObject)
     .then((response) => {
-      //console.log('success! reported answerid', req.params.answer_id);
+      //console.log('success! reported answerid: ', response.data);
       res.send(response.data);
     })
     .catch((err) => {

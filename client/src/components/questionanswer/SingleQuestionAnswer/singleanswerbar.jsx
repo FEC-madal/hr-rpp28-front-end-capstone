@@ -24,14 +24,23 @@ class SingleAnswerBar extends React.Component {
       // console.log('helpful clicked, sent to server, returned with', response.data);
       this.props.reloadQuestionAnswer();
     })
+    .catch(err => {
+      console.log('Error in singleanswerbar component, handleHelpful event handler: ', err);
+
+    });
   }
 
   handleReport = event => {
+    console.log('is it calling the event handler: ');
     axios.put(`http://localhost:3000/qa/answers/${this.state.answer.id}/report`)
     .then((response) => {
       // console.log('report clicked, sent to server, returned with', response.data);
       this.setState({reported: true});
+      //console.log('is it callign the axios put call');
     })
+    .catch(err => {
+      console.log('Error in singleanswerbar component, handleReport event handler: ', err);
+    });
   }
 
   render () {
