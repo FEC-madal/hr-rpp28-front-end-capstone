@@ -134,8 +134,8 @@ class App extends React.Component {
       relatedItemsRatings: []
     });
 
-    this.getRelated(newProductId);
-
+    let { productId } = this.state;
+    this.getRelated(productId);
   }
 
   render () {
