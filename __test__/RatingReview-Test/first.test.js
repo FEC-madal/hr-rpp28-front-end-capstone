@@ -1,5 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { act } from "react-dom/test-utils";
+import axios from 'axios';
+import { debug } from 'webpack';
 import RatingsReviews from '../../client/src/components/reviews/reviews-list';
 import Breakdown from '../../client/src/components/reviews/breakdown';
 import IRT from '../../client/src/components/reviews/reviews-irt';
@@ -14,61 +18,42 @@ import Chars from '../../client/src/components/reviews/reviews-add-characteristi
 import Addreview from '../../client/src/components/reviews/reviews-add.jsx';
 import Sort from '../../client/src/components/reviews/reviews-sorted.jsx';
 import Reviews from '../../client/src/components/reviews/reviews.jsx';
+import Meta from './meta-mockdata.js'
+import ReviewMock from './reviews-mockdata.js'
 
 
-describe('Renders all the ratings & review components', () => {
-  // test('renders rating component', () => {
-  //   render(<RatingsReviews />);
-  // });
+// ********************  TEST INITIALIZATION BEGIN  ********************
 
-  test('renders Breakdown component', () => {
+require("babel-polyfill");
+
+describe('Renders the review componenet', () => {
+
+  test('renders reviews component', () => {
     render(<Reviews />);
   });
 
-  test('renders Breakdown component', () => {
-    render(<Sort />);
-  });
-
-  test('renders Breakdown component', () => {
-    render(<Breakdown />);
-  });
-
-  test('renders Breakdown component', () => {
-    render(<Breakdownrating />);
-  });
-
-  test('renders Breakdownproduct component', () => {
-    render(<Breakdownproduct />);
-  });
-
-  test('renders Breakdownnum component', () => {
-    render(<Breakdownnum />);
-  });
-
-  test('renders chars component', () => {
-    render(<Chars />);
-  });
-
-  test('renders chars component', () => {
-    render(<Addreview />);
-  });
-  // test('renders Individual Review Tile component', () => {
-  //   render(<IRT/>);
-  // });
-
-  test('renders More reviews component', () => {
-    render(<MoreReviews />);
-  });
-
-  // test('renders Review Body component', () => {
-  //   render(<ReviewBody />);
-  // });
-
-  // test('renders Review Photos component', async () => {
-  //   render(<ReviewPhotos />);
-  // });
-
-  test('renders Star Rating component', () => {
-    render(<StarRating />);
-  });
 });
+
+describe('Renders the breakdown component', () => {
+
+  test('renders reviews component', () => {
+    render(<Breakdown starSort={() => {}} rating={Meta.ratings} recommendations={Meta.recommended} totalRatings={4} characteristics={Meta.characteristics} starFilter={[]} />);
+  });
+
+  test('should render the average component', () => {
+    render(<Breakdownnum ratings={Meta.ratings} recommendations={Meta.recommended} />)
+    expect(screen.getByText(/% of reviews recommend this product/)).toBeInTheDocument();
+
+  });
+
+
+
+});
+
+
+// describe('Renders the reviewlist component', () => {
+
+//   test('renders reviews component', () => {
+//     render(<RatingsReviews starSort={() => {}} rating={Meta.ratings} recommendations={Meta.recommended} totalRatings={4} characteristics={Meta.characteristics} starFilter={[]} />);
+//   });
+// });

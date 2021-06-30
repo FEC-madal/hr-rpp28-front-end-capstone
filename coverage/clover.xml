@@ -1,40 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<coverage generated="1624933046495" clover="3.2.0">
-  <project timestamp="1624933046495" name="All files">
-    <metrics statements="721" coveredstatements="240" conditionals="396" coveredconditionals="126" methods="232" coveredmethods="62" elements="1349" coveredelements="428" complexity="0" loc="721" ncloc="721" packages="9" files="34" classes="34"/>
+<coverage generated="1625018261524" clover="3.2.0">
+  <project timestamp="1625018261524" name="All files">
+    <metrics statements="759" coveredstatements="164" conditionals="402" coveredconditionals="110" methods="237" coveredmethods="24" elements="1398" coveredelements="298" complexity="0" loc="759" ncloc="759" packages="10" files="36" classes="36"/>
     <package name="__test__">
       <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="hidden-message.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/hidden-message.jsx">
-=======
-<coverage generated="1624932807464" clover="3.2.0">
-  <project timestamp="1624932807464" name="All files">
-    <metrics statements="720" coveredstatements="259" conditionals="252" coveredconditionals="56" methods="238" coveredmethods="66" elements="1210" coveredelements="381" complexity="0" loc="720" ncloc="720" packages="11" files="39" classes="39"/>
-    <package name="hr-rpp28-front-end-capstone">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="sampleDataSets.js" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/sampleDataSets.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="116" count="1" type="stmt"/>
-        <line num="123" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="hr-rpp28-front-end-capstone.__test__">
-      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="hidden-message.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/__test__/hidden-message.jsx">
->>>>>>> main
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="sum.js" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/sum.js">
-=======
-      <file name="sum.js" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/__test__/sum.js">
->>>>>>> main
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -43,7 +19,6 @@
     </package>
     <package name="__test__.QuestionAnswer-Test">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-<<<<<<< HEAD
       <file name="answersPerQuestion.js" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/QuestionAnswer-Test/answersPerQuestion.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -53,98 +28,34 @@
         <line num="4" count="1" type="stmt"/>
       </file>
       <file name="questionsPerProduct.js" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/QuestionAnswer-Test/questionsPerProduct.js">
-=======
-      <file name="answersPerQuestion.js" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/__test__/QuestionAnswer-Test/answersPerQuestion.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-      </file>
-      <file name="listquestionsexample.js" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/__test__/QuestionAnswer-Test/listquestionsexample.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-      </file>
-      <file name="questionsPerProduct.js" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/__test__/QuestionAnswer-Test/questionsPerProduct.js">
->>>>>>> main
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
     </package>
-<<<<<<< HEAD
+    <package name="__test__.RatingReview-Test">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="meta-mockdata.js" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/RatingReview-Test/meta-mockdata.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="reviews-mockdata.js" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/__test__/RatingReview-Test/reviews-mockdata.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="client.src.components.questionanswer">
-      <metrics statements="26" coveredstatements="12" conditionals="12" coveredconditionals="2" methods="13" coveredmethods="6"/>
+      <metrics statements="27" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="13" coveredmethods="0"/>
       <file name="questionanswer.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/questionanswer.jsx">
-        <metrics statements="26" coveredstatements="12" conditionals="12" coveredconditionals="2" methods="13" coveredmethods="6"/>
-        <line num="12" count="10" type="stmt"/>
-        <line num="17" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="5" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-=======
-    <package name="hr-rpp28-front-end-capstone.client.src.components.overview">
-      <metrics statements="33" coveredstatements="16" conditionals="2" coveredconditionals="0" methods="16" coveredmethods="5"/>
-      <file name="features.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/overview/features.jsx">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
+        <metrics statements="27" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="13" coveredmethods="0"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="14" count="0" type="stmt"/>
-      </file>
-      <file name="overview.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/overview/overview.jsx">
-        <metrics statements="23" coveredstatements="13" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="5"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="81" count="1" type="stmt"/>
-        <line num="83" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="93" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="113" count="1" type="stmt"/>
-        <line num="114" count="1" type="stmt"/>
-      </file>
-      <file name="skus.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/overview/skus.jsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-      </file>
-      <file name="styles.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/overview/styles.jsx">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="hr-rpp28-front-end-capstone.client.src.components.questionanswer">
-      <metrics statements="27" coveredstatements="13" conditionals="12" coveredconditionals="2" methods="13" coveredmethods="6"/>
-      <file name="questionanswer.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/questionanswer.jsx">
-        <metrics statements="27" coveredstatements="13" conditionals="12" coveredconditionals="2" methods="13" coveredmethods="6"/>
-        <line num="11" count="6" type="stmt"/>
-        <line num="13" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="18" count="6" type="stmt"/>
-        <line num="23" count="6" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
         <line num="57" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="58" count="0" type="stmt"/>
->>>>>>> main
         <line num="61" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
@@ -152,69 +63,41 @@
         <line num="71" count="0" type="stmt"/>
         <line num="75" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
-<<<<<<< HEAD
-        <line num="87" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="109" count="5" type="stmt"/>
-        <line num="112" count="5" type="stmt"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="134" count="0" type="stmt"/>
-        <line num="138" count="0" type="stmt"/>
-        <line num="145" count="10" type="stmt"/>
-        <line num="147" count="10" type="stmt"/>
-        <line num="148" count="20" type="stmt"/>
-        <line num="155" count="10" type="stmt"/>
-=======
         <line num="86" count="0" type="stmt"/>
         <line num="93" count="0" type="stmt"/>
-        <line num="99" count="3" type="stmt"/>
-        <line num="102" count="3" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
         <line num="110" count="0" type="stmt"/>
         <line num="116" count="0" type="stmt"/>
         <line num="120" count="0" type="stmt"/>
-        <line num="125" count="6" type="stmt"/>
-        <line num="126" count="12" type="stmt"/>
-        <line num="133" count="6" type="stmt"/>
-        <line num="140" count="6" type="stmt"/>
->>>>>>> main
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
       </file>
     </package>
     <package name="client.src.components.questionanswer.Photobar">
-      <metrics statements="4" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="1"/>
-<<<<<<< HEAD
+      <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="photobar.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/Photobar/photobar.jsx">
-=======
-      <file name="photobar.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/Photobar/photobar.jsx">
->>>>>>> main
-        <metrics statements="4" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="1"/>
-        <line num="7" count="55" type="cond" truecount="3" falsecount="1"/>
-        <line num="8" count="55" type="stmt"/>
+        <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="8" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
       </file>
     </package>
-<<<<<<< HEAD
     <package name="client.src.components.questionanswer.QAModals">
-      <metrics statements="77" coveredstatements="38" conditionals="54" coveredconditionals="19" methods="26" coveredmethods="13"/>
+      <metrics statements="99" coveredstatements="0" conditionals="54" coveredconditionals="0" methods="34" coveredmethods="0"/>
       <file name="addanswermodal.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/QAModals/addanswermodal.jsx">
-        <metrics statements="47" coveredstatements="34" conditionals="29" coveredconditionals="18" methods="16" coveredmethods="11"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="16" count="8" type="cond" truecount="1" falsecount="1"/>
-=======
-    <package name="hr-rpp28-front-end-capstone.client.src.components.questionanswer.QAModals">
-      <metrics statements="99" coveredstatements="35" conditionals="54" coveredconditionals="12" methods="34" coveredmethods="12"/>
-      <file name="addanswermodal.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/QAModals/addanswermodal.jsx">
-        <metrics statements="57" coveredstatements="22" conditionals="29" coveredconditionals="7" methods="20" coveredmethods="8"/>
-        <line num="10" count="12" type="stmt"/>
-        <line num="11" count="12" type="stmt"/>
-        <line num="16" count="24" type="cond" truecount="1" falsecount="1"/>
->>>>>>> main
+        <metrics statements="57" coveredstatements="0" conditionals="29" coveredconditionals="0" methods="20" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="21" count="24" type="stmt"/>
-        <line num="35" count="12" type="stmt"/>
-        <line num="36" count="12" type="stmt"/>
-        <line num="42" count="12" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
@@ -223,9 +106,9 @@
         <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="64" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
-        <line num="73" count="24" type="stmt"/>
-        <line num="89" count="24" type="stmt"/>
-        <line num="90" count="24" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
         <line num="114" count="0" type="stmt"/>
         <line num="121" count="0" type="cond" truecount="0" falsecount="3"/>
@@ -240,57 +123,35 @@
         <line num="142" count="0" type="stmt"/>
         <line num="145" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="146" count="0" type="stmt"/>
-<<<<<<< HEAD
-        <line num="166" count="3" type="stmt"/>
-        <line num="172" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="173" count="1" type="stmt"/>
-        <line num="181" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="182" count="1" type="stmt"/>
-        <line num="191" count="48" type="cond" truecount="2" falsecount="0"/>
-        <line num="192" count="40" type="stmt"/>
-        <line num="195" count="8" type="stmt"/>
-        <line num="199" count="8" type="stmt"/>
-        <line num="201" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="202" count="1" type="stmt"/>
-        <line num="206" count="8" type="cond" truecount="1" falsecount="1"/>
-        <line num="207" count="0" type="stmt"/>
-        <line num="212" count="8" type="stmt"/>
-      </file>
-      <file name="addquestionmodal.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/QAModals/addquestionmodal.jsx">
-        <metrics statements="30" coveredstatements="4" conditionals="25" coveredconditionals="1" methods="10" coveredmethods="2"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-=======
         <line num="153" count="0" type="stmt"/>
         <line num="167" count="0" type="stmt"/>
         <line num="173" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="174" count="0" type="stmt"/>
         <line num="182" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="183" count="0" type="stmt"/>
-        <line num="192" count="48" type="cond" truecount="2" falsecount="0"/>
-        <line num="193" count="24" type="stmt"/>
-        <line num="196" count="24" type="stmt"/>
-        <line num="200" count="24" type="stmt"/>
-        <line num="202" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="192" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="200" count="0" type="stmt"/>
+        <line num="202" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="203" count="0" type="stmt"/>
-        <line num="207" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="207" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="208" count="0" type="stmt"/>
-        <line num="213" count="24" type="stmt"/>
-        <line num="277" count="12" type="stmt"/>
-        <line num="278" count="12" type="stmt"/>
-        <line num="288" count="12" type="stmt"/>
-        <line num="289" count="12" type="stmt"/>
+        <line num="213" count="0" type="stmt"/>
+        <line num="277" count="0" type="stmt"/>
+        <line num="278" count="0" type="stmt"/>
+        <line num="288" count="0" type="stmt"/>
+        <line num="289" count="0" type="stmt"/>
         <line num="294" count="0" type="stmt"/>
         <line num="295" count="0" type="stmt"/>
         <line num="299" count="0" type="stmt"/>
         <line num="300" count="0" type="stmt"/>
-        <line num="307" count="24" type="stmt"/>
+        <line num="307" count="0" type="stmt"/>
       </file>
-      <file name="addquestionmodal.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/QAModals/addquestionmodal.jsx">
-        <metrics statements="42" coveredstatements="13" conditionals="25" coveredconditionals="5" methods="14" coveredmethods="4"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
->>>>>>> main
+      <file name="addquestionmodal.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/QAModals/addquestionmodal.jsx">
+        <metrics statements="42" coveredstatements="0" conditionals="25" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="38" count="0" type="cond" truecount="0" falsecount="3"/>
@@ -313,194 +174,117 @@
         <line num="86" count="0" type="stmt"/>
         <line num="94" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="95" count="0" type="stmt"/>
-        <line num="104" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="105" count="0" type="stmt"/>
-        <line num="108" count="6" type="stmt"/>
-        <line num="112" count="6" type="stmt"/>
-        <line num="114" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="115" count="0" type="stmt"/>
-        <line num="119" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="119" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="120" count="0" type="stmt"/>
-        <line num="125" count="6" type="stmt"/>
-        <line num="174" count="3" type="stmt"/>
-        <line num="175" count="3" type="stmt"/>
-        <line num="185" count="3" type="stmt"/>
-        <line num="186" count="3" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="175" count="0" type="stmt"/>
+        <line num="185" count="0" type="stmt"/>
+        <line num="186" count="0" type="stmt"/>
         <line num="191" count="0" type="stmt"/>
         <line num="192" count="0" type="stmt"/>
         <line num="196" count="0" type="stmt"/>
         <line num="197" count="0" type="stmt"/>
-        <line num="202" count="6" type="stmt"/>
+        <line num="202" count="0" type="stmt"/>
       </file>
     </package>
     <package name="client.src.components.questionanswer.SearchQuestionBar">
-      <metrics statements="9" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
-<<<<<<< HEAD
+      <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="searchquestionbar.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SearchQuestionBar/searchquestionbar.jsx">
-=======
-      <file name="searchquestionbar.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SearchQuestionBar/searchquestionbar.jsx">
->>>>>>> main
-        <metrics statements="9" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="2"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="22" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="43" count="6" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
       </file>
     </package>
-<<<<<<< HEAD
     <package name="client.src.components.questionanswer.SingleQuestionAnswer">
-      <metrics statements="51" coveredstatements="43" conditionals="12" coveredconditionals="9" methods="23" coveredmethods="14"/>
+      <metrics statements="58" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="23" coveredmethods="0"/>
       <file name="singleanswerbar.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singleanswerbar.jsx">
-        <metrics statements="16" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="9" coveredmethods="5"/>
-        <line num="8" count="25" type="stmt"/>
-        <line num="9" count="25" type="stmt"/>
-        <line num="17" count="25" type="stmt"/>
-        <line num="21" count="25" type="stmt"/>
+        <metrics statements="19" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="33" count="25" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="47" count="55" type="stmt"/>
-        <line num="48" count="55" type="stmt"/>
-        <line num="50" count="55" type="stmt"/>
-        <line num="52" count="55" type="stmt"/>
-      </file>
-      <file name="singlequestionanswer.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionanswer.jsx">
-        <metrics statements="30" coveredstatements="27" conditionals="10" coveredconditionals="7" methods="9" coveredmethods="7"/>
-        <line num="10" count="20" type="stmt"/>
-        <line num="12" count="20" type="stmt"/>
-        <line num="22" count="42" type="stmt"/>
-        <line num="23" count="42" type="stmt"/>
-        <line num="24" count="42" type="stmt"/>
-        <line num="25" count="42" type="stmt"/>
-        <line num="27" count="42" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="10" type="stmt"/>
-        <line num="31" count="32" type="stmt"/>
-        <line num="34" count="84" type="cond" truecount="1" falsecount="1"/>
-        <line num="38" count="84" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="84" type="stmt"/>
-        <line num="47" count="92" type="stmt"/>
-        <line num="48" count="32" type="stmt"/>
-        <line num="50" count="32" type="stmt"/>
-        <line num="55" count="32" type="stmt"/>
-        <line num="58" count="32" type="stmt"/>
-        <line num="66" count="20" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="87" count="42" type="stmt"/>
-        <line num="89" count="42" type="stmt"/>
-        <line num="90" count="54" type="cond" truecount="1" falsecount="1"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="93" count="54" type="stmt"/>
-        <line num="97" count="42" type="stmt"/>
-        <line num="99" count="42" type="cond" truecount="2" falsecount="0"/>
-        <line num="100" count="32" type="stmt"/>
-        <line num="106" count="42" type="stmt"/>
-      </file>
-      <file name="singlequestionbar.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionbar.jsx">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
-        <line num="7" count="20" type="stmt"/>
-        <line num="8" count="20" type="stmt"/>
-        <line num="14" count="20" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="25" count="42" type="stmt"/>
-      </file>
-    </package>
-    <package name="client.src.components.relatedItems">
-      <metrics statements="227" coveredstatements="39" conditionals="78" coveredconditionals="0" methods="60" coveredmethods="0"/>
-      <file name="Modal.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/Modal.jsx">
-        <metrics statements="20" coveredstatements="8" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-=======
-    <package name="hr-rpp28-front-end-capstone.client.src.components.questionanswer.SingleQuestionAnswer">
-      <metrics statements="58" coveredstatements="42" conditionals="16" coveredconditionals="9" methods="23" coveredmethods="13"/>
-      <file name="singleanswerbar.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singleanswerbar.jsx">
-        <metrics statements="19" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="9" coveredmethods="5"/>
-        <line num="8" count="15" type="stmt"/>
-        <line num="9" count="15" type="stmt"/>
-        <line num="18" count="15" type="stmt"/>
-        <line num="22" count="15" type="stmt"/>
         <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="24" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="37" count="15" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="51" count="31" type="stmt"/>
-        <line num="52" count="31" type="stmt"/>
-        <line num="54" count="31" type="stmt"/>
-        <line num="56" count="31" type="stmt"/>
-      </file>
-      <file name="singlequestionanswer.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionanswer.jsx">
-        <metrics statements="30" coveredstatements="26" conditionals="10" coveredconditionals="7" methods="9" coveredmethods="6"/>
-        <line num="10" count="12" type="stmt"/>
-        <line num="12" count="12" type="stmt"/>
-        <line num="22" count="24" type="stmt"/>
-        <line num="23" count="24" type="stmt"/>
-        <line num="24" count="24" type="stmt"/>
-        <line num="25" count="24" type="stmt"/>
-        <line num="27" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="6" type="stmt"/>
-        <line num="31" count="18" type="stmt"/>
-        <line num="34" count="48" type="cond" truecount="1" falsecount="1"/>
-        <line num="38" count="48" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="41" count="48" type="stmt"/>
-        <line num="47" count="54" type="stmt"/>
-        <line num="48" count="18" type="stmt"/>
-        <line num="50" count="18" type="stmt"/>
-        <line num="55" count="18" type="stmt"/>
-        <line num="58" count="18" type="stmt"/>
-        <line num="64" count="12" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+      </file>
+      <file name="singlequestionanswer.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionanswer.jsx">
+        <metrics statements="30" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
-        <line num="85" count="24" type="stmt"/>
-        <line num="87" count="24" type="stmt"/>
-        <line num="88" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="91" count="30" type="stmt"/>
-        <line num="95" count="24" type="stmt"/>
-        <line num="97" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="98" count="18" type="stmt"/>
-        <line num="105" count="24" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
       </file>
-      <file name="singlequestionbar.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionbar.jsx">
-        <metrics statements="9" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
-        <line num="9" count="12" type="stmt"/>
-        <line num="10" count="12" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
+      <file name="singlequestionbar.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/questionanswer/SingleQuestionAnswer/singlequestionbar.jsx">
+        <metrics statements="9" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="20" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="34" count="24" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="hr-rpp28-front-end-capstone.client.src.components.relatedItems">
+    <package name="client.src.components.relatedItems">
       <metrics statements="233" coveredstatements="47" conditionals="80" coveredconditionals="0" methods="57" coveredmethods="0"/>
-      <file name="Modal.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/Modal.jsx">
+      <file name="Modal.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/Modal.jsx">
         <metrics statements="22" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
->>>>>>> main
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -522,19 +306,10 @@
         <line num="118" count="1" type="stmt"/>
         <line num="126" count="1" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="OutfitList.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/OutfitList.jsx">
-        <metrics statements="67" coveredstatements="8" conditionals="20" coveredconditionals="0" methods="21" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-=======
-      <file name="OutfitList.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/OutfitList.jsx">
         <metrics statements="67" coveredstatements="9" conditionals="20" coveredconditionals="0" methods="21" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
->>>>>>> main
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
@@ -601,25 +376,13 @@
         <line num="301" count="1" type="stmt"/>
         <line num="312" count="1" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="OutfitSlide.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/OutfitSlide.jsx">
-        <metrics statements="30" coveredstatements="8" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-=======
-      <file name="OutfitSlide.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/OutfitSlide.jsx">
         <metrics statements="32" coveredstatements="9" conditionals="14" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
->>>>>>> main
         <line num="25" count="0" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="29" count="0" type="stmt"/>
@@ -637,19 +400,6 @@
         <line num="66" count="0" type="stmt"/>
         <line num="72" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
-<<<<<<< HEAD
-        <line num="101" count="1" type="stmt"/>
-        <line num="116" count="1" type="stmt"/>
-        <line num="127" count="1" type="stmt"/>
-        <line num="138" count="1" type="stmt"/>
-        <line num="144" count="1" type="stmt"/>
-        <line num="151" count="1" type="stmt"/>
-        <line num="164" count="1" type="stmt"/>
-        <line num="176" count="1" type="stmt"/>
-      </file>
-      <file name="RelatedItemSlide.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemSlide.jsx">
-        <metrics statements="65" coveredstatements="8" conditionals="32" coveredconditionals="0" methods="14" coveredmethods="0"/>
-=======
         <line num="78" count="0" type="stmt"/>
         <line num="109" count="1" type="stmt"/>
         <line num="115" count="1" type="stmt"/>
@@ -661,9 +411,8 @@
         <line num="178" count="1" type="stmt"/>
         <line num="190" count="1" type="stmt"/>
       </file>
-      <file name="RelatedItemSlide.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemSlide.jsx">
+      <file name="RelatedItemSlide.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemSlide.jsx">
         <metrics statements="70" coveredstatements="10" conditionals="32" coveredconditionals="0" methods="14" coveredmethods="0"/>
->>>>>>> main
         <line num="11" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
@@ -716,25 +465,6 @@
         <line num="128" count="0" type="stmt"/>
         <line num="131" count="0" type="stmt"/>
         <line num="138" count="0" type="stmt"/>
-<<<<<<< HEAD
-        <line num="150" count="0" type="stmt"/>
-        <line num="152" count="0" type="stmt"/>
-        <line num="158" count="0" type="stmt"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="211" count="1" type="stmt"/>
-        <line num="226" count="1" type="stmt"/>
-        <line num="234" count="1" type="stmt"/>
-        <line num="245" count="1" type="stmt"/>
-        <line num="256" count="1" type="stmt"/>
-        <line num="262" count="1" type="stmt"/>
-        <line num="270" count="1" type="stmt"/>
-        <line num="282" count="1" type="stmt"/>
-      </file>
-      <file name="RelatedItemsList.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemsList.jsx">
-        <metrics statements="32" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-=======
         <line num="139" count="0" type="stmt"/>
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
@@ -754,11 +484,10 @@
         <line num="298" count="1" type="stmt"/>
         <line num="302" count="1" type="stmt"/>
       </file>
-      <file name="RelatedItemsList.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemsList.jsx">
+      <file name="RelatedItemsList.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedItemsList.jsx">
         <metrics statements="35" coveredstatements="6" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
->>>>>>> main
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
@@ -793,13 +522,8 @@
         <line num="164" count="1" type="stmt"/>
         <line num="176" count="1" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="RelatedMain.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedMain.jsx">
-        <metrics statements="13" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-=======
-      <file name="RelatedMain.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/relatedItems/RelatedMain.jsx">
         <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
->>>>>>> main
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
@@ -809,102 +533,75 @@
         <line num="68" count="1" type="stmt"/>
       </file>
     </package>
-<<<<<<< HEAD
     <package name="client.src.components.reviews">
-      <metrics statements="318" coveredstatements="94" conditionals="230" coveredconditionals="91" methods="101" coveredmethods="23"/>
+      <metrics statements="318" coveredstatements="106" conditionals="230" coveredconditionals="108" methods="101" coveredmethods="21"/>
       <file name="breakdown-number.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-number.jsx">
-=======
-    <package name="hr-rpp28-front-end-capstone.client.src.components.reviews">
-      <metrics statements="243" coveredstatements="87" conditionals="78" coveredconditionals="28" methods="86" coveredmethods="24"/>
-      <file name="breakdown-number.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-number.jsx">
->>>>>>> main
-        <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="breakdown-product.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-product.jsx">
-=======
-      <file name="breakdown-product.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-product.jsx">
->>>>>>> main
-        <metrics statements="14" coveredstatements="4" conditionals="22" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <metrics statements="14" coveredstatements="13" conditionals="22" coveredconditionals="19" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="breakdown-rating.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-rating.jsx">
         <metrics statements="17" coveredstatements="9" conditionals="32" coveredconditionals="26" methods="8" coveredmethods="1"/>
-=======
-      <file name="breakdown-rating.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown-rating.jsx">
-        <metrics statements="15" coveredstatements="8" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="1"/>
->>>>>>> main
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="breakdown.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown.jsx">
-=======
-      <file name="breakdown.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/breakdown.jsx">
->>>>>>> main
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="12" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="morereviews.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/morereviews.jsx">
-=======
-      <file name="morereviews.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/morereviews.jsx">
->>>>>>> main
-        <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="review-body.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/review-body.jsx">
-=======
-      <file name="review-body.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/review-body.jsx">
->>>>>>> main
         <metrics statements="15" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -922,11 +619,7 @@
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="reviewphotos.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviewphotos.jsx">
-=======
-      <file name="reviewphotos.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviewphotos.jsx">
->>>>>>> main
         <metrics statements="17" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -946,42 +639,27 @@
         <line num="38" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="reviews-add-characteristics.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add-characteristics.jsx">
         <metrics statements="12" coveredstatements="4" conditionals="84" coveredconditionals="42" methods="3" coveredmethods="2"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="18" count="5" type="stmt"/>
-=======
-      <file name="reviews-add-characteristics.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add-characteristics.jsx">
-        <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
->>>>>>> main
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-<<<<<<< HEAD
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="41" count="5" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
       </file>
       <file name="reviews-add-photos.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add-photos.jsx">
-=======
-        <line num="35" count="3" type="stmt"/>
-      </file>
-      <file name="reviews-add-photos.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add-photos.jsx">
->>>>>>> main
         <metrics statements="21" coveredstatements="7" conditionals="4" coveredconditionals="1" methods="7" coveredmethods="2"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
@@ -990,29 +668,28 @@
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-<<<<<<< HEAD
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
       </file>
       <file name="reviews-add.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add.jsx">
         <metrics statements="45" coveredstatements="11" conditionals="26" coveredconditionals="7" methods="11" coveredmethods="2"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
@@ -1047,49 +724,10 @@
         <line num="109" count="0" type="stmt"/>
         <line num="110" count="0" type="stmt"/>
         <line num="119" count="0" type="stmt"/>
-        <line num="127" count="2" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
       </file>
       <file name="reviews-irt.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-irt.jsx">
         <metrics statements="13" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
-=======
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
-      </file>
-      <file name="reviews-add.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-add.jsx">
-        <metrics statements="21" coveredstatements="8" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="2"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
-      </file>
-      <file name="reviews-irt.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-irt.jsx">
-        <metrics statements="3" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="9" count="0" type="stmt"/>
->>>>>>> main
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -1104,11 +742,7 @@
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="reviews-list.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-list.jsx">
-=======
-      <file name="reviews-list.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-list.jsx">
->>>>>>> main
         <metrics statements="9" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -1120,20 +754,15 @@
         <line num="42" count="1" type="stmt"/>
         <line num="48" count="0" type="cond" truecount="1" falsecount="1"/>
       </file>
-<<<<<<< HEAD
       <file name="reviews-sorted.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-sorted.jsx">
         <metrics statements="43" coveredstatements="8" conditionals="16" coveredconditionals="0" methods="19" coveredmethods="2"/>
-=======
-      <file name="reviews-sorted.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews-sorted.jsx">
-        <metrics statements="35" coveredstatements="8" conditionals="6" coveredconditionals="0" methods="20" coveredmethods="3"/>
->>>>>>> main
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="28" count="0" type="stmt"/>
@@ -1169,15 +798,10 @@
         <line num="109" count="0" type="stmt"/>
         <line num="115" count="0" type="stmt"/>
         <line num="116" count="0" type="stmt"/>
-        <line num="121" count="2" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
       </file>
-<<<<<<< HEAD
       <file name="reviews.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews.jsx">
         <metrics statements="64" coveredstatements="13" conditionals="16" coveredconditionals="0" methods="20" coveredmethods="4"/>
-=======
-      <file name="reviews.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/reviews.jsx">
-        <metrics statements="36" coveredstatements="10" conditionals="4" coveredconditionals="0" methods="14" coveredmethods="4"/>
->>>>>>> main
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
@@ -1215,7 +839,6 @@
         <line num="112" count="0" type="stmt"/>
         <line num="115" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="116" count="0" type="stmt"/>
-<<<<<<< HEAD
         <line num="120" count="0" type="stmt"/>
         <line num="128" count="0" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
@@ -1245,45 +868,35 @@
         <line num="180" count="1" type="stmt"/>
       </file>
       <file name="starsrating.jsx" path="/Users/chrisfloyd/Sprints/FEC/hr-rpp28-front-end-capstone/client/src/components/reviews/starsrating.jsx">
-=======
-        <line num="117" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="119" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="131" count="1" type="stmt"/>
-        <line num="138" count="1" type="stmt"/>
-      </file>
-      <file name="starsrating.jsx" path="/Users/Tom1/Desktop/FEC26/hr-rpp28-front-end-capstone/client/src/components/reviews/starsrating.jsx">
->>>>>>> main
-        <metrics statements="28" coveredstatements="19" conditionals="16" coveredconditionals="7" methods="4" coveredmethods="2"/>
+        <metrics statements="28" coveredstatements="24" conditionals="16" coveredconditionals="11" methods="4" coveredmethods="2"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="25" count="6" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="43" count="6" type="stmt"/>
-        <line num="51" count="6" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="55" count="6" type="stmt"/>
-        <line num="56" count="6" type="stmt"/>
-        <line num="57" count="6" type="stmt"/>
-        <line num="58" count="6" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="65" count="6" type="stmt"/>
-        <line num="66" count="30" type="cond" truecount="1" falsecount="1"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="30" type="cond" truecount="2" falsecount="2"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="30" type="cond" truecount="2" falsecount="2"/>
+        <line num="55" count="4" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="66" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="17" type="cond" truecount="4" falsecount="0"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="16" type="cond" truecount="2" falsecount="2"/>
         <line num="71" count="0" type="stmt"/>
-        <line num="72" count="30" type="cond" truecount="2" falsecount="2"/>
+        <line num="72" count="16" type="cond" truecount="2" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
-        <line num="75" count="30" type="stmt"/>
-        <line num="78" count="30" type="stmt"/>
+        <line num="75" count="16" type="stmt"/>
+        <line num="78" count="20" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
-        <line num="83" count="6" type="stmt"/>
+        <line num="83" count="4" type="stmt"/>
       </file>
     </package>
   </project>
