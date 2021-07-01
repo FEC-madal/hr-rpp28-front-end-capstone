@@ -73,7 +73,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
   test('Unit Test 0:  Test to ensure basic test functions are working', () => {
 
-   
+
     // axios.get('http://localhost:3000/qa/questions/')
     //   .then(response => {
     //     console.log('this is the mocked response: ', response);
@@ -83,7 +83,6 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   });
 
 
-<<<<<<< HEAD
   // test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
   //   render(<QuestionAnswer currentProduct={secondProduct}/>);
   // });
@@ -95,7 +94,6 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   //     });
   // });
 
-=======
   test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
     render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
   });
@@ -106,16 +104,16 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
       // if the search term is blank, we end early, not reducing the search at all.
       // .match automatically turns a string into a regex
-  
+
       // if ((searchTerm === '') || (!searchTerm)) {
       //   this.setState({sortedQuestionList : this.state.questions});
       // } else {
-  
+
       //   let listLimitBySearch = [];
-  
+
       //   for (var i = 0; i < this.state.questions.results.length; i++) {
       //     let answers = JSON.stringify(this.state.questions.results[i].answers);
-  
+
       //     if ((this.state.questions.results[i].question_body).match(searchTerm) ||
       //         (this.state.questions.results[i].question_date).match(searchTerm) ||
       //         (this.state.questions.results[i].asker_name).match(searchTerm) ||
@@ -132,13 +130,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
       //   });
       // }
     }
-  
+
     render(<SearchQuestionBar sortBySearch={mockSortBySearch}/>);
   });
 
   test('Unit Test 3:  Does the component <AdditionalQuestionbar/> render?', () => {
-    render(<AdditionalQuestionBar currentProduct={secondProduct.id} 
-              totallength={2} defaultlength={2} addQuestionButton={mockFunction} 
+    render(<AdditionalQuestionBar currentProduct={secondProduct.id}
+              totallength={2} defaultlength={2} addQuestionButton={mockFunction}
               moreAnsweredQuestions={mockFunction}/>);
   });
 
@@ -152,7 +150,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
       render(<SingleAnswerBar answer={singleAnswer} key={singleAnswer.answer_id} refresh={mockFunction}/>);
     });
-    
+
   });
 
   test('Unit Test 6:  Does the component <SingleQuestionBar/> render?', () => {
@@ -172,7 +170,6 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   });
 
 
->>>>>>> main
 
 });
 
@@ -208,21 +205,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 //     //compare with this.
 //     //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
 
-<<<<<<< HEAD
-//     //console.log('result of axios call');
-//     // axios.get().then((result) => {
-//     //   console.log('this is the result of the axios call: ', result)
-//     // });
-//   })
-=======
     //console.log('result of axios call');
     // axios.get().then((result) => {
     //   console.log('this is the result of the axios call: ', result)
     // });
 
     //render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
-  })
->>>>>>> main
+  // })
 
 //   afterEach(() => {
 
@@ -236,40 +225,22 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   //
 
 
-<<<<<<< HEAD
-//   // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
-//   test('first integration test', async () => {
-//     act(() => {
-//       render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//     });
-
-//     await waitFor(async () => {
-//       //expect(axios.get).toHaveBeenCalled();
-//       //console.log('writing the mock call', axios.get.mock.results[0].value);
-//       //screen.debug();
-//       expect(await screen.findByText(/months/)).toBeInTheDocument();
-//       //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
-//     })
-//   });
-//   // NOW PASSING!
-=======
   // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
   test('first integration test', async () => {
     act(() => {
       render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
     });
 
-    await waitFor(async () => { 
+    await waitFor(async () => {
       //expect(axios.get).toHaveBeenCalled();
       //console.log('writing the mock call', axios.get.mock.results[0].value);
       //screen.debug();
       expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
       expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
-      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
+      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
     })
   });
   // NOW PASSING!
->>>>>>> main
 
 
 
@@ -341,31 +312,6 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 //   //     // // have the user to enter the data inside
 //   //     fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'a' } });
 
-<<<<<<< HEAD
-//   //     // // get the submit button
-//   //     let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
-
-//   //     // // click the button with improperly formatted e-mail
-//   //     fireEvent.click(submitOfAnswerModalWindow);
-//   //     expect(screen.getByText(/You must enter a properly formatted e-mail address/)).toBeInTheDocument();
-//   //   });
-//   // });
-
-
-//   // --NO LONGER PASSING
-//   test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
-
-//     act(() => {
-//       render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//     });
-
-
-//     await waitFor(() => {
-
-//       var reportFirstAnswer = screen.getAllByText(/Report/);
-//       fireEvent.click(reportFirstAnswer[0]);
-//       //reportFirstAnswer.map(fire => fireEvent.click(fire));
-=======
   // --NO LONGER PASSING
   // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
 
@@ -374,7 +320,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   //   });
 
 
-  //   await waitFor(() => { 
+  //   await waitFor(() => {
 
   //     var reportFirstAnswer = screen.getAllByText(/Report/);
   //     fireEvent.click(reportFirstAnswer[0]);
@@ -387,7 +333,6 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
   //   });
   // });
->>>>>>> main
 
 //       //console.log(reportFirstAnswer[0]);
 //       //var reportFirstAnswer = screen.getAllByText(/Reported/);

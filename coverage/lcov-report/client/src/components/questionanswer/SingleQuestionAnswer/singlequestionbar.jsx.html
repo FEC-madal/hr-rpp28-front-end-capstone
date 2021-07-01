@@ -23,15 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">0% </span>
-                <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
-=======
                 <span class="strong">44.44% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>4/9</span>
->>>>>>> main
             </div>
         
             
@@ -43,22 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
-                <span class="strong">0% </span>
-                <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
-=======
                 <span class="strong">44.44% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>4/9</span>
->>>>>>> main
             </div>
         
             
@@ -128,30 +116,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-=======
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
->>>>>>> main
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-=======
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,7 +133,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> main
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,11 +141,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-<span class="cline-any cline-no">&nbsp;</span>
-=======
 <span class="cline-any cline-yes">19x</span>
->>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,20 +166,16 @@ import {AnswerModalType2, AddAnswerModal} from '../QAModals/addanswermodal.jsx';
 &nbsp;
 class SingleQuestionBar extends React.Component {
 &nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+  constructor(props) {
+    super(props);
+    this.state = {
       question: this.props.question,
       userClickedHelpful: false,
     }
 &nbsp;
   }
 &nbsp;
-<<<<<<< HEAD
-  handleHelpful = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ev</span>ent =&gt; {</span>
-=======
   handleHelpful = <span class="fstat-no" title="function not covered" >ev</span>ent =&gt; {
->>>>>>> main
 <span class="cstat-no" title="statement not covered" >    if (!this.state.userClickedHelpful) {</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      axios.put(`http://localhost:3000/qa/questions/${this.state.question.question_id}/helpful`)</span>
@@ -230,15 +190,9 @@ class SingleQuestionBar extends React.Component {
     }
   }
 &nbsp;
-<<<<<<< HEAD
-<span class="fstat-no" title="function not covered" >  re</span>nder () {
-    
-<span class="cstat-no" title="statement not covered" >    return (</span>
-=======
   render () {
     
     return (
->>>>>>> main
       &lt;div&gt;
 &nbsp;
           &lt;span key={1} className='qa_qtext'&gt;Q: {this.state.question.question_body}&lt;/span&gt;
@@ -263,11 +217,7 @@ export default SingleQuestionBar;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-<<<<<<< HEAD
-                at Tue Jun 29 2021 20:51:10 GMT-0700 (Pacific Daylight Time)
-=======
-                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
->>>>>>> main
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>
