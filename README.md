@@ -4,7 +4,7 @@ Drag and drop retail home page with stars. Did we mention stars? This thing has 
 
 ### Table of Contents
 
-* Description
+* (#Description)
 * Installation
 * Team Members
 * Roadmap
