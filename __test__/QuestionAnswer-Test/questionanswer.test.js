@@ -83,6 +83,17 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
   });
 
 
+  // test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
+  //   render(<QuestionAnswer currentProduct={secondProduct}/>);
+  // });
+
+  // test('Unit Test 3:  Does the component <QuestionAnswer/> render?', () => {
+  //   axios.get('http://localhost:3000/qa/questions/')
+  //     .then(response => {
+  //       console.log('this is the mocked response: ', response);
+  //     });
+  // });
+
   test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
     render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
   });
@@ -163,11 +174,11 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 });
 
 
-// ********************  UNIT TESTING SECTION END  ********************
+// // ********************  UNIT TESTING SECTION END  ********************
 
 
 
-// ********************  INTEGRATION TESTING SECTION BEGIN  ********************
+// // ********************  INTEGRATION TESTING SECTION BEGIN  ********************
 
 // describe('Integration Test: : <QuestionAnswer/>', () => {
 
@@ -200,7 +211,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
     // });
 
     //render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
-  })
+  // })
 
 //   afterEach(() => {
 

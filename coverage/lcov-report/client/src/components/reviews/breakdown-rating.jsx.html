@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.88% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/17</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">81.25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/32</span>
+                <span class='fraction'>26/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.88% </span>
+                <span class="strong">58.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/17</span>
+                <span class='fraction'>10/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -128,6 +128,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <span class="cline-any cline-yes">1x</span>
 =======
 <span class="cline-any cline-yes">2x</span>
@@ -135,22 +136,28 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+=======
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,37 +203,37 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 &nbsp;
 &nbsp;
-const Ratings = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
-  let ratings = <span class="cstat-no" title="statement not covered" >props.ratings;</span>
-  let totalRatings = <span class="cstat-no" title="statement not covered" >props.totalRatings;</span>
-  let ratingArray = <span class="cstat-no" title="statement not covered" >[];</span>
+const Ratings = (props) =&gt; {
+  let ratings = props.ratings;
+  let totalRatings = props.totalRatings;
+  let ratingArray = [];
   //need to get each number and add them all together - people who posted a review
   //get all of the ratings
-<span class="cstat-no" title="statement not covered" >  for (let key in ratings) {</span>
-<span class="cstat-no" title="statement not covered" >    ratingArray[key] = (Number(ratings[key]));</span>
+  for (let key in ratings) {
+    ratingArray[key] = (Number(ratings[key]));
   }
-  let max = <span class="cstat-no" title="statement not covered" >`${totalRatings}`;</span>
+  let max = `${totalRatings}`;
 &nbsp;
-  let starholder = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(n</span>um) =&gt; {</span>
+  let starholder = <span class="fstat-no" title="function not covered" >(n</span>um) =&gt; {
 <span class="cstat-no" title="statement not covered" >    props.starSort(num);</span>
   }
 &nbsp;
-  let removeFilter = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  let removeFilter = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    props.starSort("remove");</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="reviews-container-progressbar"&gt;
       &lt;div&gt;Ratings Breakdown&lt;/div&gt;
       &lt;div className="reviews-starfilter-selection"&gt;
       &lt;span&gt;Star Filters Applied:&lt;/span&gt;
-      &lt;span className={(props.starFilter.indexOf(5) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}&gt;5&lt;/span&gt;
-      &lt;span className={(props.starFilter.indexOf(4) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}&gt;4&lt;/span&gt;
-      &lt;span className={(props.starFilter.indexOf(3) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}&gt;3&lt;/span&gt;
-      &lt;span className={(props.starFilter.indexOf(2) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}&gt;2&lt;/span&gt;
-      &lt;span className={(props.starFilter.indexOf(1) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}&gt;1&lt;/span&gt;
+      &lt;span className={(props.starFilter.indexOf(5) !== -1) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-starfilter-selection-aligncenter" </span>: "product-hidden"}&gt;5&lt;/span&gt;
+      &lt;span className={(props.starFilter.indexOf(4) !== -1) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-starfilter-selection-aligncenter" </span>: "product-hidden"}&gt;4&lt;/span&gt;
+      &lt;span className={(props.starFilter.indexOf(3) !== -1) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-starfilter-selection-aligncenter" </span>: "product-hidden"}&gt;3&lt;/span&gt;
+      &lt;span className={(props.starFilter.indexOf(2) !== -1) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-starfilter-selection-aligncenter" </span>: "product-hidden"}&gt;2&lt;/span&gt;
+      &lt;span className={(props.starFilter.indexOf(1) !== -1) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-starfilter-selection-aligncenter" </span>: "product-hidden"}&gt;1&lt;/span&gt;
       &lt;/div&gt;
-      &lt;div className={(props.starFilter.length &gt; 0) ? null: "product-hidden"} onClick={removeFilter}&gt;Remove all filters&lt;/div&gt;
+      &lt;div className={(props.starFilter.length &gt; 0) ? <span class="branch-0 cbranch-no" title="branch not covered" >null:</span> "product-hidden"} onClick={removeFilter}&gt;Remove all filters&lt;/div&gt;
         &lt;div className="reviews-starholder-progressbar" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >starholder(5)}</span>}&gt;
           &lt;label className="alignleft-star-rating" htmlFor="5star"&gt;5 Star&lt;/label&gt;
           &lt;progress id="5star"  max={max} value={ratingArray[5] || 0} &gt;&lt;/progress&gt;
@@ -264,10 +271,14 @@ export default Ratings;</pre></td></tr></table></pre>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 at Wed Jun 30 2021 20:16:52 GMT-0500 (Central Daylight Time)
 =======
                 at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
 >>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
+=======
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
+>>>>>>> main
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

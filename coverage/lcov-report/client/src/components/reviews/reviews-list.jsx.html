@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,38 +125,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,15 +182,15 @@ import axios from 'axios';
 &nbsp;
 &nbsp;
 class ReviewsList extends  React.Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+  constructor(props) {
+    super(props);
+    this.state = {
       allReviews: [],
       count: 2
     }
     //this.bind here
     // this.initialReviews = this.initialReviews.bind(this);
-<span class="cstat-no" title="statement not covered" >    this.moreReviews = this.moreReviews.bind(this);</span>
+    this.moreReviews = this.moreReviews.bind(this);
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  mo</span>reReviews(count) {
@@ -199,28 +199,28 @@ class ReviewsList extends  React.Component {
         });
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+  componentDidMount() {
     // let promise = new Promise ( (resolve, reject) =&gt; {
     //   let reviews =
     // });
   }
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    let allReviews = <span class="cstat-no" title="statement not covered" >this.props.reviews</span>
+  render() {
+    let allReviews = this.props.reviews
     // let allReviews = (this.state.allReviews.length &gt;=1) ? this.state.allReviews : this.props.reviews
-    let reviewList = <span class="cstat-no" title="statement not covered" >allReviews.slice(0, this.state.count).map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {</span>
+    let reviewList = allReviews.slice(0, this.state.count).map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {
 <span class="cstat-no" title="statement not covered" >      return (</span>
         &lt;div key={index}&gt;
         &lt;IRT review={item} getReviews={this.props.getReviews}/&gt;
         &lt;/div&gt;
       )
     });
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;div&gt;
       &lt;div&gt;&lt;Sorted totalRatings={this.props.totalRatings} reviews={this.props.reviews} allReviews={this.props.allReviews} relevant={this.props.reviews} sortedReviews={this.props.sortedReviews} /&gt;&lt;/div&gt;
-      &lt;div className={(this.state.count &gt;= 6) ? "reviews-scroll" : null  }&gt;
+      &lt;div className={(this.state.count &gt;= 6) ? <span class="branch-0 cbranch-no" title="branch not covered" >"reviews-scroll" </span>: null  }&gt;
             {reviewList}
       &lt;/div&gt;
-      &lt;div&gt;&lt;input className={(this.state.count &gt;= this.props.reviews.length) ? "morereviews-hidden" : "morebutton"} type="button" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.moreReviews(this.props.totalRatings)}</span>} value="MORE REVIEWS"/&gt; &lt;AddReview product_id={this.props.product_id} chars={this.props.chars} productName={this.props.productName}/&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;input className={(this.state.count &gt;= this.props.reviews.length) ? "morereviews-hidden" : <span class="branch-1 cbranch-no" title="branch not covered" >"morebutton"}</span> type="button" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.moreReviews(this.props.totalRatings)}</span>} value="MORE REVIEWS"/&gt; &lt;AddReview product_id={this.props.product_id} chars={this.props.chars} productName={this.props.productName}/&gt;&lt;/div&gt;
       &lt;/div&gt;
     );
   }
@@ -239,10 +239,14 @@ export default ReviewsList;
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 at Tue Jun 29 2021 20:26:41 GMT-0500 (Central Daylight Time)
 =======
                 at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
 >>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
+=======
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
+>>>>>>> main
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>6/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>6/13</span>
             </div>
         
             
@@ -139,8 +139,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,27 +154,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,8 +163,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,15 +211,15 @@ import ReviewBody from './review-body.jsx';
 import axios from 'axios';
 &nbsp;
 class IRT extends React.Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state= {</span>
+  constructor(props) {
+    super(props);
+    this.state= {
       helpful: this.props.review.helpfulness,
       checkedClicked: false,
     }
     //this.bind here
-<span class="cstat-no" title="statement not covered" >    this.helpful = this.helpful.bind(this);</span>
-<span class="cstat-no" title="statement not covered" >    this.report = this.report.bind(this);</span>
+    this.helpful = this.helpful.bind(this);
+    this.report = this.report.bind(this);
   }
 &nbsp;
   //functions here
@@ -250,9 +250,9 @@ class IRT extends React.Component {
       })
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const check = <span class="cstat-no" title="statement not covered" >'✓';</span>
-<span class="cstat-no" title="statement not covered" >    return(</span>
+  render() {
+    const check = '✓';
+    return(
       &lt;div &gt;
       &lt;div id="textbox"&gt;
        &lt;p className="alignleft stars-noclick"&gt;&lt;StarRating rating={this.props.review.rating}/&gt;&lt;/p&gt;
@@ -261,8 +261,8 @@ class IRT extends React.Component {
       &lt;div className="reviews-summary"&gt;{this.props.review.summary}&lt;/div&gt;
       &lt;div&gt;&lt;ReviewBody body={this.props.review.body}/&gt;&lt;/div&gt;
       &lt;div&gt;&lt;ReviewPhotos photos={this.props.review.photos}/&gt;&lt;/div&gt;
-      &lt;div className={this.props.review.recommend ? null : "product-hidden" }&gt;{`${check}` + ' ' + "I recommend this product"}&lt;/div&gt;
-      &lt;div className={this.props.review.response ? null: "product-hidden"}&gt;&lt;span className="review-seller"&gt;Response from Seller: {this.props.review.response}&lt;/span&gt;&lt;/div&gt;
+      &lt;div className={this.props.review.recommend ? null : <span class="branch-1 cbranch-no" title="branch not covered" >"product-hidden" </span>}&gt;{`${check}` + ' ' + "I recommend this product"}&lt;/div&gt;
+      &lt;div className={this.props.review.response ? <span class="branch-0 cbranch-no" title="branch not covered" >null:</span> "product-hidden"}&gt;&lt;span className="review-seller"&gt;Response from Seller: {this.props.review.response}&lt;/span&gt;&lt;/div&gt;
       &lt;div&gt;
       &lt;span onClick={this.helpful}&gt;Helpful? Yes ({this.state.helpful}) | &lt;span onClick={this.report}&gt;Report&lt;/span&gt;&lt;/span&gt;
       &lt;/div&gt;
@@ -284,10 +284,14 @@ export default IRT;
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 at Tue Jun 29 2021 20:26:41 GMT-0500 (Central Daylight Time)
 =======
                 at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
 >>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
+=======
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
+>>>>>>> main
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

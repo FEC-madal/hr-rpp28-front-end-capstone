@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.14% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/14</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">86.36% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>19/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.14% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/14</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -167,35 +167,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,35 +272,35 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 &nbsp;
 &nbsp;
-const Product = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
-  let characteristics = <span class="cstat-no" title="statement not covered" >props.characteristics;</span>
+const Product = (props) =&gt; {
+  let characteristics = props.characteristics;
   let comfort;
   let quality;
   let size;
   let width;
   let fit;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (let key in characteristics) {</span>
-<span class="cstat-no" title="statement not covered" >    if (key === 'Comfort') {</span>
-<span class="cstat-no" title="statement not covered" >      comfort = Number(characteristics[key].value).toFixed(1);</span>
+  for (let key in characteristics) {
+    if (key === 'Comfort') {
+      comfort = Number(characteristics[key].value).toFixed(1);
     }
-<span class="cstat-no" title="statement not covered" >    if (key === 'Quality') {</span>
-<span class="cstat-no" title="statement not covered" >      quality = Number(characteristics[key].value).toFixed(1);</span>
+    if (key === 'Quality') {
+      quality = Number(characteristics[key].value).toFixed(1);
     }
-<span class="cstat-no" title="statement not covered" >    if (key === 'Size') {</span>
-<span class="cstat-no" title="statement not covered" >      size = Number(characteristics[key].value).toFixed(1);</span>
+    if (key === 'Size') {
+      size = Number(characteristics[key].value).toFixed(1);
     }
-<span class="cstat-no" title="statement not covered" >    if (key === 'Width') {</span>
-<span class="cstat-no" title="statement not covered" >      width = Number(characteristics[key].value).toFixed(1);</span>
+    if (key === 'Width') {
+      width = Number(characteristics[key].value).toFixed(1);
     }
-<span class="cstat-no" title="statement not covered" >    if (key === 'Fit') {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (key === 'Fit') {
 <span class="cstat-no" title="statement not covered" >      fit = Number(characteristics[key].value).toFixed(1);</span>
     }
   }
 &nbsp;
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div&gt;
       &lt;div className={size ? null : "product-hidden"}&gt;
         &lt;div&gt;Size&lt;/div&gt;
@@ -346,7 +346,7 @@ const Product = <span class="fstat-no" title="function not covered" >(p</span>ro
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={length ? null : "product-hidden"}&gt;
+      &lt;div className={length ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
         &lt;div&gt;Length&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="length" name="length"
           min="1" max="5" value={length} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -357,7 +357,7 @@ const Product = <span class="fstat-no" title="function not covered" >(p</span>ro
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={fit ? null : "product-hidden"}&gt;
+      &lt;div className={fit ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
         &lt;div&gt;Fit&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="fit" name="fit"
           min="1" max="5" value={fit} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -380,10 +380,14 @@ export default Product;</pre></td></tr></table></pre>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 at Tue Jun 29 2021 20:26:41 GMT-0500 (Central Daylight Time)
 =======
                 at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
 >>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
+=======
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
+>>>>>>> main
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
