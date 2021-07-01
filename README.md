@@ -4,13 +4,13 @@ Drag and drop retail home page with stars. Did we mention stars? This thing has 
 
 ### Table of Contents
 
-* Description
-* Installation
-* Team Members
-* Roadmap
+* [Description](#Description)
+* [Installation](#Installation)
+* [Team Members](#Team-Members)
+* [Roadmap](#Roadmap)
 
 
-[Description](#Description)
+
 Description
 
 Installation - How can another developer get your project up and running on their own? What dependencies are required? Are there environmental requirements? Be specific, and outline steps to take in order to get the project running. - tom
@@ -19,6 +19,27 @@ Usage - Further details on how the project is meant to be used may be helpful. F
 
 
 Team Members - Add the names of your team members. Describe roles on the team such as "Product Owner", "Scrum Master" and more.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Roadmap - What future enhancements are planned? What is the current status of the project? Is it being actively maintained?
