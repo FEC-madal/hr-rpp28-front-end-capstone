@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack --mode development --watch",
+    "react-prod": "webpack --mode production",
     "server-dev": "npx nodemon index.js",
     "lint": "eslint --ext .jsx --ext .js ./client/src",
     "test": "jest --env=jsdom --coverage"

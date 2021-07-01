@@ -73,7 +73,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
   test('Unit Test 0:  Test to ensure basic test functions are working', () => {
 
-   
+
     // axios.get('http://localhost:3000/qa/questions/')
     //   .then(response => {
     //     console.log('this is the mocked response: ', response);
@@ -82,6 +82,17 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
     expect(1).toEqual(1);
   });
 
+
+  // test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
+  //   render(<QuestionAnswer currentProduct={secondProduct}/>);
+  // });
+
+  // test('Unit Test 3:  Does the component <QuestionAnswer/> render?', () => {
+  //   axios.get('http://localhost:3000/qa/questions/')
+  //     .then(response => {
+  //       console.log('this is the mocked response: ', response);
+  //     });
+  // });
 
   test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
     render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
@@ -93,16 +104,16 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
       // if the search term is blank, we end early, not reducing the search at all.
       // .match automatically turns a string into a regex
-  
+
       // if ((searchTerm === '') || (!searchTerm)) {
       //   this.setState({sortedQuestionList : this.state.questions});
       // } else {
-  
+
       //   let listLimitBySearch = [];
-  
+
       //   for (var i = 0; i < this.state.questions.results.length; i++) {
       //     let answers = JSON.stringify(this.state.questions.results[i].answers);
-  
+
       //     if ((this.state.questions.results[i].question_body).match(searchTerm) ||
       //         (this.state.questions.results[i].question_date).match(searchTerm) ||
       //         (this.state.questions.results[i].asker_name).match(searchTerm) ||
@@ -119,13 +130,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
       //   });
       // }
     }
-  
+
     render(<SearchQuestionBar sortBySearch={mockSortBySearch}/>);
   });
 
   test('Unit Test 3:  Does the component <AdditionalQuestionbar/> render?', () => {
-    render(<AdditionalQuestionBar currentProduct={secondProduct.id} 
-              totallength={2} defaultlength={2} addQuestionButton={mockFunction} 
+    render(<AdditionalQuestionBar currentProduct={secondProduct.id}
+              totallength={2} defaultlength={2} addQuestionButton={mockFunction}
               moreAnsweredQuestions={mockFunction}/>);
   });
 
@@ -139,7 +150,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
       render(<SingleAnswerBar answer={singleAnswer} key={singleAnswer.answer_id} refresh={mockFunction}/>);
     });
-    
+
   });
 
   test('Unit Test 6:  Does the component <SingleQuestionBar/> render?', () => {
@@ -163,36 +174,36 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 });
 
 
-// ********************  UNIT TESTING SECTION END  ********************
+// // ********************  UNIT TESTING SECTION END  ********************
 
 
 
-// ********************  INTEGRATION TESTING SECTION BEGIN  ********************
+// // ********************  INTEGRATION TESTING SECTION BEGIN  ********************
 
-describe('Integration Test: : <QuestionAnswer/>', () => {
+// describe('Integration Test: : <QuestionAnswer/>', () => {
 
-  let container = null;
-    beforeEach(() => {
-      // setup a DOM element as a render target
-      container = document.createElement("div");
-      document.body.appendChild(container);
-      /*UNCOMMENT HERE
-      render(<QuestionAnswer currentProduct={secondProduct}/>);
-      UNCOMMENT HERE */
-    });
+//   let container = null;
+//     beforeEach(() => {
+//       // setup a DOM element as a render target
+//       container = document.createElement("div");
+//       document.body.appendChild(container);
+//       /*UNCOMMENT HERE
+//       render(<QuestionAnswer currentProduct={secondProduct}/>);
+//       UNCOMMENT HERE */
+//     });
 
 
 
-  beforeEach(() => {
-    // div = document.createElement('div')
-    // container = renderContent(div)
+//   beforeEach(() => {
+//     // div = document.createElement('div')
+//     // container = renderContent(div)
 
-    // note to self, this was the example give for me to use
-    // however this actually returns an anonymous function which returns a promise
-    //axios.get.mockResolvedValue(listQuestions);
+//     // note to self, this was the example give for me to use
+//     // however this actually returns an anonymous function which returns a promise
+//     //axios.get.mockResolvedValue(listQuestions);
 
-    //compare with this.
-    //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
+//     //compare with this.
+//     //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
 
     //console.log('result of axios call');
     // axios.get().then((result) => {
@@ -200,16 +211,16 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
     // });
 
     //render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
-  })
+  // })
 
-  afterEach(() => {
+//   afterEach(() => {
 
-  });
+//   });
 
 
-  test('dummy integration test', () => {
-    expect(1).toEqual(1);
-  });
+//   test('dummy integration test', () => {
+//     expect(1).toEqual(1);
+//   });
 
   //
 
@@ -220,96 +231,86 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
       render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
     });
 
-    await waitFor(async () => { 
+    await waitFor(async () => {
       //expect(axios.get).toHaveBeenCalled();
       //console.log('writing the mock call', axios.get.mock.results[0].value);
       //screen.debug();
       expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
       expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
-      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument()); 
+      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
     })
   });
   // NOW PASSING!
 
 
 
-  // UNCOMMENT HERE
-  // test('second integration test without mocking API call results', async () => {
-  //   act(() => {
-  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-  //   });
+//   // UNCOMMENT HERE
+//   // test('second integration test without mocking API call results', async () => {
+//   //   act(() => {
+//   //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+//   //   });
 
-  //   await waitFor(() => {   
-  //     //fixed bug of not rendering because of CORS
-  //     var answer = screen.getAllByText(/add answer/);
-  //     fireEvent.click(answer[0]);
-  //     expect(screen.getByDisplayValue(/jack@email.com/)).toBeInTheDocument();
-  //     expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
-  //     expect(screen.getByText('Your E-mail')).toBeInTheDocument();
+//   //   await waitFor(() => {
+//   //     //fixed bug of not rendering because of CORS
+//   //     var answer = screen.getAllByText(/add answer/);
+//   //     fireEvent.click(answer[0]);
+//   //     expect(screen.getByDisplayValue(/jack@email.com/)).toBeInTheDocument();
+//   //     expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
+//   //     expect(screen.getByText('Your E-mail')).toBeInTheDocument();
 
-  //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
-  //     // expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
+//   //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
+//   //     // expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
 
-  //     // let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
-  //     // expect(submitOfAnswerModalWindow).toBeInTheDocument();
-  //   }); 
-  // });
-  
-
-
-  // NOW PASSING!
-  
-  // test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
-
-  //   act(() => {
-  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-  //   });
-
-  //   await waitFor(() => { 
-
-  //     var answer = screen.getAllByText('| add answer');
-  //     fireEvent.click(answer[0]);
-
-  //     // // Filling out the form
-
-  //     // // ANSWER FIELD
-  //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', {name: 'answerbody'}); //this didnt work
-      
-  //     let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
-  //     fireEvent.click(answerbodyofAnswerModalWindow);
-  //     fireEvent.change(answerbodyofAnswerModalWindow, { target: { value: 'a' } });
-  //     expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
+//   //     // let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
+//   //     // expect(submitOfAnswerModalWindow).toBeInTheDocument();
+//   //   });
+//   // });
 
 
-  //     // NICKNAME FIELD
-  //     // getting the nickname field
-  //     let nameOfAnswerModalWindow = screen.getByDisplayValue(/jack543/);
 
-  //     //click on the field to clear the field
-  //     fireEvent.click(nameOfAnswerModalWindow);
+//   // NOW PASSING!
 
-  //     // have the user to enter the data inside
-  //     fireEvent.change(nameOfAnswerModalWindow, { target: { value: 'a' } });
+//   // test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
 
-  //     // // EMAIL FIELD
-  //     // // getting the e-mail field
-  //     let emailOfAnswerModalWindow = screen.getByDisplayValue(/jack@email.com/);
+//   //   act(() => {
+//   //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+//   //   });
 
-  //     // // click on the field to clear the field
-  //     fireEvent.click(emailOfAnswerModalWindow);
+//   //   await waitFor(() => {
 
-  //     // // have the user to enter the data inside
-  //     fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'a' } });
+//   //     var answer = screen.getAllByText('| add answer');
+//   //     fireEvent.click(answer[0]);
 
-  //     // // get the submit button
-  //     let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
+//   //     // // Filling out the form
 
-  //     // // click the button with improperly formatted e-mail
-  //     fireEvent.click(submitOfAnswerModalWindow);
-  //     expect(screen.getByText(/You must enter a properly formatted e-mail address/)).toBeInTheDocument();
-  //   });
-  // });
+//   //     // // ANSWER FIELD
+//   //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', {name: 'answerbody'}); //this didnt work
 
+//   //     let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
+//   //     fireEvent.click(answerbodyofAnswerModalWindow);
+//   //     fireEvent.change(answerbodyofAnswerModalWindow, { target: { value: 'a' } });
+//   //     expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
+
+
+//   //     // NICKNAME FIELD
+//   //     // getting the nickname field
+//   //     let nameOfAnswerModalWindow = screen.getByDisplayValue(/jack543/);
+
+//   //     //click on the field to clear the field
+//   //     fireEvent.click(nameOfAnswerModalWindow);
+
+//   //     // have the user to enter the data inside
+//   //     fireEvent.change(nameOfAnswerModalWindow, { target: { value: 'a' } });
+
+//   //     // // EMAIL FIELD
+//   //     // // getting the e-mail field
+//   //     let emailOfAnswerModalWindow = screen.getByDisplayValue(/jack@email.com/);
+
+//   //     // // click on the field to clear the field
+//   //     fireEvent.click(emailOfAnswerModalWindow);
+
+//   //     // // have the user to enter the data inside
+//   //     fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'a' } });
 
   // --NO LONGER PASSING
   // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
@@ -319,7 +320,7 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
   //   });
 
 
-  //   await waitFor(() => { 
+  //   await waitFor(() => {
 
   //     var reportFirstAnswer = screen.getAllByText(/Report/);
   //     fireEvent.click(reportFirstAnswer[0]);
@@ -333,7 +334,15 @@ describe('Integration Test: : <QuestionAnswer/>', () => {
   //   });
   // });
 
+//       //console.log(reportFirstAnswer[0]);
+//       //var reportFirstAnswer = screen.getAllByText(/Reported/);
 
-});
+//       expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
 
-// ********************  INTEGRATION TESTING SECTION END  ********************
+//     });
+//   });
+
+
+// });
+
+// // ********************  INTEGRATION TESTING SECTION END  ********************

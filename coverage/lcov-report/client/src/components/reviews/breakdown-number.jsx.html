@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,21 +87,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,21 +113,21 @@
 import ReactDOM from 'react-dom';
 import StarRating from './starsrating.jsx';
 &nbsp;
-const AverageNumber = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+const AverageNumber = (props) =&gt; {
 &nbsp;
-  let ratings = <span class="cstat-no" title="statement not covered" >props.ratings;</span>
-  let numberOfPeople = <span class="cstat-no" title="statement not covered" >0;</span>
-  let totalRatings = <span class="cstat-no" title="statement not covered" >0;</span>
+  let ratings = props.ratings;
+  let numberOfPeople = 0;
+  let totalRatings = 0;
   //need to get each number and add them all together - people who posted a review
   //get all of the ratings
-<span class="cstat-no" title="statement not covered" >  for (let key in ratings) {</span>
-<span class="cstat-no" title="statement not covered" >    numberOfPeople += Number(ratings[key]);</span>
-<span class="cstat-no" title="statement not covered" >    totalRatings += (Number(key) * Number(ratings[key]));</span>
+  for (let key in ratings) {
+    numberOfPeople += Number(ratings[key]);
+    totalRatings += (Number(key) * Number(ratings[key]));
   }
-  let averageRating = <span class="cstat-no" title="statement not covered" >(totalRatings / numberOfPeople).toFixed(1);</span>
-  let recommendations = <span class="cstat-no" title="statement not covered" >((props.recommendations / numberOfPeople) * 100).toFixed();</span>
+  let averageRating = (totalRatings / numberOfPeople).toFixed(1);
+  let recommendations = ((props.recommendations / numberOfPeople) * 100).toFixed();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="stars-noclick"&gt;
       {averageRating} &lt;StarRating rating={averageRating}/&gt;
       &lt;div&gt;{recommendations}% of reviews recommend this product&lt;/div&gt;
@@ -142,7 +142,7 @@ export default AverageNumber;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
