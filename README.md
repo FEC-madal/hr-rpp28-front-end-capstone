@@ -21,25 +21,4 @@ Usage - Further details on how the project is meant to be used may be helpful. F
 Team Members - Add the names of your team members. Describe roles on the team such as "Product Owner", "Scrum Master" and more.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Roadmap - What future enhancements are planned? What is the current status of the project? Is it being actively maintained?
