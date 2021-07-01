@@ -23,8 +23,8 @@ class OutfitSlide extends React.Component {
   componentDidMount() {
     const { outfit } = this.props;
     const defaultInfo = outfit.styles.results.find((product) => product['default?'] === true);
-    let thumbnailURL;
 
+    let thumbnailURL;
     if (!defaultInfo) {
       thumbnailURL = outfit.styles.results[0].photos[0].url;
       this.setState({
@@ -62,8 +62,8 @@ class OutfitSlide extends React.Component {
 
   changeProduct() {
     const { outfit, updateProduct } = this.props;
-    const productId = outfit.styles.product_id;
-    updateProduct(productId);
+    const productID = outfit.styles.product_id;
+    updateProduct(productID);
   }
 
   render() {
@@ -78,7 +78,7 @@ class OutfitSlide extends React.Component {
     return (
       <>
         {
-          loaded === 1 && (
+          loaded > 0 && (
             <CardWrap>
               <ButtonWrap>
                 <RemoveButton
@@ -105,7 +105,7 @@ class OutfitSlide extends React.Component {
       </>
     );
   }
-};
+}
 
 OutfitSlide.propTypes = {
   outfit: PropTypes.object,

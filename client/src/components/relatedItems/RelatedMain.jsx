@@ -20,7 +20,7 @@ class RelatedMain extends React.Component {
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
           <section>
-          <h2>Related items you may also like</h2>
+            <h2>Related items you may also like</h2>
           </section>
         <ListWrap>
           <RelatedItemsList

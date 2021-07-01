@@ -27,7 +27,7 @@ class App extends React.Component {
         "updated_at": "2021-03-18T16:09:30.589Z"
       },
       secondProduct:   {
-        id: 22126,
+        id: 22134,
         campus: 'hr-rpp',
         name: 'Heir Force Ones',
         slogan: 'A sneaker dynasty',
@@ -134,8 +134,7 @@ class App extends React.Component {
       relatedItemsRatings: []
     });
 
-    let { productId } = this.state;
-    this.getRelated(productId);
+    this.getRelated(newProductId);
   }
 
   render () {
