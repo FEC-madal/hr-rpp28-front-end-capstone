@@ -41,6 +41,26 @@ Installation - How can another developer get your project up and running on thei
 This is an example of how the question and answer widget should operate visually:
 [Link](https://recordit.co/92swj9lVMo)
 
+Ratings and review widget
+
+The review rating will show all of the ratings and reviews for each product selected.
+To the left of the reviews - the average number of all reviews will show with different visual cues - stars, numbers and a breakdown by each star given.
+Product review will take average of all reviews with regard to characteristics and provide a visual representation to the user.
+
+The right side will provide the user the ability to sort the review via Helpfulness, Newest and Relevant.  Additionally users are provide a single tile to render individual reviews with stars, recommendations, date, username, summary and body.
+
+Finally, the user is able to post a review.
+Features:
+Stars rating for average number of ratings
+Multiple visual representations of ratings
+	Bars
+	Ranges of ratings
+Sort reviews through helpfulness, Newest & Relevance
+Reviews return individual ratings, summary & full body
+Users are able to recommend the product and vote on helpfulness 
+Users can add their own reviews through a custom form and contribute to the community
+
+
 
 Installation
 ===========================================================
