@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">41.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>7/17</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">41.18% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>7/17</span>
             </div>
         
             
@@ -143,30 +143,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,6 +158,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,7 +186,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -222,15 +222,15 @@ import ReactDOM from 'react-dom';
 &nbsp;
 &nbsp;
 class ReviewPhotos extends React.Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >    super(props);</span>
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+  constructor(props) {
+    super(props);
+    this.state = {
       isOpen: false,
       photos: []
     }
     //this.bind here
-<span class="cstat-no" title="statement not covered" >    this.openModal = this.openModal.bind(this);</span>
-<span class="cstat-no" title="statement not covered" >    this.closeModal = this.closeModal.bind(this);</span>
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
    }
 //functions here
 <span class="fstat-no" title="function not covered" >  op</span>enModal(event) {
@@ -250,9 +250,9 @@ class ReviewPhotos extends React.Component {
   }
 &nbsp;
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    let allPhotos = <span class="cstat-no" title="statement not covered" >this.props.photos</span>
-    let photos = <span class="cstat-no" title="statement not covered" >allPhotos.map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {</span>
+  render() {
+    let allPhotos = this.props.photos
+    let photos = allPhotos.map(<span class="fstat-no" title="function not covered" >(i</span>tem, index) =&gt; {
 <span class="cstat-no" title="statement not covered" >      return (</span>
         &lt;li key={index}&gt;&lt;img id="myImg" src={item.url} onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.openModal(event.target.src)}</span>} alt="this is a blown up version of the photo"&gt;&lt;/img&gt;
           &lt;div id="myModal" className="modal"&gt;
@@ -266,7 +266,7 @@ class ReviewPhotos extends React.Component {
 &nbsp;
       )
     })
-<span class="cstat-no" title="statement not covered" >    return(</span>
+    return(
       &lt;ul&gt;{photos}&lt;/ul&gt;
 &nbsp;
     );
@@ -304,7 +304,7 @@ export default ReviewPhotos;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
+                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
