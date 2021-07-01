@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import QuestionAnswer from '../../client/src/components/questionanswer/questionanswer.jsx';
+import {QuestionAnswer, AdditionalQuestionBar} from '../../client/src/components/questionanswer/questionanswer.jsx';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { act } from "react-dom/test-utils";
@@ -9,6 +9,14 @@ import axios from 'axios';
 import { debug } from 'webpack';
 import questionsPerProduct from './questionsPerProduct.js';
 import answersPerQuestion from './answersPerQuestion.js';
+import SearchQuestionBar from '../../client/src/components/questionanswer/SearchQuestionBar/searchquestionbar.jsx';
+import SingleQuestionAnswer from '../../client/src/components/questionanswer/SingleQuestionAnswer/singlequestionanswer.jsx';
+import {AddQuestionModal, QuestionModalType2} from '../../client/src/components/questionanswer/QAModals/addquestionmodal.jsx';
+import SingleQuestionBar from '../../client/src/components/questionanswer/SingleQuestionAnswer/singlequestionbar.jsx';
+import SingleAnswerBar from '../../client/src/components/questionanswer/SingleQuestionAnswer/singleanswerbar.jsx';
+import {AddAnswerModal, AnswerModalType2} from '../../client/src/components/questionanswer/QAModals/addanswermodal.jsx';
+
+
 //import userEvent from '@testing-library/user-event'
 //jest.mock('axios');
 // commented out for integration test 2
@@ -31,6 +39,8 @@ var secondProduct = {
   updated_at: '2021-03-18T16:09:30.589Z',
 }
 
+var mockFunction = () => {};
+
 
 var MockAdapter = require("axios-mock-adapter");
 
@@ -47,7 +57,6 @@ mock.onGet("/testtest").reply(200, {
 mock.onGet('http://localhost:3000/qa/questions/').reply(200, listQuestions);
 //mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
 
-
 mock.onPut().reply(200, {});
 
 //api/fec2/hr-rpp/qa/answers/1444523/report
@@ -59,21 +68,96 @@ mock.onPut().reply(200, {});
 
 describe('Unit Test Section: <QuestionAnswer/>', () => {
 
+  var operativeQuestion = questionsPerProduct.results[0];
+  var operativeAnswer = answersPerQuestion.results[0];
+
   test('Unit Test 0:  Test to ensure basic test functions are working', () => {
+
+
+    // axios.get('http://localhost:3000/qa/questions/')
+    //   .then(response => {
+    //     console.log('this is the mocked response: ', response);
+    //   });
+
     expect(1).toEqual(1);
   });
 
 
-  // test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
-  //   render(<QuestionAnswer currentProduct={secondProduct}/>);
-  // });
+  test('Unit Test 1:  Does the component <QuestionAnswer/> render?', () => {
+    render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+  });
 
-  // test('Unit Test 3:  Does the component <QuestionAnswer/> render?', () => {
-  //   axios.get('http://localhost:3000/qa/questions/')
-  //     .then(response => {
-  //       console.log('this is the mocked response: ', response);
-  //     });
-  // });
+  test('Unit Test 2:  Does the component <SearchQuestionBar/> render?', () => {
+
+    var mockSortBySearch = function sortBySearch(searchTerm) {
+
+      // if the search term is blank, we end early, not reducing the search at all.
+      // .match automatically turns a string into a regex
+
+      // if ((searchTerm === '') || (!searchTerm)) {
+      //   this.setState({sortedQuestionList : this.state.questions});
+      // } else {
+
+      //   let listLimitBySearch = [];
+
+      //   for (var i = 0; i < this.state.questions.results.length; i++) {
+      //     let answers = JSON.stringify(this.state.questions.results[i].answers);
+
+      //     if ((this.state.questions.results[i].question_body).match(searchTerm) ||
+      //         (this.state.questions.results[i].question_date).match(searchTerm) ||
+      //         (this.state.questions.results[i].asker_name).match(searchTerm) ||
+      //         (answers.match(searchTerm))) {
+      //           //only push in if there is a regex match of the search term
+      //           listLimitBySearch.push(this.state.questions.results[i]);
+      //         }
+      //   }
+      //   //once we create the reduced list, we setState and render off the reduced list
+      //   this.setState({sortedQuestionList: {
+      //     searchTerm: searchTerm,
+      //     product_id: this.state.product_id,
+      //     results: listLimitBySearch,}
+      //   });
+      // }
+    }
+
+    render(<SearchQuestionBar sortBySearch={mockSortBySearch}/>);
+  });
+
+  test('Unit Test 3:  Does the component <AdditionalQuestionbar/> render?', () => {
+    render(<AdditionalQuestionBar currentProduct={secondProduct.id}
+              totallength={2} defaultlength={2} addQuestionButton={mockFunction}
+              moreAnsweredQuestions={mockFunction}/>);
+  });
+
+  test('Unit Test 4:  Does the component <SingleQuestionAnswer/> render?', () => {
+
+    render(<SingleQuestionAnswer question={operativeQuestion} key={operativeQuestion.question_id} refresh={mockFunction} productName={secondProduct.name}/>);
+  });
+
+  test('Unit Test 5:  Does the component <SingleAnswerBar/> render?', () => {
+    answersPerQuestion.results.map((singleAnswer) => {
+
+      render(<SingleAnswerBar answer={singleAnswer} key={singleAnswer.answer_id} refresh={mockFunction}/>);
+    });
+
+  });
+
+  test('Unit Test 6:  Does the component <SingleQuestionBar/> render?', () => {
+    render(<SingleQuestionBar question={operativeQuestion} AModalHandler={mockFunction} refresh={mockFunction} productName={secondProduct.name}/>);
+  });
+
+  test('Unit Test 7:  Does the component <AddAnswerModal/> render?', () => {
+    render(<AddAnswerModal qid={operativeQuestion.question_id} show={mockFunction} key={mockFunction} product_name={secondProduct.name} question_body={operativeQuestion.question_body}/>);
+  });
+
+  test('Unit Test 8:  Does the component <AnswerModalType2/> render?', () => {
+    render(<AnswerModalType2 qid={operativeQuestion.question_id} product_name={secondProduct.name} question_body={operativeQuestion.question_body} productName={secondProduct.name}/>);
+  });
+
+  test('Unit Test 9:  Does the component <QuestionModalType2/> render?', () => {
+    render(<QuestionModalType2 currentProduct={secondProduct.id}/>);
+  });
+
 
 
 });
@@ -110,11 +194,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 //     //compare with this.
 //     //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
 
-//     //console.log('result of axios call');
-//     // axios.get().then((result) => {
-//     //   console.log('this is the result of the axios call: ', result)
-//     // });
-//   })
+    //console.log('result of axios call');
+    // axios.get().then((result) => {
+    //   console.log('this is the result of the axios call: ', result)
+    // });
+
+    //render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+  })
 
 //   afterEach(() => {
 
@@ -125,22 +211,25 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 //     expect(1).toEqual(1);
 //   });
 
+  //
 
-//   // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
-//   test('first integration test', async () => {
-//     act(() => {
-//       render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//     });
 
-//     await waitFor(async () => {
-//       //expect(axios.get).toHaveBeenCalled();
-//       //console.log('writing the mock call', axios.get.mock.results[0].value);
-//       //screen.debug();
-//       expect(await screen.findByText(/months/)).toBeInTheDocument();
-//       //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
-//     })
-//   });
-//   // NOW PASSING!
+  // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
+  test('first integration test', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+    });
+
+    await waitFor(async () => {
+      //expect(axios.get).toHaveBeenCalled();
+      //console.log('writing the mock call', axios.get.mock.results[0].value);
+      //screen.debug();
+      expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
+      expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
+      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
+    })
+  });
+  // NOW PASSING!
 
 
 
@@ -212,29 +301,27 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 //   //     // // have the user to enter the data inside
 //   //     fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'a' } });
 
-//   //     // // get the submit button
-//   //     let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
+  // --NO LONGER PASSING
+  // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
 
-//   //     // // click the button with improperly formatted e-mail
-//   //     fireEvent.click(submitOfAnswerModalWindow);
-//   //     expect(screen.getByText(/You must enter a properly formatted e-mail address/)).toBeInTheDocument();
-//   //   });
-//   // });
+  //   act(() => {
+  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
+  //   });
 
 
-//   // --NO LONGER PASSING
-//   test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
+  //   await waitFor(() => {
 
-//     act(() => {
-//       render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//     });
+  //     var reportFirstAnswer = screen.getAllByText(/Report/);
+  //     fireEvent.click(reportFirstAnswer[0]);
+  //     //reportFirstAnswer.map(fire => fireEvent.click(fire));
 
+  //     //console.log(reportFirstAnswer[0]);
+  //     //var reportFirstAnswer = screen.getAllByText(/Reported/);
 
-//     await waitFor(() => {
+  //     expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
 
-//       var reportFirstAnswer = screen.getAllByText(/Report/);
-//       fireEvent.click(reportFirstAnswer[0]);
-//       //reportFirstAnswer.map(fire => fireEvent.click(fire));
+  //   });
+  // });
 
 //       //console.log(reportFirstAnswer[0]);
 //       //var reportFirstAnswer = screen.getAllByText(/Reported/);

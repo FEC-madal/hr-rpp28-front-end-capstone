@@ -21,54 +21,59 @@
 //   //   render(<RatingsReviews />);
 //   // });
 
-//   test('renders Breakdown component', () => {
-//     render(<Reviews />);
-//   });
+    test('renders Breakdown component', () => {
 
-//   test('renders Breakdown component', () => {
-//     render(<Sort />);
-//   });
+    });
 
-//   test('renders Breakdown component', () => {
-//     render(<Breakdown />);
-//   });
 
-//   test('renders Breakdown component', () => {
-//     render(<Breakdownrating />);
-//   });
+  // test('renders Breakdown component', () => {
+  //   render(<Reviews />);
+  // });
 
-//   test('renders Breakdownproduct component', () => {
-//     render(<Breakdownproduct />);
-//   });
+  // test('renders Breakdown component', () => {
+  //   render(<Sort />);
+  // });
 
-//   test('renders Breakdownnum component', () => {
-//     render(<Breakdownnum />);
-//   });
+  // test('renders Breakdown component', () => {
+  //   render(<Breakdown />);
+  // });
 
-//   test('renders chars component', () => {
-//     render(<Chars />);
-//   });
+  // test('renders Breakdown component', () => {
+  //   render(<Breakdownrating />);
+  // });
 
-//   test('renders chars component', () => {
-//     render(<Addreview />);
-//   });
-//   // test('renders Individual Review Tile component', () => {
-//   //   render(<IRT/>);
-//   // });
+  // test('renders Breakdownproduct component', () => {
+  //   render(<Breakdownproduct />);
+  // });
 
-//   test('renders More reviews component', () => {
-//     render(<MoreReviews />);
-//   });
+  // test('renders Breakdownnum component', () => {
+  //   render(<Breakdownnum />);
+  // });
 
-//   // test('renders Review Body component', () => {
-//   //   render(<ReviewBody />);
-//   // });
+  // test('renders chars component', () => {
+  //   render(<Chars />);
+  // });
 
-//   // test('renders Review Photos component', async () => {
-//   //   render(<ReviewPhotos />);
-//   // });
+  // test('renders chars component', () => {
+  //   render(<Addreview />);
+  // });
+  // // test('renders Individual Review Tile component', () => {
+  // //   render(<IRT/>);
+  // // });
 
-//   test('renders Star Rating component', () => {
-//     render(<StarRating />);
-//   });
-// });
+  // test('renders More reviews component', () => {
+  //   render(<MoreReviews />);
+  // });
+
+  // // test('renders Review Body component', () => {
+  // //   render(<ReviewBody />);
+  // // });
+
+  // // test('renders Review Photos component', async () => {
+  // //   render(<ReviewPhotos />);
+  // // });
+
+  // test('renders Star Rating component', () => {
+  //   render(<StarRating />);
+  // });
+});

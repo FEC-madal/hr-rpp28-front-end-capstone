@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/22</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
@@ -168,17 +168,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,11 +188,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,15 +272,15 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 &nbsp;
 &nbsp;
-const Product = (props) =&gt; {
-  let characteristics = props.characteristics;
+const Product = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+  let characteristics = <span class="cstat-no" title="statement not covered" >props.characteristics;</span>
   let comfort;
   let quality;
   let size;
   let width;
   let fit;
 &nbsp;
-  for (let key in characteristics) {
+<span class="cstat-no" title="statement not covered" >  for (let key in characteristics) {</span>
 <span class="cstat-no" title="statement not covered" >    if (key === 'Comfort') {</span>
 <span class="cstat-no" title="statement not covered" >      comfort = Number(characteristics[key].value).toFixed(1);</span>
     }
@@ -300,9 +300,9 @@ const Product = (props) =&gt; {
 &nbsp;
 &nbsp;
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div&gt;
-      &lt;div className={size ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={size ? null : "product-hidden"}&gt;
         &lt;div&gt;Size&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="size" name="size"
           min="1" max="5" value={size} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -313,7 +313,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={width ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={width ? null : "product-hidden"}&gt;
         &lt;div&gt;Width&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="width" name="width"
           min="1" max="5" value={width} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -324,7 +324,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={comfort ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={comfort ? null : "product-hidden"}&gt;
         &lt;div&gt;Comfort&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="comfort" name="comfort"
           min="1" max="5" value={comfort} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -335,7 +335,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={quality ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={quality ? null : "product-hidden"}&gt;
         &lt;div&gt;Quality&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="quality" name="quality"
           min="1" max="5" value={quality} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -346,7 +346,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={length ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={length ? null : "product-hidden"}&gt;
         &lt;div&gt;Length&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="length" name="length"
           min="1" max="5" value={length} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -357,7 +357,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={fit ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={fit ? null : "product-hidden"}&gt;
         &lt;div&gt;Fit&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="fit" name="fit"
           min="1" max="5" value={fit} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -379,7 +379,11 @@ export default Product;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+<<<<<<< HEAD
                 at Tue Jun 29 2021 20:26:41 GMT-0500 (Central Daylight Time)
+=======
+                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
+>>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
             </div>
         </div>
         <script src="../../../../prettify.js"></script>
