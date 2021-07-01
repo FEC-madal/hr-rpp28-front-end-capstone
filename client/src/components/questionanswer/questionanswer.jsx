@@ -125,7 +125,6 @@ class QuestionAnswer extends React.Component {
     let questionlist = this.state.sortedQuestionList.results.slice(0, this.state.defaultlength).map((question) => {
       return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} refresh={this.reloadQuestionAnswer.bind(this)} productName={this.props.productName}/></tr>});
 
-
     // let questionlist = this.state.questions.results.slice(0, this.state.defaultlength).map((question) => {
     //   return <tr><td><SingleQuestionAnswer question={question} key={question.question_id} reloadQuestionAnswer={this.reloadQuestionAnswer.bind(this)}/></td></tr>
     // });
