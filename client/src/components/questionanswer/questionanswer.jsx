@@ -159,7 +159,7 @@ class QuestionAnswer extends React.Component {
   }
 }
 
-export default QuestionAnswer;
+export {QuestionAnswer, AdditionalQuestionBar};
 
 
 
