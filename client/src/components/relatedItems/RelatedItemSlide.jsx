@@ -55,7 +55,7 @@ class RelatedItemSlide extends React.Component {
 
     axios.get(`/relatedItems/products/?productId=${productId}&flag=styles`)
       .then((data) => {
-        let thumbnail = '';
+        let thumbnail;
         const mainProductDescription = data.data.results.find((product) => product['default?'] === true);
         if (!mainProductDescription) {
           thumbnail = data.data.results[0].photos[0].thumbnail_url;
@@ -67,17 +67,16 @@ class RelatedItemSlide extends React.Component {
           this.setState({
             salePrice: mainProductDescription.sale_price,
           });
-          if (thumbnail === '') {
+        }
+        if (!thumbnail) {
             this.setState({
               photoLoaded: this.state.photoLoaded + 1,
-              // Should there be a 'PHOTO NOT FOUND' gif
             });
-          } else {
+        } else {
             this.setState({
               photoLoaded: this.state.photoLoaded + 1,
               photoURL: thumbnail,
             });
-          }
         }
       })
       .catch((err) => {
@@ -163,7 +162,6 @@ class RelatedItemSlide extends React.Component {
     const loadPhoto = {
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
-      backgroundImage: 'url("https://mk0wwwpoqcommervacts.kinstacdn.com/wp-content/uploads/2018/11/image3.gif")',
     };
 
     return (
@@ -177,10 +175,11 @@ class RelatedItemSlide extends React.Component {
             <SlideContainer>
               <ButtonWrap aria-label="Compare Items">
                 <CompareButton
-                  className="fa fa-star"
                   onClick={this.handleModalClick}
                   aria-label="Compare Items"
-                />
+                >
+                  <div dangerouslySetInnerHTML={{__html: '&#9734'}} />
+                </CompareButton>
               </ButtonWrap>
               <ImageWrap onClick={this.newProduct} aria-label="Show new Product">
                 <Image src={photoURL} alt={productInfo.name} />

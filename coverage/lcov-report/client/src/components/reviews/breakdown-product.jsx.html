@@ -23,30 +23,48 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">92.86% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>13/14</span>
+=======
+                <span class="strong">7.14% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>1/14</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">86.36% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>19/22</span>
+=======
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/22</span>
+>>>>>>> main
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">92.86% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>13/14</span>
+=======
+                <span class="strong">7.14% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1/14</span>
+>>>>>>> main
             </div>
         
             
@@ -167,17 +185,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+=======
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
+=======
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -195,7 +224,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
+=======
+<span class="cline-any cline-no">&nbsp;</span>
+>>>>>>> main
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,17 +305,23 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 &nbsp;
 &nbsp;
-const Product = (props) =&gt; {
-  let characteristics = props.characteristics;
+const Product = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+  let characteristics = <span class="cstat-no" title="statement not covered" >props.characteristics;</span>
   let comfort;
   let quality;
   let size;
   let width;
   let fit;
 &nbsp;
+<<<<<<< HEAD
   for (let key in characteristics) {
     if (key === 'Comfort') {
       comfort = Number(characteristics[key].value).toFixed(1);
+=======
+<span class="cstat-no" title="statement not covered" >  for (let key in characteristics) {</span>
+<span class="cstat-no" title="statement not covered" >    if (key === 'Comfort') {</span>
+<span class="cstat-no" title="statement not covered" >      comfort = Number(characteristics[key].value).toFixed(1);</span>
+>>>>>>> main
     }
     if (key === 'Quality') {
       quality = Number(characteristics[key].value).toFixed(1);
@@ -300,7 +339,7 @@ const Product = (props) =&gt; {
 &nbsp;
 &nbsp;
 &nbsp;
-  return (
+<span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div&gt;
       &lt;div className={size ? null : "product-hidden"}&gt;
         &lt;div&gt;Size&lt;/div&gt;
@@ -346,7 +385,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={length ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={length ? null : "product-hidden"}&gt;
         &lt;div&gt;Length&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="length" name="length"
           min="1" max="5" value={length} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -357,7 +396,7 @@ const Product = (props) =&gt; {
           &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div className={fit ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: "product-hidden"}&gt;
+      &lt;div className={fit ? null : "product-hidden"}&gt;
         &lt;div&gt;Fit&lt;/div&gt;
         &lt;div&gt;&lt;input type="range" id="fit" name="fit"
           min="1" max="5" value={fit} readOnly={true}&gt;&lt;/input&gt;&lt;/div&gt;
@@ -379,7 +418,11 @@ export default Product;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+<<<<<<< HEAD
                 at Tue Jun 29 2021 20:51:10 GMT-0700 (Pacific Daylight Time)
+=======
+                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
+>>>>>>> main
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

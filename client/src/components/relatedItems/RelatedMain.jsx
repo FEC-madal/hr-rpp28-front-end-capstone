@@ -19,11 +19,9 @@ class RelatedMain extends React.Component {
     const { productId, updateProduct, relatedItems, ratings } = this.props;
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
-        <div>
           <section>
-          <h3>Related items you may also like</h3>
+          <h2>Related items you may also like</h2>
           </section>
-        </div>
         <ListWrap>
           <RelatedItemsList
             productId={productId}
@@ -32,11 +30,9 @@ class RelatedMain extends React.Component {
             updateProduct={updateProduct}
           />
         </ListWrap>
-        <div>
         <section>
-          <h3>Your Outfit</h3>
+          <h2>Your Outfit</h2>
         </section>
-        </div>
         <ListWrap>
           <OutfitList
             parentId={productId}

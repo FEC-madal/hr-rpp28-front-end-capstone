@@ -83,9 +83,10 @@ class OutfitSlide extends React.Component {
               <ButtonWrap>
                 <RemoveButton
                   onClick={this.deleteOutfit}
-                  className='far fa-times-circle'
                   aria-label="Remove item from outfit"
-                />
+                >
+                  X
+                </RemoveButton>
               </ButtonWrap>
               <ImageWrap onClick={this.changeProduct}>
                 <Image src={photoURL} width='100%' height='auto' alt={productInfo.name} />
