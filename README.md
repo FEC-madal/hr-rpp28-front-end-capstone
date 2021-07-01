@@ -1,10 +1,13 @@
  # Front-End-Capstone-Madal
 
-Overview chirs
+Drag and drop retail home page with stars. Did we mention stars? This thing has stars
 
-Table of Contents  chirs
+### Table of Contents
 
-Description - Each person talk about your widget - eceryone
+* Description
+* Installation
+* Team Members
+* Roadmap
 
 
 Installation - How can another developer get your project up and running on their own? What dependencies are required? Are there environmental requirements? Be specific, and outline steps to take in order to get the project running. - tom
