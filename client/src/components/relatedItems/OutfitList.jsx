@@ -82,10 +82,6 @@ class OutfitList extends React.Component {
       ];
       const newOutfitInfoObject = newOutfitInfoConstructor[0];
 
-      this.setState({
-        outfits: [],
-      });
-
       axios.post('/relatedItems/outfits', newOutfitInfoObject)
         .then((data) => {
           this.setState({
