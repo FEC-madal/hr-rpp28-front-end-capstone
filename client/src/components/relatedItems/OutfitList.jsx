@@ -9,6 +9,7 @@ class OutfitList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      parentId: this.props.parentId,
       outfits: [],
       parentStyles: '',
       parentInfo: '',
@@ -17,6 +18,7 @@ class OutfitList extends React.Component {
       loaded: false,
     };
 
+    this.getData = this.getData.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
     this.removeOutfit = this.removeOutfit.bind(this);
     this.scrollLeft = this.scrollLeft.bind(this);
@@ -26,7 +28,10 @@ class OutfitList extends React.Component {
 
   componentDidMount() {
     const { parentId } = this.props;
+    this.getData(parentId);
+  }
 
+  getData(parentId) {
     if (parentId !== undefined) {
       axios.get(`relatedItems/products/?productId=${parentId}`)
         .then((data) => {
@@ -62,8 +67,13 @@ class OutfitList extends React.Component {
   }
 
   addOutfit() {
+    const { parentId } = this.props;
+    this.getData(parentId);
     const { parentStyles, parentInfo, outfits } = this.state;
-    const outfitId = parentStyles.product_id;
+    const outfitId = parentId;
+    // console.log('parentStyles', parentStyles);
+    // console.log('parentInfo', parentInfo);
+    // console.log('parentId', parentId);
     let idx;
     this.props.outfitClicks('addOutfit');
     outfits.forEach((outfit, i) => {
@@ -92,7 +102,8 @@ class OutfitList extends React.Component {
         .catch((err) => {
           console.log('Error posting outfit to API in OutfitList addOutfit: ', err);
         });
-    }
+
+  }
   }
 
   removeOutfit(id) {

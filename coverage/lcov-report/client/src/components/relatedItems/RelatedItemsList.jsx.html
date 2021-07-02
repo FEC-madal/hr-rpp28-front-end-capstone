@@ -23,26 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
                 <span class="strong">51.43% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>18/35</span>
-=======
-                <span class="strong">17.14% </span>
-                <span class="quiet">Statements</span>
-                <span class='fraction'>6/35</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">10% </span>
                 <span class="quiet">Branches</span>
-<<<<<<< HEAD
                 <span class='fraction'>1/10</span>
-=======
-                <span class='fraction'>0/10</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
             </div>
         
             
@@ -54,15 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-<<<<<<< HEAD
                 <span class="strong">51.43% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>18/35</span>
-=======
-                <span class="strong">17.14% </span>
-                <span class="quiet">Lines</span>
-                <span class='fraction'>6/35</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
             </div>
         
             
@@ -264,7 +248,9 @@
 <a name='L189'></a><a href='#L189'>189</a>
 <a name='L190'></a><a href='#L190'>190</a>
 <a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,11 +260,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
-=======
-<span class="cline-any cline-no">&nbsp;</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -340,7 +322,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -349,16 +330,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-=======
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,6 +343,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -397,6 +369,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -480,18 +453,13 @@ class RelatedProductList extends React.Component {
   constructor(props) {
     super(props);
 &nbsp;
-<<<<<<< HEAD
     this.state = {
-=======
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
       parentInfo: '',
       slideFull: false,
       showScrollLeft: false,
       showScrollRight: true,
     };
 &nbsp;
-<<<<<<< HEAD
     this.scrollLeft = this.scrollLeft.bind(this);
     this.scrollRight = this.scrollRight.bind(this);
     this.overflow = this.overflow.bind(this);
@@ -500,16 +468,6 @@ class RelatedProductList extends React.Component {
   componentDidMount() {
     const { productId } = this.props;
     axios.get(`/relatedItems/products/?productId=${productId}`)
-=======
-<span class="cstat-no" title="statement not covered" >    this.scrollLeft = this.scrollLeft.bind(this);</span>
-<span class="cstat-no" title="statement not covered" >    this.scrollRight = this.scrollRight.bind(this);</span>
-<span class="cstat-no" title="statement not covered" >    this.overflow = this.overflow.bind(this);</span>
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
-    const { productId } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-<span class="cstat-no" title="statement not covered" >    axios.get(`/relatedItems/products/?productId=${productId}`)</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
       .then(<span class="fstat-no" title="function not covered" >(p</span>arentData) =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.setState({</span>
           parentInfo: parentData.data,
@@ -556,21 +514,12 @@ class RelatedProductList extends React.Component {
     });
   }
 &nbsp;
-<<<<<<< HEAD
   render() {
-    const { relatedItems, productId, updateProduct, ratings } = this.props;
+    const { relatedItems, productId, updateProduct, ratings, relatedClicks } = this.props;
     const { parentInfo, showScrollLeft, showScrollRight } = this.state;
 &nbsp;
     <span class="missing-if-branch" title="else path not taken" >E</span>if (parentInfo.length === 0) {
       return (
-=======
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const { relatedItems, productId, updateProduct, ratings } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-    const { parentInfo, showScrollLeft, showScrollRight } = <span class="cstat-no" title="statement not covered" >this.state;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    if (parentInfo.length === 0) {</span>
-<span class="cstat-no" title="statement not covered" >      return (</span>
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
         null
       );
     }
@@ -594,6 +543,7 @@ class RelatedProductList extends React.Component {
                 parentInfo={parentInfo}
                 updateProduct={updateProduct}
                 rating={ratings[data]}
+                relatedClicks={relatedClicks}
               /&gt;
             );
           })}
@@ -615,7 +565,8 @@ RelatedProductList.propTypes = {
   relatedItems: PropTypes.array,
   productId: PropTypes.number,
   updateProduct: PropTypes.func,
-  ratings: PropTypes.object
+  ratings: PropTypes.object,
+  relatedClicks: PropTypes.func
 };
 &nbsp;
 const ListContainer = styled.div`
@@ -692,15 +643,7 @@ export default RelatedProductList;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                at Wed Jun 30 2021 20:16:52 GMT-0500 (Central Daylight Time)
-=======
-                at Wed Jun 30 2021 21:12:46 GMT-0400 (Eastern Daylight Time)
->>>>>>> 91f982fb4c209b7506b1dc57498cfaf6615f2a7c
-=======
-                at Wed Jun 30 2021 19:11:22 GMT-0700 (Pacific Daylight Time)
->>>>>>> main
+                at Fri Jul 02 2021 15:31:12 GMT-0500 (Central Daylight Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

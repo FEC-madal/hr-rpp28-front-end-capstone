@@ -62,7 +62,7 @@ class OutfitSlide extends React.Component {
   }
 
   changeProduct() {
-    const { outfit, updateProduct, outiftClicks } = this.props;
+    const { outfit, updateProduct, outfitClicks } = this.props;
     const productID = outfit.styles.product_id;
     outfitClicks();
     updateProduct(productID);

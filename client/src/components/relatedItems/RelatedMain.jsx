@@ -13,6 +13,7 @@ class RelatedMain extends React.Component {
   }
 
   componentDidMount() {
+
   }
 
   render() {

@@ -102,18 +102,18 @@ describe('Unit Test Section: <OutfitList>', () => {
   });
 });
 
-describe('Unit Test Section: <OutfitSlide>', () => {
-  test('Unit Test 5:  Does the component <OutfitSlide> render?', () => {
-    render(<OutfitSlide
-      key={22122}
-      outfit={{}}
-      updateProduct={() => {}}
-      removeOutfit={() => {}}
-      parentId={12345}
-      rating={2.6}
-    />);
-  });
-});
+// describe('Unit Test Section: <OutfitSlide>', () => {
+//   test('Unit Test 5:  Does the component <OutfitSlide> render?', () => {
+//     render(<OutfitSlide
+//       key={22122}
+//       outfit={{}}
+//       updateProduct={() => {}}
+//       removeOutfit={() => {}}
+//       parentId={22177}
+//       rating={2.6}
+//     />);
+//   });
+// });
 
 // describe('Unit Test Section <Modal>', () => {
 //   test('Unit Test 6: Does the component <Modal> render?', () => {
