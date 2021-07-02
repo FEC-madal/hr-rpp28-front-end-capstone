@@ -33,7 +33,7 @@ const Ratings = (props) => {
       <span className={(props.starFilter.indexOf(2) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}>2</span>
       <span className={(props.starFilter.indexOf(1) !== -1) ? "reviews-starfilter-selection-aligncenter" : "product-hidden"}>1</span>
       </div>
-      <div className={(props.starFilter.length > 0) ? null: "product-hidden"} onClick={removeFilter}>Remove all filters</div>
+      <div className={(props.starFilter.length > 0) ? null: "product-hidden"} style={{textDecoration: 'underline'}}onClick={removeFilter}>Remove all filters</div>
         <div className="reviews-starholder-progressbar" onClick={() => {starholder(5)}}>
           <label className="alignleft-star-rating" htmlFor="5star">5 Star</label>
           <progress id="5star"  max={max} value={ratingArray[5] || 0} ></progress>

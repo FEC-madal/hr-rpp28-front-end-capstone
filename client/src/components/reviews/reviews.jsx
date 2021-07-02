@@ -178,9 +178,12 @@ class Reviews extends React.Component {
 
   render() {
     return(
-      <div className="reviews-container" onClick={this.clickThrough}>
-            <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
-            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
+      <div>
+      <div className="reviews-container-text">Reviews & Ratings</div>
+        <div className="reviews-container" onClick={this.clickThrough}>
+              <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
+              <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
+        </div>
       </div>
     )
   }

@@ -5,67 +5,28 @@ html {
 
 body {
   color: #505050;
-  font-size: small;
+  /* font-size: medium; */
   font-family: Arial, Helvetica, sans-serif;
 
   /*overflow-y: auto;*/
 }
 
-/*
-table.question {
-
-  font-family: Arial, Helvetica, sans-serif
-
-}
-
-input.questionfield {
-  width:90%;
-}
-
-input[name='nickname'] {
-  width:55%;
-
-}
-
-input[name='email'] {
-  width:55%;
-
-}
-
-#container {
-  height: 100%;
-}
-
-
-th {
-  padding-left: 10px;
-  text-align: left;
-}
-
-td {
-  padding-left: 10px;
-
-}
-
-td.q_bar_right {
-  text-align: right;
-} */
-
-
-/* div.scrollable {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-} */
 
 /* Review & Ratings CSS */
 .reviews-container{
   display: flex;
   flex-direction: row;
-  width: 55%;
+  width: 70%;
   margin: auto;
+
+}
+
+.reviews-container-text{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+
 }
 
 .reviews-left{
@@ -76,9 +37,10 @@ td.q_bar_right {
 }
 
 .reviews-right{
-  width: 75%;
+  width: 50%;
   display: flex;
   flex-direction: column;
+  border: 1px solid blue;
 }
 
 .reviews-scroll {
@@ -92,6 +54,7 @@ td.q_bar_right {
   text-overflow: ellipsis;
   max-width: 52ch;
   font-weight: bold;
+  border: 1px solid green;
 }
 
 /* Review & Ratings - This section for the more reviews functionality */
@@ -118,12 +81,14 @@ input[type='button'].morebutton {
   flex-direction: column;
   width: 100%;
 
+
 }
 
 .reviews-starholder-progressbar{
   display: flex;
   flex-direction: row;
   /* width: 100%; */
+  padding: 1%;
   align-items: center;
 
 }
@@ -143,15 +108,14 @@ progress[value] {
 .alignright-star-rating {
   float:right;
   padding-left: 5%;
+
 }
 
 .reviews-starholder-progressbar:hover {
   background-color:yellow;
   opacity: 0.8;
 }
-/* label {
-  padding-right:8px;
-} */
+
 
 .reviews-starfilter-selection {
   display: flex;
@@ -164,6 +128,27 @@ progress[value] {
   text-align:center;
   }
 
+.reviews-container-average{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+
+}
+.reviews-container-average-stars{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 3%;
+
+}
+.review-average {
+  font-size: 400%;
+  font-weight: bold;
+  padding-bottom: 2%;
+}
+
+
 
 
 
@@ -175,6 +160,13 @@ progress[value] {
 
 
 /* Review & Ratings - This section for the product breakdown section */
+.reviews-product-chars{
+  display: flex;
+  flex-direction: column;
+  padding-top:2%;
+}
+
+
 input[type=range] {
   height: 8px;
   -webkit-appearance: none;
@@ -269,7 +261,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 /* This is for the textbox around product breakdown */
 
-#textbox {display:flex; flex-flow:row wrap;}
+#textbox {
+  display:flex;
+  flex-flow:row wrap;
+}
 
 .alignleft {
 width:33.33333%;

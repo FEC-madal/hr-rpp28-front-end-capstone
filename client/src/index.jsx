@@ -37,7 +37,7 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22122,
+      productId: 22139,
       relatedItems: [],
       relatedItemsRatings: {},
       productData: {},

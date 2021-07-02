@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const StarRating = (props) => {
-  let star1_2 = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+  let star1_2 = <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
   fill="url('#half')" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>  <defs>
   <linearGradient id="half">
     <stop offset="0%" stopColor="gray" />
@@ -12,7 +12,7 @@ const StarRating = (props) => {
   </linearGradient>
  </defs></svg>
 
- let star1_4 = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 24 24"
+ let star1_4 = <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"  viewBox="0 0 24 24"
  fill="url('#fourth')" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>  <defs>
  <linearGradient id="fourth">
    <stop offset="0%" stopColor="gray" />
@@ -22,7 +22,7 @@ const StarRating = (props) => {
  </linearGradient>
  </defs></svg>
 
- let star3_4 = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 24 24"
+ let star3_4 = <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"  viewBox="0 0 24 24"
  fill="url('#third')" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>  <defs>
  <linearGradient id="third">
    <stop offset="0%" stopColor="gray" />
@@ -32,7 +32,7 @@ const StarRating = (props) => {
  </linearGradient>
  </defs></svg>
 
- let star_full = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 24 24"
+ let star_full = <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"  viewBox="0 0 24 24"
  fill="url('#full')" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>  <defs>
  <linearGradient id="full">
    <stop offset="0%" stopColor="gray" />
@@ -40,7 +40,7 @@ const StarRating = (props) => {
  </linearGradient>
  </defs></svg>
 
- let star_empty = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  viewBox="0 0 24 24"
+ let star_empty = <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"  viewBox="0 0 24 24"
  fill="url('#empty')" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>  <defs>
  <linearGradient id="empty">
    <stop offset="0%" stopColor="white" />

@@ -32,7 +32,7 @@ const Product = (props) => {
 
 
   return (
-    <div>
+    <div className="reviews-product-chars">
       <div className={size ? null : "product-hidden"}>
         <div>Size</div>
         <div><input type="range" id="size" name="size"
