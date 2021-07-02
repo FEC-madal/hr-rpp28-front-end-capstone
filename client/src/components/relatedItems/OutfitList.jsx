@@ -166,7 +166,7 @@ class OutfitList extends React.Component {
   // NEEDS A BETTER + SIGN
   render() {
     const { outfits, showScrollLeft, showScrollRight, loaded } = this.state;
-    const { updateProduct, parentId } = this.props;
+    const { updateProduct, parentId, outfitClicks } = this.props;
     return (
       <>
         {showScrollRight ? (
@@ -193,6 +193,7 @@ class OutfitList extends React.Component {
                     removeOutfit={this.removeOutfit}
                     parentId={parentId}
                     rating={2.6}
+                    outfitClicks={outfitClicks}
                   />
                   );
                 })}
@@ -214,7 +215,8 @@ class OutfitList extends React.Component {
 
 OutfitList.propTypes = {
   parentId: PropTypes.number,
-  updateProduct: PropTypes.func
+  updateProduct: PropTypes.func,
+  outfitClicks: PropTypes.func
 }
 
 const ListWrap = styled.div`

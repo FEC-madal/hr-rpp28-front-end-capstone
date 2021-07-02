@@ -55,14 +55,16 @@ class OutfitSlide extends React.Component {
   }
 
   deleteOutfit() {
-    const { removeOutfit } = this.props;
+    const { removeOutfit, outfitClicks } = this.props;
     const { productStyles } = this.state;
+    outfitClicks();
     removeOutfit(productStyles.product_id);
   }
 
   changeProduct() {
-    const { outfit, updateProduct } = this.props;
+    const { outfit, updateProduct, outiftClicks } = this.props;
     const productID = outfit.styles.product_id;
+    outfitClicks();
     updateProduct(productID);
   }
 
@@ -110,7 +112,8 @@ class OutfitSlide extends React.Component {
 OutfitSlide.propTypes = {
   outfit: PropTypes.object,
   removeOutfit: PropTypes.func,
-  updateProduct: PropTypes.func
+  updateProduct: PropTypes.func,
+  outfitClicks: PropTypes.func
 }
 
 const CardWrap = styled.div`

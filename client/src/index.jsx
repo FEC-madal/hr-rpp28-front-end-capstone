@@ -37,12 +37,19 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22122,
+      productId: 22177,
       relatedItems: [],
       relatedItemsRatings: {},
       productData: {},
-      productName: "Camo Onesie",
+      productName: "Conrad Pants",
+      relatedItemsClicks: 0,
+      outfitClicks: 0,
+      relatedDates: [],
+      outfitDates: []
     };
+
+    this.relatedClicks = this.relatedClicks.bind(this);
+    this.outfitClicks = this.outfitClicks.bind(this);
     this.ratingData = {};
     this.getRelated = this.getRelated.bind(this);
     this.getRatings = this.getRatings.bind(this);
@@ -51,6 +58,28 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getRelated(this.state.productId);
+  }
+
+  relatedClicks() {
+    let { relatedDates } = this.state;
+    const currentTime = new Date();
+    relatedDates.push(currentTime);
+    this.setState({
+      relatedItemsClicks: this.state.relatedItemsClicks + 1,
+      relatedDates: relatedDates,
+    });
+    console.log('relatedClicks: ', this.state.relatedItemsClicks, 'relatedTimes: ', relatedDates);
+  }
+
+  outfitClicks() {
+    let { outfitDates } = this.state;
+    const currentTime = new Date();
+    outfitDates.push(currentTime);
+    this.setState({
+      outfitClicks: this.state.outfitClicks + 1,
+      outfitDates: outfitDates,
+    });
+    console.log('relatedClicks: ', this.state.outfitClicks, 'relatedTimes: ', outfitDates);
   }
 
   getRelated(productId) {
@@ -156,6 +185,8 @@ class App extends React.Component {
           relatedItems={relatedItems}
           ratings={this.ratingData}
           updateProduct={this.updateProduct}
+          relatedClicks={this.relatedClicks}
+          outfitClicks={this.outfitClicks}
         />
         <br></br>
         <br></br>
