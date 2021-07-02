@@ -57,7 +57,7 @@ class OutfitSlide extends React.Component {
   deleteOutfit() {
     const { removeOutfit, outfitClicks } = this.props;
     const { productStyles } = this.state;
-    outfitClicks();
+    outfitClicks('deleteOutfit');
     removeOutfit(productStyles.product_id);
   }
 

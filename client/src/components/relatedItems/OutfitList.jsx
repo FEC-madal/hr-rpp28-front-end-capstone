@@ -65,6 +65,7 @@ class OutfitList extends React.Component {
     const { parentStyles, parentInfo, outfits } = this.state;
     const outfitId = parentStyles.product_id;
     let idx;
+    this.props.outfitClicks('addOutfit');
     outfits.forEach((outfit, i) => {
       if (outfit.styles.product_id === outfitId) {
         idx = i;

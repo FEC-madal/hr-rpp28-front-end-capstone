@@ -31,7 +31,7 @@ class RelatedItemSlide extends React.Component {
 
   handleModalClick() {
     const { clickModal, parentFeature, productFeature } = this.state;
-    this.props.relatedClicks();
+    this.props.relatedClicks('modalClick');
     this.setState({
       clickModal: !clickModal,
     });
@@ -137,7 +137,7 @@ class RelatedItemSlide extends React.Component {
     // grab product name from state and send back to index.jsx to update state for Tom and Chris
     const { productId, updateProduct } = this.props;
     const { productInfo } = this.state;
-    this.props.relatedClicks();
+    this.props.relatedClicks('relatedSlideClick');
     let productName = productInfo.name;
     updateProduct(productId, productName);
   }

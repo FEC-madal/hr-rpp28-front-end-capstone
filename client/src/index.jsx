@@ -42,8 +42,8 @@ class App extends React.Component {
       relatedItemsRatings: {},
       productData: {},
       productName: "Conrad Pants",
-      relatedItemsClicks: 0,
-      outfitClicks: 0,
+      relatedItemsClicks: { relatedSlide: 0, relatedModal: 0},
+      outfitClicks: { addOutfit: 0, deleteOutfit: 0},
       relatedDates: [],
       outfitDates: []
     };
@@ -60,26 +60,46 @@ class App extends React.Component {
     this.getRelated(this.state.productId);
   }
 
-  relatedClicks() {
+  relatedClicks(e) {
     let { relatedDates } = this.state;
     const currentTime = new Date();
     relatedDates.push(currentTime);
-    this.setState({
-      relatedItemsClicks: this.state.relatedItemsClicks + 1,
-      relatedDates: relatedDates,
-    });
-    console.log('relatedClicks: ', this.state.relatedItemsClicks, 'relatedTimes: ', relatedDates);
+    if (e === 'relatedSlideClick') {
+      let { relatedItemsClicks } = this.state;
+      relatedItemsClicks.relatedSlide = relatedItemsClicks.relatedSlide + 1;
+      this.setState({
+        relatedItemsClicks: relatedItemsClicks,
+        relatedDates: relatedDates
+      });
+    } else if (e === 'modalClick') {
+        let { relatedItemsClicks } = this.state;
+        relatedItemsClicks.relatedModal = relatedItemsClicks.relatedModal + 1;
+        this.setState({
+          relatedItemsClicks: relatedItemsClicks,
+          relatedDates: relatedDates
+        })
+      }
   }
 
-  outfitClicks() {
+  outfitClicks(e) {
     let { outfitDates } = this.state;
     const currentTime = new Date();
     outfitDates.push(currentTime);
-    this.setState({
-      outfitClicks: this.state.outfitClicks + 1,
-      outfitDates: outfitDates,
-    });
-    console.log('relatedClicks: ', this.state.outfitClicks, 'relatedTimes: ', outfitDates);
+    if (e === 'addOutfit') {
+      let { outfitClicks } = this.state;
+      outfitClicks.addOutfit = outfitClicks.addOutfit + 1;
+      this.setState({
+        outfitClicks: outfitClicks,
+        outfitDates: outfitDates,
+      });
+    } else {
+      let { outfitClicks } = this.state;
+      outfitClicks.deleteOutfit = outfitClicks.deleteOutfit + 1;
+      this.setState({
+        outfitClicks: outfitClicks,
+        outfitDates: outfitDates,
+      });
+    }
   }
 
   getRelated(productId) {
