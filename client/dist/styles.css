@@ -40,7 +40,7 @@ body {
   width: 50%;
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+
 }
 
 .reviews-scroll {
@@ -48,13 +48,44 @@ body {
   overflow: scroll;
 }
 
+.reviews-irt-container{
+  display: flex;
+  flex-direction: column;
+  padding:1%;
+
+}
 .reviews-summary {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 52ch;
   font-weight: bold;
-  border: 1px solid green;
+
+}
+
+.reviews-body {
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+}
+
+.reviews-helpful {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2%;
+}
+select#sort {
+  border: none;
+  text-decoration: underline;
+}
+
+.reviews-text-bold {
+  font-weight: bold;
+}
+
+.reviews-divider {
+  height: 1px;
+  background-color: grey;
 }
 
 /* Review & Ratings - This section for the more reviews functionality */
@@ -277,6 +308,15 @@ text-align:center;
 .alignright {
 width:33.3333%;
 text-align:right;
+}
+
+.review-username {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  padding-top: 1%;
+  padding-bottom: 1%;
+
 }
 
 

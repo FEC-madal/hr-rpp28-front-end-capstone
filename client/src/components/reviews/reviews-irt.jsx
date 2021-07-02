@@ -48,19 +48,20 @@ class IRT extends React.Component {
   render() {
     const check = '✓';
     return(
-      <div >
-      <div id="textbox">
-       <p className="alignleft stars-noclick"><StarRating rating={this.props.review.rating}/></p>
-       <p className="alignright">{this.props.review.reviewer_name}, {new Date(this.props.review.date.toString()).toLocaleString('en-us', {month: 'long', day: 'numeric', year : 'numeric'})}</p>
+      <div className="reviews-irt-container">
+      <div className="review-username">
+       <span className="review-username-alignleft stars-noclick"><StarRating rating={this.props.review.rating}/></span>
+       <span className="review-username-alignright">{this.props.review.reviewer_name}, {new Date(this.props.review.date.toString()).toLocaleString('en-us', {month: 'long', day: 'numeric', year : 'numeric'})}</span>
       </div>
       <div className="reviews-summary">{this.props.review.summary}</div>
-      <div><ReviewBody body={this.props.review.body}/></div>
+      <div className="reviews-body"><ReviewBody body={this.props.review.body}/></div>
       <div><ReviewPhotos photos={this.props.review.photos}/></div>
       <div className={this.props.review.recommend ? null : "product-hidden" }>{`${check}` + ' ' + "I recommend this product"}</div>
       <div className={this.props.review.response ? null: "product-hidden"}><span className="review-seller">Response from Seller: {this.props.review.response}</span></div>
-      <div>
+      <div className="reviews-helpful">
       <span onClick={this.helpful}>Helpful? Yes ({this.state.helpful}) | <span onClick={this.report}>Report</span></span>
       </div>
+      <div className="reviews-divider"></div>
     </div>
     )
   }

@@ -121,9 +121,9 @@ class Sorted extends React.Component {
     return (
       <div>
         <form>
-          <label htmlFor="sort">{this.props.totalRatings} reviews, sorted by</label>
+          <label htmlFor="sort" className="reviews-text-bold">{this.props.totalRatings} reviews, sorted by</label>
           <select name="sort" id="sort" onChange={this.onChangehandler}>
-            <option value="relevant">Relevant</option>
+            <option value="relevant" >Relevant</option>
             <option value="helpful">Helpful</option>
             <option value="newest">Newest</option>
           </select>
