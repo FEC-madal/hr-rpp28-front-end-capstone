@@ -229,7 +229,7 @@ class AddAnswerModal extends React.Component {
 
                 {this.state.answerbodyIsInvalid ?  <div style={alertstyle}>You must enter an answer</div> : <div></div>}
 
-                <textarea rows='10' cols='50' name='answerbody' onChange={this.changeHandler.bind(this)}>
+                <textarea aria-label="textarea" rows='10' cols='50' name='answerbody' onChange={this.changeHandler.bind(this)}>
                 </textarea>
 
                 <div>What is your Nickname? </div>
@@ -283,6 +283,7 @@ class AnswerModalType2 extends React.Component {
       photos: [],
       characteristics: {},
       reviewBodyRemaining: 50,
+      uniqueDivID: '',
     };
 
     this.openModal = this.openModal.bind(this);
@@ -290,28 +291,41 @@ class AnswerModalType2 extends React.Component {
 
   }
 
+
   openModal() {
-    let modal = document.getElementById("add_a");
+    let modal = document.getElementById(this.state.uniqueDivID);
     modal.style.display = "block";
   }
 
   closeModal() {
-    let modal = document.getElementById("add_a");
+    let modal = document.getElementById(this.state.uniqueDivID);
     modal.style.display = "none";
+  }
+
+  componentDidMount() {
+
+    let newUniqueID = "add_a" + this.props.question_id.toString();
+
+    this.setState({uniqueDivID: newUniqueID});
+
   }
 
 
 
   render() {
+
+    //console.log('call: ', this.props.question_id);
+
+    let newUniqueID = "add_a" + this.props.question_id.toString();
   
     return(
       <div className="qa_inline">
         <div className="qa_inline" onClick={this.openModal}>|<u>Add Answer</u> </div>
-        <div id="add_a" className="modal">
+        <div id={newUniqueID} className="modal">
           <div className="modal-content-addAnswer">
             <span className="close-addAnswer" onClick={this.closeModal}>&times;</span>
 
-              <AddAnswerModal qid={this.props.qid} show={true} closeModal={this.closeModal} key={this.state.showAModal} productName={this.props.productName} question_body={this.props.question_body}/>
+              <AddAnswerModal qid={this.props.question_id} show={true} closeModal={this.closeModal} key={this.state.showAModal} productName={this.props.productName} question_body={this.props.question_body}/>
             
           </div>
         </div>

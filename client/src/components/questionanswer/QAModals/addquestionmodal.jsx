@@ -137,7 +137,7 @@ class AddQuestionModal extends React.Component {
               {/* <form className='InputQuestion' method='POST' action='http://localhost:3000/qa/questions'> */}
 
               <form className='InputQuestion' onSubmit={this.submitHandler.bind(this)}>
-                <textarea rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}>
+                <textarea aria-label="textarea" rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}>
                 </textarea>
                 <br></br>
 

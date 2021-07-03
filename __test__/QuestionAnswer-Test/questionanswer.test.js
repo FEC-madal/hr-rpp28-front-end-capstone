@@ -54,8 +54,12 @@ mock.onGet("/testtest").reply(200, {
 });
 
 
+
 mock.onGet('http://localhost:3000/qa/questions/').reply(200, listQuestions);
 //mock.onGet('http://localhost:3000/qa/answers/').reply(200, answersPerQuestion);
+
+//post question Mock Handler
+mock.onPost(`http://localhost:3000/qa/questions/`).reply(200, {success: 'success'});
 
 mock.onPut().reply(200, {});
 
@@ -180,7 +184,7 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
 // // ********************  INTEGRATION TESTING SECTION BEGIN  ********************
 
-// describe('Integration Test: : <QuestionAnswer/>', () => {
+describe('Integration Test: : <QuestionAnswer/>', () => {
 
 //   let container = null;
 //     beforeEach(() => {
@@ -194,16 +198,16 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
 
 
 
-//   beforeEach(() => {
-//     // div = document.createElement('div')
-//     // container = renderContent(div)
+  beforeEach(() => {
+    // let div = document.createElement('div')
+    // let container = renderContent(div)
 
-//     // note to self, this was the example give for me to use
-//     // however this actually returns an anonymous function which returns a promise
-//     //axios.get.mockResolvedValue(listQuestions);
+    // note to self, this was the example give for me to use
+    // however this actually returns an anonymous function which returns a promise
+    //axios.get.mockResolvedValue(listQuestions);
 
-//     //compare with this.
-//     //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
+    //compare with this.
+    //axios.get.mockResolvedValue(Promise.resolve(listQuestions));
 
     //console.log('result of axios call');
     // axios.get().then((result) => {
@@ -211,22 +215,13 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
     // });
 
     //render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
-  // })
+  })
 
-//   afterEach(() => {
+  afterEach(() => {
 
-//   });
+  });
 
-
-//   test('dummy integration test', () => {
-//     expect(1).toEqual(1);
-//   });
-
-  //
-
-
-  // PASSING!  deactivated because it requires jest.mock('axios') which breaks other tests.
-  test('first integration test', async () => {
+  test('Integration test 1:', async () => {
     act(() => {
       render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
     });
@@ -236,113 +231,133 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
       //console.log('writing the mock call', axios.get.mock.results[0].value);
       //screen.debug();
       expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
-      expect(await screen.getByText(/Search Question/)).toBeInTheDocument();
-      //await waitFor(() => expect(screen.getByText('answer')).toBeInTheDocument());
+      expect(await screen.getByDisplayValue(/Have a question/)).toBeInTheDocument();
+      // it didnt like the ? in the search regex
+      let searchField = await screen.getByDisplayValue(/Search for answers…/i);
+      expect(searchField).toBeInTheDocument();
+
+      fireEvent.click(searchField);
+      fireEvent.change(searchField, { target: { value: 'F' } });
+      fireEvent.change(searchField, { target: { value: 'Fr' } });
+      fireEvent.change(searchField, { target: { value: 'Fra' } });
+      fireEvent.change(searchField, { target: { value: 'Fran' } });
+      fireEvent.change(searchField, { target: { value: 'F' } });
+
     })
   });
+ 
+  test('Integration Test 2: user clicks open modal window, submits a question', async () => {
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+    });
+
+    await waitFor(() => {
+      //fixed bug of not rendering because of CORS
+      var questionButton = screen.getByText(/ADD A QUESTION/i);
+      fireEvent.click(questionButton);
+
+      // // there should be a submit question button
+      let submitOfQuestionModal = screen.getByDisplayValue(/submit question/i);
+      expect(submitOfQuestionModal).toBeInTheDocument();
+
+      // // clicking the question submission without entering any data
+      fireEvent.click(submitOfQuestionModal);
+
+      // // find the text box to type in the question
+      let textBoxForQuestion = screen.getByLabelText('textarea', {selector: 'textarea'});
+      expect(textBoxForQuestion).toBeInTheDocument();
+      fireEvent.click(textBoxForQuestion);
+      fireEvent.change(textBoxForQuestion, { target: { value: 'Does this match size expectations?' } });
+
+
+      // // Text above the fields in the question modal window
+      expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
+      expect(screen.getByText('Your E-mail')).toBeInTheDocument();
+
+      // // dummy data should be populating the question fields
+      let nicknameField = screen.getByDisplayValue('Example: jackson11!');
+      let emailField = screen.getByDisplayValue('Why did you like the product or not?');
+
+      fireEvent.click(nicknameField);
+      fireEvent.change(nicknameField, { target: { value: 'Bob Smith' } });
+
+      fireEvent.click(emailField);
+      fireEvent.change(emailField, { target: { value: 'Bobsmith@gmail.com' } });
+
+      fireEvent.click(submitOfQuestionModal);
+    });
+  });
+
+
+
   // NOW PASSING!
 
+  test('3rd Integration Test:  User clicks Add Answer and submits answer', async () => {
+
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+    });
+
+    await waitFor(() => {
+
+      var answer = screen.getAllByText('Add Answer');
+      console.log('there are this many elements in the array: ', answer.length);
+      fireEvent.click(answer[0]);
+ 
+
+      //expect(screen.getByText(/your answer /i)).toBeInTheDocument();
+      // Filling out the form
+      // ANSWER FIELD
+      // let textBoxForAnswer = screen.getByLabelText('textarea', {selector: 'textarea'});
+      // expect(textBoxForAnswer).toBeInTheDocument();
+      // fireEvent.click(textBoxForAnswer);
+      // fireEvent.change(textBoxForAnswer, { target: { value: 'Test Answer for a question' } });
 
 
-//   // UNCOMMENT HERE
-//   // test('second integration test without mocking API call results', async () => {
-//   //   act(() => {
-//   //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//   //   });
+      // let nameOfAnswerModalWindow = screen.getByDisplayValue('Example: jack543!');
+      // NICKNAME FIELD
+      // getting the nickname field
+      //let nameOfAnswerModalWindow = screen.getByDisplayValue(/jack543/);
 
-//   //   await waitFor(() => {
-//   //     //fixed bug of not rendering because of CORS
-//   //     var answer = screen.getAllByText(/add answer/);
-//   //     fireEvent.click(answer[0]);
-//   //     expect(screen.getByDisplayValue(/jack@email.com/)).toBeInTheDocument();
-//   //     expect(screen.getByText('What is your Nickname?')).toBeInTheDocument();
-//   //     expect(screen.getByText('Your E-mail')).toBeInTheDocument();
+      // //click on the field to clear the field
+      // fireEvent.click(nameOfAnswerModalWindow);
 
-//   //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
-//   //     // expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
+      // // have the user to enter the data inside
+      // fireEvent.change(nameOfAnswerModalWindow, { target: { value: 'testname' } });
 
-//   //     // let submitOfAnswerModalWindow = screen.getByText(/submit answer/i);
-//   //     // expect(submitOfAnswerModalWindow).toBeInTheDocument();
-//   //   });
-//   // });
+      // // // EMAIL FIELD
+      // // // getting the e-mail field
+      // let emailOfAnswerModalWindow = screen.getByDisplayValue(/jack@email.com/);
 
+      // // // click on the field to clear the field
+      // fireEvent.click(emailOfAnswerModalWindow);
 
-
-//   // NOW PASSING!
-
-//   // test('3rd Integration Test:  User enters fields, but email format improper, and clicks submit', async () => {
-
-//   //   act(() => {
-//   //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-//   //   });
-
-//   //   await waitFor(() => {
-
-//   //     var answer = screen.getAllByText('| add answer');
-//   //     fireEvent.click(answer[0]);
-
-//   //     // // Filling out the form
-
-//   //     // // ANSWER FIELD
-//   //     // let answerbodyofAnswerModalWindow = screen.getByRole('textbox', {name: 'answerbody'}); //this didnt work
-
-//   //     let answerbodyofAnswerModalWindow = screen.getByRole('textbox', { name: /answerbodylabel/ });
-//   //     fireEvent.click(answerbodyofAnswerModalWindow);
-//   //     fireEvent.change(answerbodyofAnswerModalWindow, { target: { value: 'a' } });
-//   //     expect(answerbodyofAnswerModalWindow).toBeInTheDocument();
+      // // // have the user to enter the data inside
+      // fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'Test Improper Email Address' } });
+    
+      // // there should be a submit question button
+      // let submitOfAnswerModal = screen.getByDisplayValue(/submit answer/i);
+      // expect(submitOfAnswerModal).toBeInTheDocument();
+    });
+  
+  });
 
 
-//   //     // NICKNAME FIELD
-//   //     // getting the nickname field
-//   //     let nameOfAnswerModalWindow = screen.getByDisplayValue(/jack543/);
-
-//   //     //click on the field to clear the field
-//   //     fireEvent.click(nameOfAnswerModalWindow);
-
-//   //     // have the user to enter the data inside
-//   //     fireEvent.change(nameOfAnswerModalWindow, { target: { value: 'a' } });
-
-//   //     // // EMAIL FIELD
-//   //     // // getting the e-mail field
-//   //     let emailOfAnswerModalWindow = screen.getByDisplayValue(/jack@email.com/);
-
-//   //     // // click on the field to clear the field
-//   //     fireEvent.click(emailOfAnswerModalWindow);
-
-//   //     // // have the user to enter the data inside
-//   //     fireEvent.change(emailOfAnswerModalWindow, { target: { value: 'a' } });
-
-  // --NO LONGER PASSING
-  // test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
-
-  //   act(() => {
-  //     render(<QuestionAnswer currentProduct={secondProduct}/>, container);
-  //   });
 
 
-  //   await waitFor(() => {
+  test('4th Integration Test:  User clicks to Report and the Link changes to Reported', async () => {
 
-  //     var reportFirstAnswer = screen.getAllByText(/Report/);
-  //     fireEvent.click(reportFirstAnswer[0]);
-  //     //reportFirstAnswer.map(fire => fireEvent.click(fire));
+    act(() => {
+      render(<QuestionAnswer currentProduct={secondProduct.id} productName={secondProduct.name} defaultProduct={secondProduct}/>);
+    });
 
-  //     //console.log(reportFirstAnswer[0]);
-  //     //var reportFirstAnswer = screen.getAllByText(/Reported/);
+    await waitFor(() => {
+      var reportFirstAnswer = screen.getAllByText(/Report/);
+      fireEvent.click(reportFirstAnswer[0]);
+      expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
+    });
+  });
 
-  //     expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
+});
 
-  //   });
-  // });
-
-//       //console.log(reportFirstAnswer[0]);
-//       //var reportFirstAnswer = screen.getAllByText(/Reported/);
-
-//       expect(reportFirstAnswer[0]).toHaveTextContent(/Reported/);
-
-//     });
-//   });
-
-
-// });
-
-// // ********************  INTEGRATION TESTING SECTION END  ********************
+// ********************  INTEGRATION TESTING SECTION END  ********************
