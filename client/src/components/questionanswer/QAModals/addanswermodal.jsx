@@ -17,7 +17,6 @@ class SubmitPhotoForm extends React.Component {
       return null;
     }
 
-    // changed enctype to encType based on warning.  was working with enctype
     return (
       <form method='POST' action='http://127.0.0.1:3000/qa/uploadphoto' encType='multipart/form-data'>
         <label htmlFor='answerpic'>Upload your photos!</label><br></br>
@@ -80,9 +79,6 @@ class UploadPhotos extends React.Component {
 }
 
 
-
-
-
 class AddAnswerModal extends React.Component {
 
   constructor(props) {
@@ -108,7 +104,6 @@ class AddAnswerModal extends React.Component {
     this.setState({show: false});
   }
 
-
   checkInput() {
 
     this.setState({
@@ -116,7 +111,6 @@ class AddAnswerModal extends React.Component {
       emailIsInvalid: !this.state.email,
       answerbodyIsInvalid: !this.state.answerbody,
     });
-
 
     let validateTest = this.state.nickname && this.state.email && this.state.answerbody;
 
@@ -131,10 +125,7 @@ class AddAnswerModal extends React.Component {
       validateTest = validateTest && emailtest;
       this.setState({emailFormatValid: emailtest});
     }
-
     return validateTest;
-
-    //this.setState({validated : validateTest});
   }
 
 
@@ -162,11 +153,9 @@ class AddAnswerModal extends React.Component {
     }
   }
 
-
   changeHandler(e) {
      this.setState({[e.target.name]: e.target.value});
      // console.log(`change handler fired! value: ${e.target.value}`);
-
   }
 
   clickHandlerNickname(e) {
@@ -223,23 +212,15 @@ class AddAnswerModal extends React.Component {
 
               <form className='SubmitAnswer' onSubmit={this.submitHandler.bind(this)}>
                 <div>your answer </div>
-
                 {this.state.answerbodyIsInvalid ?  <div style={alertstyle}>You must enter an answer</div> : <div></div>}
-
                 <textarea aria-label="textarea" rows='10' cols='50' name='answerbody' onChange={this.changeHandler.bind(this)}>
                 </textarea>
-
                 <div>What is your Nickname? </div>
-
                 {this.state.nicknameIsInvalid ?  <div style={alertstyle}>You must enter a Nickname</div> : <div></div>}
-
                 <input type='text' onClick={this.clickHandlerNickname.bind(this)} maxLength='60' name='nickname' value={this.state.nickname}onChange={this.changeHandler.bind(this)}></input>
                 <br></br>
-
                 <div>Your E-mail</div>
-
                 {emailAlertMessage}
-
                 <input type='text' onClick={this.clickHandlerEmail.bind(this)} maxLength='60' name='email' value={this.state.email} onChange={this.changeHandler.bind(this)}></input>
                 <br></br>
                 <br></br>
@@ -248,20 +229,14 @@ class AddAnswerModal extends React.Component {
             </form>
             <br></br>
             </div>
-
             <div className='uploadphoto'>
               <UploadPhotos/>
             </div>
-
           </div>
         </div>
     )
   }
 }
-
-
-
-
 
 class AnswerModalType2 extends React.Component {
   constructor(props) {
@@ -282,7 +257,6 @@ class AnswerModalType2 extends React.Component {
 
   }
 
-
   openModal() {
     let modal = document.getElementById(this.state.uniqueDivID);
     modal.style.display = "block";
@@ -294,18 +268,11 @@ class AnswerModalType2 extends React.Component {
   }
 
   componentDidMount() {
-
     let newUniqueID = "add_a" + this.props.question_id.toString();
-
     this.setState({uniqueDivID: newUniqueID});
-
   }
 
-
-
   render() {
-
-    //console.log('call: ', this.props.question_id);
 
     let newUniqueID = "add_a" + this.props.question_id.toString();
   
@@ -321,17 +288,8 @@ class AnswerModalType2 extends React.Component {
           </div>
         </div>
       </div>
-
     )
   }
 }
 
-
 export {AnswerModalType2, AddAnswerModal}
-
-
-
-/* this is the original call of addanswermodal */
-/* {<AddAnswerModal qid={this.state.question_id} show={this.state.showAModal} key={this.state.showAModal} product_name={'passed in data:'} question_body={this.props.question.question_body}/>} */
-
-
