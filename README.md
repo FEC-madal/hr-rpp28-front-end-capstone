@@ -28,13 +28,13 @@ The functionality of each carousel is similar. There is a wrapper for each, and 
 
 Description of the Question and Answer Widget:  by Tom Ho
 
-The Question and Answer Widget displays a list of questions and answers with respect to a given product.  By default it displays a list of 4 questions, each with up to two answers with respect to each given question.  Buttons appear to load more questions, or more answers with respect to a question if the user so desires.  If there are no more questions or answers to load, the load more button disappears.  
+The Question and Answer Widget displays a list of questions and answers with respect to a given product.  By default it displays a list of 4 questions, each with up to two answers with respect to each given question.  Buttons appear to load more questions, or more answers with respect to a question if the user so desires.  If there are no more questions or answers to load, the load more button disappears.
 
 Next to each question is an add answer link, which opens a modal window to allow a user to answer a particular question.  Basic input checking is performed, preventing blank entries.  A user may additionally upload up to 5 images for a particular question.
 
-At the bottom of the widget is a link to open a modal window allowing the user to add a new question to the question and answer section.  Basic input checking is again performed.  
+At the bottom of the widget is a link to open a modal window allowing the user to add a new question to the question and answer section.  Basic input checking is again performed.
 
-At the top of the widget is a search bar which filters results.  No filtering is done for 3 or fewer characters.  Upon entering three or more characters filtering is performed which automatically lengthens or shortens the list of questions. 
+At the top of the widget is a search bar which filters results.  No filtering is done for 3 or fewer characters.  Upon entering three or more characters filtering is performed which automatically lengthens or shortens the list of questions.
 
 Installation - How can another developer get your project up and running on their own? What dependencies are required? Are there environmental requirements? Be specific, and outline steps to take in order to get the project running.
 
@@ -57,7 +57,7 @@ Multiple visual representations of ratings
 	Ranges of ratings
 Sort reviews through helpfulness, Newest & Relevance
 Reviews return individual ratings, summary & full body
-Users are able to recommend the product and vote on helpfulness 
+Users are able to recommend the product and vote on helpfulness
 Users can add their own reviews through a custom form and contribute to the community
 
 
@@ -71,7 +71,7 @@ If you have npm installed:
 npm i
 
 3.  Transpiles the jsx files into bundle.js
-npm run react-dev  
+npm run react-dev
 
 4.  Runs node server to serve up files
 npm run server-dev
@@ -83,7 +83,7 @@ Package.json already includes all dependencies.  Environment requires node packa
 
 
 For developers using the testing suite:
-Environmental dependencies include 
+Environmental dependencies include
 
 1. jest
    "jest": "^27.0.3",
@@ -92,8 +92,8 @@ Environmental dependencies include
 
    the project uses jest to test the code.  Because we are testing react components, jest-dom is required as a dependency to allow jest to mount objects to the DOM
    finally, a babel-polyfill is required in order to allow for proper transpilation of the .jsx files to allow jest to mount and execute code for testing.
- 
- 
+
+
 2.  react testing library:
    "@testing-library/jest-dom": "^5.12.0",
    "@testing-library/react": "^11.2.7",
@@ -104,15 +104,21 @@ Environmental dependencies include
 
    mock axios data can be rendered throgh the axios-mock-adapter library.  Details on how to use the library can be found here: [Link](https://www.npmjs.com/package/axios-mock-adapter)
 
+Product Owners: Tim Moses, Tom Ho, Chris Floyd
 
+Future Enhancement - Instead of incrementally loading 2 reviews at a time, clicking the “More Reviews” button should immediately expand the list to its maximum height.  The reviews appearing within should no longer need to be explicitly loaded.  Instead, the list should load in an ‘infinite scroll’, where as the user nears the end of the list, additional questions tack on to the bottom.
 
+Future Enhancement - If time allows, any matching text within the reviews should be highlighted as the search term changes and the list is filtered down.  The text should appear in the normal black font, surrounded by a yellow highlight.   This should only occur after 3 characters are entered, and the list results have been updated.
 
+Future Enhancement - If time allows, answers should have the capability of supporting image uploads.  If an answer submitted includes images, thumbnail images for each image submitted should appear below the answer text body, above the username and other metadata.
+   Each image thumbnail should be clickable.  Upon clicking the thumbnail, a modal window expanding the image at full resolution should appear over the page.  The only functionality within this modal window should be an “X” icon through which the user can close out of the modal.
 
+Future Enhancement - If time allows, any matching text within the reviews should be highlighted as the search term changes and the list is filtered down.  The text should appear in the normal black font, surrounded by a yellow highlight.   This should only occur after 3 characters are entered, and the list results have been updated.
 
-Usage - Further details on how the project is meant to be used may be helpful. For a library or framework, this section would outline how to use the library within another project (see socket.io  ). For a service that is meant to be used within a larger project architecture, instructions on how to integrate may be necessary (see node-statsD  ).
+Future Enhancement - Instead of incrementally loading 2 questions at a time, clicking the “More Answered Questions” button should immediately expand the list to its maximum height.  The Questions appearing within should no longer need to be explicitly loaded.  Instead, the list should load in an ‘infinite scroll’, where as the user nears the end of the list, additional questions tack on to the bottom.
 
-
-Team Members - Add the names of your team members. Describe roles on the team such as "Product Owner", "Scrum Master" and more.
-
-
-Roadmap - What future enhancements are planned? What is the current status of the project? Is it being actively maintained?
+Future Enhancement - In addition to only being able to load the primary image, users should be able to scroll through additional images associated with a related product.
+	Upon hovering over the initial preview image that appears on the card, a carousel of thumbnail images should appear allowing the user to view additional preview images.  The carousel will be a row of thumbnails which overlays the bottom portion of the preview image, covering part of the image when hovered.   The list should disappear when the user is no longer hovering on the card.
+	Four thumbnail images should appear in the carousel at any given time.  The carousel should extend the ability to scroll left/right through the list via left and right arrows such that all images for that product can be selected and viewed.
+	Clicking on a thumbnail should change the preview image to display the image clicked.   The selection of a different image should persist even after no longer hovering over this card.
+	Clicking on the preview image, and anywhere on the card other than a thumbnail image carousel, will continue to navigate the user to that product’s detail page.

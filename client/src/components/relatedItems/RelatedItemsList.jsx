@@ -70,7 +70,7 @@ class RelatedProductList extends React.Component {
   }
 
   render() {
-    const { relatedItems, productId, updateProduct, ratings } = this.props;
+    const { relatedItems, productId, updateProduct, ratings, relatedClicks } = this.props;
     const { parentInfo, showScrollLeft, showScrollRight } = this.state;
 
     if (parentInfo.length === 0) {
@@ -98,6 +98,7 @@ class RelatedProductList extends React.Component {
                 parentInfo={parentInfo}
                 updateProduct={updateProduct}
                 rating={ratings[data]}
+                relatedClicks={relatedClicks}
               />
             );
           })}
@@ -119,7 +120,8 @@ RelatedProductList.propTypes = {
   relatedItems: PropTypes.array,
   productId: PropTypes.number,
   updateProduct: PropTypes.func,
-  ratings: PropTypes.object
+  ratings: PropTypes.object,
+  relatedClicks: PropTypes.func
 };
 
 const ListContainer = styled.div`

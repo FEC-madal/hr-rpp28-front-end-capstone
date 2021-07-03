@@ -13,14 +13,15 @@ class RelatedMain extends React.Component {
   }
 
   componentDidMount() {
+
   }
 
   render() {
-    const { productId, updateProduct, relatedItems, ratings } = this.props;
+    const { productId, updateProduct, relatedItems, ratings, relatedClicks, outfitClicks } = this.props;
     return (
       <RelatedModuleWrap id="relatedModuleWrap">
           <section>
-          <h2>Related items you may also like</h2>
+            <h2>Related items you may also like</h2>
           </section>
         <ListWrap>
           <RelatedItemsList
@@ -28,6 +29,7 @@ class RelatedMain extends React.Component {
             relatedItems={relatedItems}
             ratings={ratings}
             updateProduct={updateProduct}
+            relatedClicks={relatedClicks}
           />
         </ListWrap>
         <section>
@@ -37,6 +39,7 @@ class RelatedMain extends React.Component {
           <OutfitList
             parentId={productId}
             updateProduct={updateProduct}
+            outfitClicks={outfitClicks}
           />
         </ListWrap>
       </RelatedModuleWrap>
@@ -49,7 +52,9 @@ RelatedMain.propTypes = {
   productId: PropTypes.number,
   updateProduct: PropTypes.func,
   relatedItems: PropTypes.array,
-  ratings: PropTypes.object
+  ratings: PropTypes.object,
+  relatedClicks: PropTypes.func,
+  outfitClicks: PropTypes.func
 };
 
 const RelatedModuleWrap = styled.div`

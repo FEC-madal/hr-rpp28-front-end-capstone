@@ -23,8 +23,8 @@ class OutfitSlide extends React.Component {
   componentDidMount() {
     const { outfit } = this.props;
     const defaultInfo = outfit.styles.results.find((product) => product['default?'] === true);
-    let thumbnailURL;
 
+    let thumbnailURL;
     if (!defaultInfo) {
       thumbnailURL = outfit.styles.results[0].photos[0].url;
       this.setState({
@@ -55,15 +55,17 @@ class OutfitSlide extends React.Component {
   }
 
   deleteOutfit() {
-    const { removeOutfit } = this.props;
+    const { removeOutfit, outfitClicks } = this.props;
     const { productStyles } = this.state;
+    outfitClicks('deleteOutfit');
     removeOutfit(productStyles.product_id);
   }
 
   changeProduct() {
-    const { outfit, updateProduct } = this.props;
-    const productId = outfit.styles.product_id;
-    updateProduct(productId);
+    const { outfit, updateProduct, outfitClicks } = this.props;
+    const productID = outfit.styles.product_id;
+    outfitClicks();
+    updateProduct(productID);
   }
 
   render() {
@@ -78,7 +80,7 @@ class OutfitSlide extends React.Component {
     return (
       <>
         {
-          loaded === 1 && (
+          loaded > 0 && (
             <CardWrap>
               <ButtonWrap>
                 <RemoveButton
@@ -105,12 +107,13 @@ class OutfitSlide extends React.Component {
       </>
     );
   }
-};
+}
 
 OutfitSlide.propTypes = {
   outfit: PropTypes.object,
   removeOutfit: PropTypes.func,
-  updateProduct: PropTypes.func
+  updateProduct: PropTypes.func,
+  outfitClicks: PropTypes.func
 }
 
 const CardWrap = styled.div`
