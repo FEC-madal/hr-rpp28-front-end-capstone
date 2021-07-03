@@ -108,10 +108,6 @@ router.get('/questions/:question_id/answers', (req, res) => {
 
       //   console.log('error in that the results array is not an array');
       // }
-
-
-
-
       // end my sort sequence
       res.send(response.data);
       // console.log(response.data);

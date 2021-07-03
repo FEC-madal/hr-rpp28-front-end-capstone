@@ -33,17 +33,13 @@ class SingleQuestionBar extends React.Component {
     
     return (
       <div>
-
           <span key={1} className='qa_qtext'>Q: {this.state.question.question_body}</span>
-
           <span className="qa_barright">
             <span marginright='20px' key={2}>    Helpful?    </span>
             <span marginright='20px' key={3} onClick={this.handleHelpful.bind(this)}>  Yes({this.props.question.question_helpfulness}) </span>
             <AnswerModalType2 question_id={this.props.question.question_id} product_name={'passed in data:'} question_body={this.props.question.question_body} productName={this.props.productName}/>
           </span>
           
-          {/* <span key={4} onClick={this.props.AModalHandler}>| add answer </span> */}
-
       </div>
     )
   }

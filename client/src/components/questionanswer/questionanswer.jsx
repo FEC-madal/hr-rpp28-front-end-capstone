@@ -79,21 +79,25 @@ class QuestionAnswer extends React.Component {
   }
 
   reloadQuestionAnswer() {
+    //console.log('is the currentProduct props changing? ', this.props.currentProduct);
     axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
-    .then((response) => {
-      this.setState({
-        product_id: response.data.product_id,
-        questions: response.data,
-        sortedQuestionList: response.data,
+      .then((response) => {
+        //console.log('this is the axios data upon load up', response.data);
+        this.setState({
+          product_id: this.props.currentProduct,
+          questions: response.data,
+          sortedQuestionList: response.data,
+        });
+
+      })
+      .catch(err => {
+        console.log('error in componentdidmount of questionanswer');
       });
-    })
-    .catch(err => {
-      console.log('error in reloadQuestionAnswer of questionanswer');
-    });
   }
 
   componentDidMount() {
     // this is equivalent to http://.../?product_id=xxxxx
+    // console.log('is the currentProduct props changing? ', this.props.currentProduct);
     axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
       .then((response) => {
         //console.log('this is the axios data upon load up', response.data);
@@ -119,14 +123,18 @@ class QuestionAnswer extends React.Component {
   }
 
   render () {
-    // console.log('currentProduct in QA: ', this.props.currentProduct)
+    // console.log('currentProduct in QA render: ', this.props.currentProduct)
+    // console.log('state currentProduct in QA render: ', this.state.product_id)
+    if (this.props.currentProduct !== this.state.product_id) {
+      this.reloadQuestionAnswer();
+    }
     
     let questionlist = this.state.sortedQuestionList.results.slice(0, this.state.defaultlength).map((question) => {
       return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} refresh={this.reloadQuestionAnswer.bind(this)} productName={this.props.productName}/></tr>});
 
     var styleOBJ = {
       //this used to control the windowspace of additional question load
-      //height:'40vw', 
+      height:'20vw', 
       overflow:'auto',
       //width: '90vw',
       //border: '1px solid black',

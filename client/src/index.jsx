@@ -127,6 +127,7 @@ class App extends React.Component {
   }
 
   updateProduct(newProductId, newProductName) {
+    console.log('this is the newProductId within update product ', newProductId);
     this.setState({
       productId: newProductId,
       productName: newProductName,
@@ -147,6 +148,7 @@ class App extends React.Component {
     };
 
     let { productId, relatedItems, relatedItemsRatings } =  this.state;
+    console.log('within index.jsx, this is being passed in as productId, ', productId)
     return (
       <div>
         <h1>FEC React Main App</h1>
@@ -160,10 +162,10 @@ class App extends React.Component {
         />
         <br></br>
         <br></br>
-        <div> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
+        <div> <QuestionAnswer currentProduct={productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
-        <div><Reviews product_id={this.state.productId} productName={this.state.productName}/></div>
+        <div><Reviews product_id={productId} productName={this.state.productName}/></div>
       </div>
     );
 
