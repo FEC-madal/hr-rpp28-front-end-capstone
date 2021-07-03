@@ -76,4 +76,4 @@
   // test('renders Star Rating component', () => {
   //   render(<StarRating />);
   // });
-});
+// });
