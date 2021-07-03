@@ -51,7 +51,6 @@ class AddQuestionModal extends React.Component {
     return validateTest;
   }
 
-
   submitHandler(e) {
     e.preventDefault();
 
@@ -65,7 +64,12 @@ class AddQuestionModal extends React.Component {
       })
         .then((response) => {
           console.log('question submitted returned with', response);
+          console.log('this is the refresh function', this.props.refresh);
+
           this.props.closeModal();
+
+          // call the refresh here!!
+          this.props.refresh();
         })
         .catch((err) => {
           console.log('error in submitting question', err);
@@ -134,10 +138,8 @@ class AddQuestionModal extends React.Component {
 
             <div className='modal-body-q'>
 
-              {/* <form className='InputQuestion' method='POST' action='http://localhost:3000/qa/questions'> */}
-
               <form className='InputQuestion' onSubmit={this.submitHandler.bind(this)}>
-                <textarea rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}>
+                <textarea aria-label="textarea" rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}>
                 </textarea>
                 <br></br>
 
@@ -157,10 +159,6 @@ class AddQuestionModal extends React.Component {
             </form>
             </div>
 
-            <div className='modal-footer-q'>
-              <br></br>
-              <button className="button_q" onClick={this.closeButtonHandler.bind(this)}>Close</button>
-            </div>
           </div>
         </div>
     );
@@ -210,7 +208,7 @@ class QuestionModalType2 extends React.Component {
         <div id="add_q" className="modal">
           <div className="modal-content-addQuestion">
             <span className="close-addQuestion" onClick={this.closeModal}>&times;</span>
-            <AddQuestionModal show={true} currentProduct={this.props.currentProduct} closeModal={this.closeModal}/> 
+            <AddQuestionModal show={true} currentProduct={this.props.currentProduct} refresh={this.props.refresh} closeModal={this.closeModal}/> 
           </div>
         </div>
       </span>

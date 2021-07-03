@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.27% </span>
+                <span class="strong">25.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/33</span>
+                <span class='fraction'>9/35</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.13% </span>
+                <span class="strong">26.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/32</span>
+                <span class='fraction'>9/34</span>
             </div>
         
             
@@ -252,7 +252,10 @@
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -312,9 +315,11 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -362,6 +367,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -472,8 +478,8 @@ class OutfitSlide extends React.Component {
 <span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
     const { outfit } = <span class="cstat-no" title="statement not covered" >this.props;</span>
     const defaultInfo = <span class="cstat-no" title="statement not covered" >outfit.styles.results.find(<span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; <span class="cstat-no" title="statement not covered" >product['default?'] === true)</span>;</span>
-    let thumbnailURL;
 &nbsp;
+    let thumbnailURL;
 <span class="cstat-no" title="statement not covered" >    if (!defaultInfo) {</span>
 <span class="cstat-no" title="statement not covered" >      thumbnailURL = outfit.styles.results[0].photos[0].url;</span>
 <span class="cstat-no" title="statement not covered" >      this.setState({</span>
@@ -504,15 +510,17 @@ class OutfitSlide extends React.Component {
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  de</span>leteOutfit() {
-    const { removeOutfit } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const { removeOutfit, outfitClicks } = <span class="cstat-no" title="statement not covered" >this.props;</span>
     const { productStyles } = <span class="cstat-no" title="statement not covered" >this.state;</span>
+<span class="cstat-no" title="statement not covered" >    outfitClicks('deleteOutfit');</span>
 <span class="cstat-no" title="statement not covered" >    removeOutfit(productStyles.product_id);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  ch</span>angeProduct() {
-    const { outfit, updateProduct } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-    const productId = <span class="cstat-no" title="statement not covered" >outfit.styles.product_id;</span>
-<span class="cstat-no" title="statement not covered" >    updateProduct(productId);</span>
+    const { outfit, updateProduct, outfitClicks } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const productID = <span class="cstat-no" title="statement not covered" >outfit.styles.product_id;</span>
+<span class="cstat-no" title="statement not covered" >    outfitClicks();</span>
+<span class="cstat-no" title="statement not covered" >    updateProduct(productID);</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>nder() {
@@ -527,7 +535,7 @@ class OutfitSlide extends React.Component {
 <span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;&gt;
         {
-          loaded === 1 &amp;&amp; (
+          loaded &gt; 0 &amp;&amp; (
             &lt;CardWrap&gt;
               &lt;ButtonWrap&gt;
                 &lt;RemoveButton
@@ -554,12 +562,13 @@ class OutfitSlide extends React.Component {
       &lt;/&gt;
     );
   }
-};
+}
 &nbsp;
 OutfitSlide.propTypes = {
   outfit: PropTypes.object,
   removeOutfit: PropTypes.func,
-  updateProduct: PropTypes.func
+  updateProduct: PropTypes.func,
+  outfitClicks: PropTypes.func
 }
 &nbsp;
 const CardWrap = styled.div`
@@ -649,7 +658,7 @@ export default OutfitSlide;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jul 02 2021 19:33:49 GMT-0700 (Pacific Daylight Time)
+                at Fri Jul 02 2021 20:06:11 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../../../prettify.js"></script>

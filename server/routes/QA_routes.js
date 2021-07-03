@@ -69,12 +69,14 @@ router.get('/search/:searchterm', (req, res) => {
 router.get('/questions', (req, res) => {
   var builtPath = API_PATH + `questions/?product_id=${req.query.product_id}&page=1&count=10`;
 
+  //console.log(builtPath);
+
   axios.defaults.headers.common['Authorization'] = QA_TOKEN;
 
   axios.get(builtPath)
     .then((response) => {
       res.send(response.data);
-      //console.log('succesfully build with dynamic product id: ', response.data.results[3].answers);
+      //console.log('calling router.get questions');
     })
     .catch((err) => {
       res.send('error at /questions', err);
@@ -91,7 +93,7 @@ router.get('/questions/:question_id/answers', (req, res) => {
   axios.defaults.headers.common['Authorization'] = QA_TOKEN;
 
 
-  console.log('/questions/:question_id/answers called');
+  //console.log('/questions/:question_id/answers called');
 
   axios.get(builtPath)
     .then((response) => {
@@ -108,10 +110,6 @@ router.get('/questions/:question_id/answers', (req, res) => {
 
       //   console.log('error in that the results array is not an array');
       // }
-
-
-
-
       // end my sort sequence
       res.send(response.data);
       // console.log(response.data);
@@ -186,6 +184,9 @@ router.post('/questions', (req, res) => {
     url: builtPath,
     data: newQuestion,
   };
+
+  // console.log('this is the question that was submitted: ', req.body.question);
+  // console.log('this is the productId of the question: ', req.body.product_id);
 
   // console.log('req.body.question, ', req.body.question);
   // console.log('req.body.nickname, ', req.body.nickname);

@@ -27,7 +27,7 @@ class App extends React.Component {
         "updated_at": "2021-03-18T16:09:30.589Z"
       },
       secondProduct:   {
-        id: 22126,
+        id: 22134,
         campus: 'hr-rpp',
         name: 'Heir Force Ones',
         slogan: 'A sneaker dynasty',
@@ -37,13 +37,20 @@ class App extends React.Component {
         created_at: '2021-03-18T16:09:30.589Z',
         updated_at: '2021-03-18T16:09:30.589Z'
       },
-      productId: 22139,
+      productId: 22177,
       relatedItems: [],
       relatedItemsRatings: {},
       productData: {},
-      productName: "Camo Onesie",
+      productName: "Conrad Pants",
+      relatedItemsClicks: { relatedSlide: 0, relatedModal: 0},
+      outfitClicks: { addOutfit: 0, deleteOutfit: 0},
+      relatedDates: [],
+      outfitDates: [],
       metaData: {}
     };
+
+    this.relatedClicks = this.relatedClicks.bind(this);
+    this.outfitClicks = this.outfitClicks.bind(this);
     this.ratingData = {};
     this.getRelated = this.getRelated.bind(this);
     this.getRatings = this.getRatings.bind(this);
@@ -53,6 +60,48 @@ class App extends React.Component {
   componentDidMount() {
     this.getRelated(this.state.productId);
 
+  }
+
+  relatedClicks(e) {
+    let { relatedDates } = this.state;
+    const currentTime = new Date();
+    relatedDates.push(currentTime);
+    if (e === 'relatedSlideClick') {
+      let { relatedItemsClicks } = this.state;
+      relatedItemsClicks.relatedSlide = relatedItemsClicks.relatedSlide + 1;
+      this.setState({
+        relatedItemsClicks: relatedItemsClicks,
+        relatedDates: relatedDates
+      });
+    } else if (e === 'modalClick') {
+        let { relatedItemsClicks } = this.state;
+        relatedItemsClicks.relatedModal = relatedItemsClicks.relatedModal + 1;
+        this.setState({
+          relatedItemsClicks: relatedItemsClicks,
+          relatedDates: relatedDates
+        })
+      }
+  }
+
+  outfitClicks(e) {
+    let { outfitDates } = this.state;
+    const currentTime = new Date();
+    outfitDates.push(currentTime);
+    if (e === 'addOutfit') {
+      let { outfitClicks } = this.state;
+      outfitClicks.addOutfit = outfitClicks.addOutfit + 1;
+      this.setState({
+        outfitClicks: outfitClicks,
+        outfitDates: outfitDates,
+      });
+    } else {
+      let { outfitClicks } = this.state;
+      outfitClicks.deleteOutfit = outfitClicks.deleteOutfit + 1;
+      this.setState({
+        outfitClicks: outfitClicks,
+        outfitDates: outfitDates,
+      });
+    }
   }
 
   getRelated(productId) {
@@ -105,23 +154,17 @@ class App extends React.Component {
 
         let divisor = 0;
         let numerator = (parseInt(newRatings['1']) * 1) + (parseInt(newRatings['2']) * 2) + (parseInt(newRatings['3']) * 3) + (parseInt(newRatings['4']) * 4) + (parseInt(newRatings['5']) * 5);
-
         for (let key in newRatings) {
           divisor = divisor + parseInt(newRatings[key]);
         }
-
         let average = numerator / divisor;
-
         if (isNaN(average)) {
           average = 0;
         }
-
         let objKey = productId;
         this.ratingData[objKey] = average;
-
         this.setState({
           relatedItemsRatngs: this.ratingData,
-
         });
 
       })
@@ -131,13 +174,13 @@ class App extends React.Component {
   }
 
   updateProduct(newProductId, newProductName) {
+    console.log('this is the newProductId within update product ', newProductId);
     this.setState({
       productId: newProductId,
       productName: newProductName,
       relatedItems: [],
       relatedItemsRatings: []
     });
-
 
     this.getRelated(newProductId);
   }
@@ -149,10 +192,11 @@ class App extends React.Component {
       // height:'20vw',
       // overflow:'auto',
       width: '95vw',
-      border: '1px solid black',
+      //border: '1px solid black',
     };
 
     let { productId, relatedItems, relatedItemsRatings } =  this.state;
+    // console.log('within index.jsx, this is being passed in as productId, ', productId)
     return (
       <div>
         <h1>FEC React Main App</h1>
@@ -163,11 +207,12 @@ class App extends React.Component {
           relatedItems={relatedItems}
           ratings={this.ratingData}
           updateProduct={this.updateProduct}
+          relatedClicks={this.relatedClicks}
+          outfitClicks={this.outfitClicks}
         />
         <br></br>
         <br></br>
-        <h1>Questions and Answers </h1>
-        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
+        <div> <QuestionAnswer currentProduct={productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
         <div><Reviews product_id={this.state.productId} productName={this.state.productName} /></div>
