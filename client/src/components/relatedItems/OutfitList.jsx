@@ -9,6 +9,7 @@ class OutfitList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      parentId: this.props.parentId,
       outfits: [],
       parentStyles: '',
       parentInfo: '',
@@ -17,6 +18,7 @@ class OutfitList extends React.Component {
       loaded: false,
     };
 
+    this.getData = this.getData.bind(this);
     this.addOutfit = this.addOutfit.bind(this);
     this.removeOutfit = this.removeOutfit.bind(this);
     this.scrollLeft = this.scrollLeft.bind(this);
@@ -26,7 +28,10 @@ class OutfitList extends React.Component {
 
   componentDidMount() {
     const { parentId } = this.props;
+    this.getData(parentId);
+  }
 
+  getData(parentId) {
     if (parentId !== undefined) {
       axios.get(`relatedItems/products/?productId=${parentId}`)
         .then((data) => {
@@ -62,9 +67,15 @@ class OutfitList extends React.Component {
   }
 
   addOutfit() {
+    const { parentId } = this.props;
+    this.getData(parentId);
     const { parentStyles, parentInfo, outfits } = this.state;
-    const outfitId = parentStyles.product_id;
+    const outfitId = parentId;
+    // console.log('parentStyles', parentStyles);
+    // console.log('parentInfo', parentInfo);
+    // console.log('parentId', parentId);
     let idx;
+    this.props.outfitClicks('addOutfit');
     outfits.forEach((outfit, i) => {
       if (outfit.styles.product_id === outfitId) {
         idx = i;
@@ -81,10 +92,6 @@ class OutfitList extends React.Component {
       ];
       const newOutfitInfoObject = newOutfitInfoConstructor[0];
 
-      this.setState({
-        outfits: [],
-      });
-
       axios.post('/relatedItems/outfits', newOutfitInfoObject)
         .then((data) => {
           this.setState({
@@ -95,7 +102,8 @@ class OutfitList extends React.Component {
         .catch((err) => {
           console.log('Error posting outfit to API in OutfitList addOutfit: ', err);
         });
-    }
+
+  }
   }
 
   removeOutfit(id) {
@@ -166,7 +174,7 @@ class OutfitList extends React.Component {
   // NEEDS A BETTER + SIGN
   render() {
     const { outfits, showScrollLeft, showScrollRight, loaded } = this.state;
-    const { updateProduct, parentId } = this.props;
+    const { updateProduct, parentId, outfitClicks } = this.props;
     return (
       <>
         {showScrollRight ? (
@@ -193,6 +201,7 @@ class OutfitList extends React.Component {
                     removeOutfit={this.removeOutfit}
                     parentId={parentId}
                     rating={2.6}
+                    outfitClicks={outfitClicks}
                   />
                   );
                 })}
@@ -214,7 +223,8 @@ class OutfitList extends React.Component {
 
 OutfitList.propTypes = {
   parentId: PropTypes.number,
-  updateProduct: PropTypes.func
+  updateProduct: PropTypes.func,
+  outfitClicks: PropTypes.func
 }
 
 const ListWrap = styled.div`
