@@ -113,6 +113,7 @@ class AddReview extends React.Component {
         data: this.state
       })
         .then((response) => {
+          alert('Review posted! Thank you for your feedback.')
         });
 
     }
@@ -161,11 +162,11 @@ class AddReview extends React.Component {
                     <strong><abbr title="required">*</abbr></strong>
                   </label>
                     <Stars starpicker={this.chosenStars} rating={this.state.rating}/>
-                    <p className={(this.state.rating === 1) ? "star-definition" : "star-definition-hidden" }>Poor</p>
-                    <p className={(this.state.rating === 2) ? "star-definition" : "star-definition-hidden" }>Fair</p>
-                    <p className={(this.state.rating === 3) ? "star-definition" : "star-definition-hidden" }>Average</p>
-                    <p className={(this.state.rating === 4) ? "star-definition" : "star-definition-hidden" }>Good</p>
-                    <p className={(this.state.rating === 5) ? "star-definition" : "star-definition-hidden" }>Great</p>
+                    <span className={(this.state.rating === 1) ? "star-definition" : "star-definition-hidden" }>Poor</span>
+                    <span className={(this.state.rating === 2) ? "star-definition" : "star-definition-hidden" }>Fair</span>
+                    <span className={(this.state.rating === 3) ? "star-definition" : "star-definition-hidden" }>Average</span>
+                    <span className={(this.state.rating === 4) ? "star-definition" : "star-definition-hidden" }>Good</span>
+                    <span className={(this.state.rating === 5) ? "star-definition" : "star-definition-hidden" }>Great</span>
 
                 </div>
                 <p>

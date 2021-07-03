@@ -57,7 +57,7 @@ class IRT extends React.Component {
       <div className="reviews-body"><ReviewBody body={this.props.review.body}/></div>
       <div><ReviewPhotos photos={this.props.review.photos}/></div>
       <div className={this.props.review.recommend ? null : "product-hidden" }>{`${check}` + ' ' + "I recommend this product"}</div>
-      <div className={this.props.review.response ? null: "product-hidden"}><span className="review-seller">Response from Seller: {this.props.review.response}</span></div>
+      <div className={this.props.review.response ? "review-seller": "product-hidden"}><span>Response from Seller: {this.props.review.response}</span></div>
       <div className="reviews-helpful">
       <span onClick={this.helpful}>Helpful? Yes ({this.state.helpful}) | <span onClick={this.report}>Report</span></span>
       </div>

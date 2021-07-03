@@ -42,6 +42,7 @@ class App extends React.Component {
       relatedItemsRatings: {},
       productData: {},
       productName: "Camo Onesie",
+      metaData: {}
     };
     this.ratingData = {};
     this.getRelated = this.getRelated.bind(this);
@@ -51,6 +52,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getRelated(this.state.productId);
+
   }
 
   getRelated(productId) {
@@ -86,7 +88,7 @@ class App extends React.Component {
       });
   }
 
-  getRatings(productId) {
+  getRatings(productId, trigger) {
     axios.get(`/relatedItems/reviews/meta?product_id=${productId}`)
       .then((ratings) => {
         let newRatings = {
@@ -97,8 +99,8 @@ class App extends React.Component {
           5: '0'
         }
 
-        for (var key in ratings.data) {
-          newRatings[key] = ratings.data[key];
+        for (var key in ratings.data.ratings) {
+          newRatings[key] = ratings.data.ratings[key];
         }
 
         let divisor = 0;
@@ -118,8 +120,10 @@ class App extends React.Component {
         this.ratingData[objKey] = average;
 
         this.setState({
-          relatedItemsRatngs: this.ratingData
+          relatedItemsRatngs: this.ratingData,
+
         });
+
       })
       .catch((err) => {
         console.log('Error fetching meta data: ', err);
@@ -137,6 +141,8 @@ class App extends React.Component {
 
     this.getRelated(newProductId);
   }
+  //==================Reviews & Ratings==========================
+
 
   render () {
     var styleOBJ = {
@@ -164,7 +170,7 @@ class App extends React.Component {
         <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
-        <div><Reviews product_id={this.state.productId} productName={this.state.productName}/></div>
+        <div><Reviews product_id={this.state.productId} productName={this.state.productName} /></div>
       </div>
     );
 

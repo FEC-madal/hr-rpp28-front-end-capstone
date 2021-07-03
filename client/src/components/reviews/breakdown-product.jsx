@@ -57,7 +57,8 @@ const Product = (props) => {
 
       <div className={comfort ? null : "product-hidden"}>
         <div>Comfort</div>
-        <div><input type="range" id="comfort" name="comfort"
+        <div>
+          <input type="range" id="comfort" name="comfort"
           min="1" max="5" value={comfort} readOnly={true}></input></div>
           <div id="textbox">
             <p className="alignleft">Uncomfortable</p>

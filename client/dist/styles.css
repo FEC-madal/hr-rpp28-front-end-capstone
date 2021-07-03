@@ -18,6 +18,7 @@ body {
   flex-direction: row;
   width: 70%;
   margin: auto;
+  border: 1px solid red;
 
 }
 
@@ -66,7 +67,8 @@ body {
 .reviews-body {
   display: flex;
   flex-direction: row;
-  padding: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .reviews-helpful {
@@ -113,6 +115,12 @@ input[type='button'].morebutton {
   width: 100%;
 
 
+}
+
+.reviews-starholder-text{
+  display: flex;
+  flex-direction: column;
+  padding-top:2%;
 }
 
 .reviews-starholder-progressbar{
@@ -185,7 +193,7 @@ progress[value] {
 
 /* Review & Ratings - This section for the seller response */
 .review-seller {
-
+  height: 20%;
   background-color: #d3d3d3;
 }
 
