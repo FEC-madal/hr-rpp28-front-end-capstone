@@ -45,7 +45,8 @@ class App extends React.Component {
       relatedItemsClicks: { relatedSlide: 0, relatedModal: 0},
       outfitClicks: { addOutfit: 0, deleteOutfit: 0},
       relatedDates: [],
-      outfitDates: []
+      outfitDates: [],
+      metaData: {}
     };
 
     this.relatedClicks = this.relatedClicks.bind(this);
@@ -146,28 +147,24 @@ class App extends React.Component {
           5: '0'
         }
 
-        for (var key in ratings.data) {
-          newRatings[key] = ratings.data[key];
+        for (var key in ratings.data.ratings) {
+          newRatings[key] = ratings.data.ratings[key];
         }
 
         let divisor = 0;
         let numerator = (parseInt(newRatings['1']) * 1) + (parseInt(newRatings['2']) * 2) + (parseInt(newRatings['3']) * 3) + (parseInt(newRatings['4']) * 4) + (parseInt(newRatings['5']) * 5);
-
         for (let key in newRatings) {
           divisor = divisor + parseInt(newRatings[key]);
         }
-
         let average = numerator / divisor;
-
         if (isNaN(average)) {
           average = 0;
         }
-
         let objKey = productId;
         this.ratingData[objKey] = average;
-
         this.setState({
-          relatedItemsRatngs: this.ratingData
+          relatedItemsRatngs: this.ratingData,
+          metaData: ratings.data
         });
       })
       .catch((err) => {

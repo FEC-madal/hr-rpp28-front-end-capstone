@@ -63,7 +63,7 @@ router.get('/reviews/meta', (req, res) => {
       },
     })
       .then((metaData) => {
-        res.send(metaData.data.ratings);
+        res.send(metaData.data);
       })
       .catch((err) => {
         res.send(err);
