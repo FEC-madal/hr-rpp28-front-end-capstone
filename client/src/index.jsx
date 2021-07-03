@@ -148,7 +148,7 @@ class App extends React.Component {
     };
 
     let { productId, relatedItems, relatedItemsRatings } =  this.state;
-    console.log('within index.jsx, this is being passed in as productId, ', productId)
+    // console.log('within index.jsx, this is being passed in as productId, ', productId)
     return (
       <div>
         <h1>FEC React Main App</h1>

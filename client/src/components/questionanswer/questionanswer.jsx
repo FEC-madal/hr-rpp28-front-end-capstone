@@ -27,7 +27,7 @@ function AdditionalQuestionBar(props) {
       <div className="qa_buttonwrapper" >
         {moreAnsweredQuestions}
         <div>
-          <QuestionModalType2 currentProduct={props.currentProduct}/>
+          <QuestionModalType2 currentProduct={props.currentProduct} refresh={props.refresh}/>
         </div>
       </div>
     </div>
@@ -157,7 +157,7 @@ class QuestionAnswer extends React.Component {
             </tbody>
           </table>
         </div>
-        <AdditionalQuestionBar currentProduct={this.props.currentProduct} totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
+        <AdditionalQuestionBar currentProduct={this.props.currentProduct} refresh={this.reloadQuestionAnswer.bind(this)} totallength={this.state.questions.results.length} defaultlength={this.state.defaultlength} addQuestionButton={this.showQModalHandler.bind(this)} moreAnsweredQuestions={this.loadMoreQuestions.bind(this)}/>
     </div>
     )
   }
