@@ -16,7 +16,8 @@ function AdditionalQuestionBar(props) {
   }
 
   var boxStyle = {
-    height: '80px',
+    //this style controls the padding for the More Answered Questions Window
+    height: '40px',
     padding: '20px',
   }
 
@@ -130,7 +131,8 @@ class QuestionAnswer extends React.Component {
     // });
 
     var styleOBJ = {
-      height:'40vw', 
+      //this used to control the windowspace of additional question load
+      //height:'40vw', 
       overflow:'auto',
       width: '90vw',
       border: '1px solid black',
