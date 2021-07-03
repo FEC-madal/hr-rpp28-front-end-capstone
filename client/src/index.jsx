@@ -143,7 +143,7 @@ class App extends React.Component {
       // height:'20vw',
       // overflow:'auto',
       width: '95vw',
-      border: '1px solid black',
+      //border: '1px solid black',
     };
 
     let { productId, relatedItems, relatedItemsRatings } =  this.state;
@@ -160,8 +160,7 @@ class App extends React.Component {
         />
         <br></br>
         <br></br>
-        <h1>Questions and Answers </h1>
-        <div style={styleOBJ}> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
+        <div> <QuestionAnswer currentProduct={this.state.productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
         <div><Reviews product_id={this.state.productId} productName={this.state.productName}/></div>

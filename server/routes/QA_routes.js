@@ -187,6 +187,9 @@ router.post('/questions', (req, res) => {
     data: newQuestion,
   };
 
+  // console.log('this is the question that was submitted: ', req.body.question);
+  // console.log('this is the productId of the question: ', req.body.product_id);
+
   // console.log('req.body.question, ', req.body.question);
   // console.log('req.body.nickname, ', req.body.nickname);
   // console.log('req.body.email, ', req.body.email);

@@ -8,11 +8,12 @@ import SingleQuestionAnswer from './SingleQuestionAnswer/singlequestionanswer.js
 
 function AdditionalQuestionBar(props) {
 
-  let moreAnsweredQuestions = moreAnsweredQuestions = <input type='button' value='More Answered Questions' onClick={props.moreAnsweredQuestions}></input>;
+  let moreAnsweredQuestions = '';
 
   if (props.totallength <= props.defaultlength) {
-    moreAnsweredQuestions = <p>No More Questions to Show</p>
-
+    moreAnsweredQuestions = <div>no more questions available</div>
+  } else {
+    moreAnsweredQuestions = <div onClick={props.moreAnsweredQuestions}>MORE ANSWERED QUESTIONS</div>;
   }
 
   var boxStyle = {
@@ -24,9 +25,7 @@ function AdditionalQuestionBar(props) {
   return (
     <div style={boxStyle}>
       <div className="qa_buttonwrapper" >
-        <div onClick={props.moreAnsweredQuestions}>
-              MORE ANSWERED QUESTIONS
-        </div>
+        {moreAnsweredQuestions}
         <div>
           <QuestionModalType2 currentProduct={props.currentProduct}/>
         </div>
@@ -43,15 +42,13 @@ class QuestionAnswer extends React.Component {
       questions: { results: []},
       product_id: '',
       showQModal: false,
-      defaultlength: 4,
+      defaultlength: 2,
       searchTerm: '', // represents the current search term
       sortedQuestionList: { results: []}, // sorted question list is a reduced question list size that is rendered based on the search bar
     }
   }
 
-
   sortBySearch(searchTerm) {
-
     // if the search term is blank, we end early, not reducing the search at all.
     // .match automatically turns a string into a regex
 
@@ -122,24 +119,22 @@ class QuestionAnswer extends React.Component {
   }
 
   render () {
+    // console.log('currentProduct in QA: ', this.props.currentProduct)
     
     let questionlist = this.state.sortedQuestionList.results.slice(0, this.state.defaultlength).map((question) => {
       return <tr key={question.question_id + 'tr'}><SingleQuestionAnswer question={question} key={question.question_id} refresh={this.reloadQuestionAnswer.bind(this)} productName={this.props.productName}/></tr>});
-
-    // let questionlist = this.state.questions.results.slice(0, this.state.defaultlength).map((question) => {
-    //   return <tr><td><SingleQuestionAnswer question={question} key={question.question_id} reloadQuestionAnswer={this.reloadQuestionAnswer.bind(this)}/></td></tr>
-    // });
 
     var styleOBJ = {
       //this used to control the windowspace of additional question load
       //height:'40vw', 
       overflow:'auto',
-      width: '90vw',
-      border: '1px solid black',
+      //width: '90vw',
+      //border: '1px solid black',
     };
 
     return (
-      <div> 
+      <div className="qa-container"> 
+        <h1>Questions and Answers </h1>
         <div className="sticky"><SearchQuestionBar sortBySearch={this.sortBySearch.bind(this)}/></div>
         <div style={styleOBJ}>
           <table className='qa_mastertable'>

@@ -134,8 +134,6 @@ class AddQuestionModal extends React.Component {
 
             <div className='modal-body-q'>
 
-              {/* <form className='InputQuestion' method='POST' action='http://localhost:3000/qa/questions'> */}
-
               <form className='InputQuestion' onSubmit={this.submitHandler.bind(this)}>
                 <textarea aria-label="textarea" rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}>
                 </textarea>
@@ -157,10 +155,6 @@ class AddQuestionModal extends React.Component {
             </form>
             </div>
 
-            {/* <div className='modal-footer-q'>
-              <br></br>
-              <button className="button_q" onClick={this.closeButtonHandler.bind(this)}>Close</button>
-            </div> */}
           </div>
         </div>
     );
