@@ -59,6 +59,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getRelated(this.state.productId);
+
   }
 
   relatedClicks(e) {
@@ -136,7 +137,7 @@ class App extends React.Component {
       });
   }
 
-  getRatings(productId) {
+  getRatings(productId, trigger) {
     axios.get(`/relatedItems/reviews/meta?product_id=${productId}`)
       .then((ratings) => {
         let newRatings = {
@@ -164,8 +165,8 @@ class App extends React.Component {
         this.ratingData[objKey] = average;
         this.setState({
           relatedItemsRatngs: this.ratingData,
-          metaData: ratings.data
         });
+
       })
       .catch((err) => {
         console.log('Error fetching meta data: ', err);
@@ -183,6 +184,8 @@ class App extends React.Component {
 
     this.getRelated(newProductId);
   }
+  //==================Reviews & Ratings==========================
+
 
   render () {
     var styleOBJ = {
@@ -212,7 +215,7 @@ class App extends React.Component {
         <div> <QuestionAnswer currentProduct={productId} productName={this.state.productName} defaultProduct={this.state.defaultProduct}/></div>
         <br></br>
         <br></br>
-        <div><Reviews product_id={productId} productName={this.state.productName}/></div>
+        <div><Reviews product_id={this.state.productId} productName={this.state.productName} /></div>
       </div>
     );
 

@@ -17,8 +17,10 @@ const AverageNumber = (props) => {
   let recommendations = ((props.recommendations / numberOfPeople) * 100).toFixed();
 
   return (
-    <div className="stars-noclick">
-      {averageRating} <StarRating rating={averageRating}/>
+    <div>
+    <div className="stars-noclick reviews-container-average">
+      <span className="review-average">{averageRating}</span> <span className="reviews-container-average-stars"><StarRating rating={averageRating}/></span>
+    </div>
       <div>{recommendations}% of reviews recommend this product</div>
     </div>
   )

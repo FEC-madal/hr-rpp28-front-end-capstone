@@ -20,7 +20,7 @@ class Reviews extends React.Component {
       clickTracking: []
     };
     //this.binds go here
-    this.metaData = this.metaData.bind(this);
+    // this.metaData = this.metaData.bind(this);
     this.initialReviews = this.initialReviews.bind(this);
     this.numberOfReviews = this.numberOfReviews.bind(this);
     this.sortedReviews = this.sortedReviews.bind(this);
@@ -40,7 +40,8 @@ class Reviews extends React.Component {
         this.setState({
           productBreakdown: response.data.characteristics,
           ratingsBreakdown: response.data.ratings,
-          recommendations: response.data.recommended['true']
+          recommendations: response.data.recommended['true'],
+          product_id: this.props.product_id
         });
       })
       .then(() => {
@@ -56,7 +57,7 @@ class Reviews extends React.Component {
       ratingArray[key] = (Number(ratings[key]));
     }
     this.setState({
-      totalRatings: totalRatings
+      totalRatings: totalRatings,
     });
     this.initialReviews();
   }
@@ -177,10 +178,16 @@ class Reviews extends React.Component {
   }
 
   render() {
+    if (this.props.product_id !== this.state.product_id) {
+      this.metaData();
+    }
     return(
-      <div className="reviews-container" onClick={this.clickThrough}>
-            <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
-            <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
+      <div>
+      <div className="reviews-container-text"><h1>Reviews & Ratings</h1></div>
+        <div className="reviews-container" onClick={this.clickThrough}>
+              <div className="reviews-left"><Breakdown starSort={this.starSort} ratings={this.state.ratingsBreakdown} recommendations={this.state.recommendations} totalRatings={this.state.totalRatings} characteristics={this.state.productBreakdown} starFilter={this.state.stars}/></div>
+              <div className="reviews-right"><ReviewsList reviews={this.state.reviewList} totalRatings={this.state.totalRatings} sortedReviews={this.sortedReviews} product_id={this.props.product_id} chars={this.state.productBreakdown} productName={this.props.productName} getReviews={this.initialReviews} allReviews={this.state.allReviews}/></div>
+        </div>
       </div>
     )
   }
