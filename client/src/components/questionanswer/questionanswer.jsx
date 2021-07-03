@@ -100,7 +100,9 @@ class QuestionAnswer extends React.Component {
     // console.log('is the currentProduct props changing? ', this.props.currentProduct);
     axios.get(`http://localhost:3000/qa/questions/`, {params: {product_id: this.props.currentProduct}})
       .then((response) => {
-        //console.log('this is the axios data upon load up', response.data);
+        
+        console.log('this is the axios data upon load up in Component DId Mount ', response.data);
+        
         this.setState({
           product_id: this.props.currentProduct,
           questions: response.data,

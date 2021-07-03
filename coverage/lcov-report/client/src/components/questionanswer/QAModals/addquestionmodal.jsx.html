@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.9% </span>
+                <span class="strong">59.09% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/42</span>
+                <span class='fraction'>26/44</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.9% </span>
+                <span class="strong">59.09% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/42</span>
+                <span class='fraction'>26/44</span>
             </div>
         
             
@@ -277,9 +277,7 @@
 <a name='L218'></a><a href='#L218'>218</a>
 <a name='L219'></a><a href='#L219'>219</a>
 <a name='L220'></a><a href='#L220'>220</a>
-<a name='L221'></a><a href='#L221'>221</a>
-<a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L221'></a><a href='#L221'>221</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -333,7 +331,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -346,6 +343,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -382,34 +384,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -480,7 +476,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -554,7 +550,6 @@ class AddQuestionModal extends React.Component {
     return validateTest;
   }
 &nbsp;
-&nbsp;
   submitHandler(e) {
     e.preventDefault();
 &nbsp;
@@ -568,7 +563,12 @@ class AddQuestionModal extends React.Component {
       })
         .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
 <span class="cstat-no" title="statement not covered" >          console.log('question submitted returned with', response);</span>
+<span class="cstat-no" title="statement not covered" >          console.log('this is the refresh function', this.props.refresh);</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >          this.props.closeModal();</span>
+&nbsp;
+          // call the refresh here!!
+<span class="cstat-no" title="statement not covered" >          this.props.refresh();</span>
         })
         .catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; {
 <span class="cstat-no" title="statement not covered" >          console.log('error in submitting question', err);</span>
@@ -637,8 +637,6 @@ class AddQuestionModal extends React.Component {
 &nbsp;
             &lt;div className='modal-body-q'&gt;
 &nbsp;
-              {/* &lt;form className='InputQuestion' method='POST' action='http://localhost:3000/qa/questions'&gt; */}
-&nbsp;
               &lt;form className='InputQuestion' onSubmit={this.submitHandler.bind(this)}&gt;
                 &lt;textarea aria-label="textarea" rows='10' cols='50' name='question' onChange={this.changeHandler.bind(this)}&gt;
                 &lt;/textarea&gt;
@@ -660,10 +658,6 @@ class AddQuestionModal extends React.Component {
             &lt;/form&gt;
             &lt;/div&gt;
 &nbsp;
-            &lt;div className='modal-footer-q'&gt;
-              &lt;br&gt;&lt;/br&gt;
-              &lt;button className="button_q" onClick={this.closeButtonHandler.bind(this)}&gt;Close&lt;/button&gt;
-            &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
     );
@@ -713,7 +707,7 @@ class QuestionModalType2 extends React.Component {
         &lt;div id="add_q" className="modal"&gt;
           &lt;div className="modal-content-addQuestion"&gt;
             &lt;span className="close-addQuestion" onClick={this.closeModal}&gt;&amp;times;&lt;/span&gt;
-            &lt;AddQuestionModal show={true} currentProduct={this.props.currentProduct} closeModal={this.closeModal}/&gt; 
+            &lt;AddQuestionModal show={true} currentProduct={this.props.currentProduct} refresh={this.props.refresh} closeModal={this.closeModal}/&gt; 
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/span&gt;
@@ -730,11 +724,7 @@ export {QuestionModalType2, AddQuestionModal}</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-<<<<<<< HEAD
-                at Fri Jul 02 2021 20:03:37 GMT-0400 (Eastern Daylight Time)
-=======
-                at Fri Jul 02 2021 18:44:39 GMT-0500 (Central Daylight Time)
->>>>>>> main
+                at Fri Jul 02 2021 22:57:53 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../../../../../prettify.js"></script>

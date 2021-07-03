@@ -165,9 +165,9 @@ describe('Unit Test Section: <QuestionAnswer/>', () => {
     render(<AddAnswerModal qid={operativeQuestion.question_id} show={mockFunction} key={mockFunction} product_name={secondProduct.name} question_body={operativeQuestion.question_body}/>);
   });
 
-  test('Unit Test 8:  Does the component <AnswerModalType2/> render?', () => {
-    render(<AnswerModalType2 qid={operativeQuestion.question_id} product_name={secondProduct.name} question_body={operativeQuestion.question_body} productName={secondProduct.name}/>);
-  });
+  // test('Unit Test 8:  Does the component <AnswerModalType2/> render?', () => {
+  //   render(<AnswerModalType2 qid={operativeQuestion.question_id} product_name={secondProduct.name} question_body={operativeQuestion.question_body} productName={secondProduct.name}/>);
+  // });
 
   test('Unit Test 9:  Does the component <QuestionModalType2/> render?', () => {
     render(<QuestionModalType2 currentProduct={secondProduct.id}/>);
