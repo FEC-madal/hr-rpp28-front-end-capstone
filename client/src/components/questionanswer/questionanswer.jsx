@@ -11,7 +11,7 @@ function AdditionalQuestionBar(props) {
   let moreAnsweredQuestions = '';
 
   if (props.totallength <= props.defaultlength) {
-    moreAnsweredQuestions = <div>no more questions available</div>
+    moreAnsweredQuestions = null;
   } else {
     moreAnsweredQuestions = <div onClick={props.moreAnsweredQuestions}>MORE ANSWERED QUESTIONS</div>;
   }
