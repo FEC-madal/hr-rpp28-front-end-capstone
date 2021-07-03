@@ -157,10 +157,10 @@ class AddQuestionModal extends React.Component {
             </form>
             </div>
 
-            <div className='modal-footer-q'>
+            {/* <div className='modal-footer-q'>
               <br></br>
               <button className="button_q" onClick={this.closeButtonHandler.bind(this)}>Close</button>
-            </div>
+            </div> */}
           </div>
         </div>
     );

@@ -43,7 +43,7 @@ class QuestionAnswer extends React.Component {
       questions: { results: []},
       product_id: '',
       showQModal: false,
-      defaultlength: 4,
+      defaultlength: 2,
       searchTerm: '', // represents the current search term
       sortedQuestionList: { results: []}, // sorted question list is a reduced question list size that is rendered based on the search bar
     }

@@ -258,10 +258,10 @@ class AddAnswerModal extends React.Component {
               <UploadPhotos/>
             </div>
 
-            <div className='modal-footer-a'>
+            {/* <div className='modal-footer-a'>
               <br></br>
               <button className="button_a" onClick={this.closeButtonHandler.bind(this)}>Close</button>
-            </div>
+            </div> */}
           </div>
         </div>
     )
