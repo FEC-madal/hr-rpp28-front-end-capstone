@@ -20,7 +20,7 @@ class SubmitPhotoForm extends React.Component {
     // changed enctype to encType based on warning.  was working with enctype
     return (
       <form method='POST' action='http://127.0.0.1:3000/qa/uploadphoto' encType='multipart/form-data'>
-        <label for='answerpic'>Upload your photos!</label><br></br>
+        <label htmlFor='answerpic'>Upload your photos!</label><br></br>
         <input type="file" name='answerpic' onChange={this.props.onChangeHandler} multiple></input>
         <input type="submit" value='Submit Photo'></input>
       </form>
@@ -208,8 +208,6 @@ class AddAnswerModal extends React.Component {
       emailAlertMessage = <div style={alertstyle}>You must enter an e-mail address</div>
     }
 
-
-
     return (
         <div className='qa_modal' >
 
@@ -220,7 +218,6 @@ class AddAnswerModal extends React.Component {
               <div>{this.props.productName} : {this.props.question_body} </div>
             </div>
             <br></br>
-
 
             <div className='modal-body-a'>
 
@@ -242,8 +239,7 @@ class AddAnswerModal extends React.Component {
                 <div>Your E-mail</div>
 
                 {emailAlertMessage}
-                {/* {this.state.emailIsInvalid ?  <div style={alertstyle}>You must enter an e-mail address</div> : <div></div>}
-                 */}
+
                 <input type='text' onClick={this.clickHandlerEmail.bind(this)} maxLength='60' name='email' value={this.state.email} onChange={this.changeHandler.bind(this)}></input>
                 <br></br>
                 <br></br>
@@ -253,15 +249,10 @@ class AddAnswerModal extends React.Component {
             <br></br>
             </div>
 
-
             <div className='uploadphoto'>
               <UploadPhotos/>
             </div>
 
-            {/* <div className='modal-footer-a'>
-              <br></br>
-              <button className="button_a" onClick={this.closeButtonHandler.bind(this)}>Close</button>
-            </div> */}
           </div>
         </div>
     )
